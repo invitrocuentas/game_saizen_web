@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página con el Juego</title>
+  <style>
+    .iframe-container {
+      position: relative;
+      width: 80%; /* Ajusta el ancho del contenedor */
+      margin: 0 auto; /* Centra el contenedor horizontalmente */
+      padding-bottom: 45%; /* Ajusta el padding para lograr una relación de aspecto de 16:9 */
+    }
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 95%;
+      height: 95%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="iframe-container">
+    <iframe src="game-folder/index.html" frameborder="0"></iframe>
+  </div>
+</body>
+</html>
