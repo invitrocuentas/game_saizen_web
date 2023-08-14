@@ -32,3 +32,28 @@
 .politicas_contenido::-webkit-scrollbar-track {
   background-color: #EFEFEF; /* Color del track (fondo) */
 }
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+.texto-borde_estado_85 {
+  -webkit-text-stroke: .2vh #009CC5;
+}
+
+.texto-borde_estado_50 {
+  -webkit-text-stroke: .2vh #C68A00;
+}
+
+.texto-borde_estado_15 {
+  -webkit-text-stroke: .2vh #C60000;
+}

@@ -7,26 +7,122 @@
     <link rel="stylesheet" href="../dist/bundle.css">
 </head>
 <body>
-    <div class="bg-[url('../assets/vista_inicial/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative">
-        <img src="../assets/vista_inicial/instrucciones.png" class="h-[70%] w-[70%] absolute">
-        <img src="../assets/vista_inicial/personajes.png" class="h-[80%] w-auto absolute top-[17%] -left-[3.5%] z-10">
+    <div class="bg-[url('../assets/vista_inicial/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+        <img src="../assets/vista_inicial/instrucciones.png" class="h-[70%] w-auto">
+        <img id="personajesFront" src="../assets/vista_inicial/personajes.png" class="h-[80%] w-auto absolute top-[17%] -left-[3.5%] z-10">
+        <img id="Loui" src="../assets/vista_inicial/Loui.png" class="h-[85%] hidden w-auto absolute top-[12%] -left-[4.5%] z-10">
+        <img id="Zen" src="../assets/vista_inicial/Zen.png" class="h-[48%] hidden w-auto absolute top-[52%] left-[5.5%] z-10">
+        <!-- politicas -->
         <div id="politicas_privacidad" class="bg-[url('../assets/vista_inicial/politicas.png')] bg-cover bg-no-repeat bg-center h-[90%] w-[82%] m-auto z-20 px-[7%] py-[3%] hidden">
             <div class="overflow-x-auto w-full h-full pr-[6%] politicas_contenido">
-                <p class="text-[75%] font-avenir_book text-[#7B90A1]">
+                <p class="text-[1vw] font-avenir_book text-[#7B90A1]">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat <br><br> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat <br><br> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat <br><br> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat
                 </p>
                 <br>
                 <div class="w-full h-[18%] flex justify-center items-center gap-[5%] py-[3%]">
-                    <button id="botonPoliticas" class="cursor-pointer bg-[url('../assets/vista_inicial/boton_aceptar.png')] bg-contain bg-no-repeat bg-center w-[50%] h-[100%] font-boldenvan text-[#009CC7] text:[50%] sm:text-[80%] md:text-[100%] xl:text-[180%]">
+                    <button id="botonPoliticas" class="cursor-pointer bg-[url('../assets/vista_inicial/boton_aceptar.png')] bg-contain bg-no-repeat bg-center w-[50%] h-[100%] font-boldenvan text-[#009CC7] text-[2.3vw]">
                         Aceptar
                     </button>
-                    <button class="cursor-pointer bg-[url('../assets/vista_inicial/boton_cancelar.png')] bg-contain bg-no-repeat bg-center w-[50%] h-[100%] font-boldenvan text-[#E64141] text:[50%] sm:text-[80%] md:text-[100%] xl:text-[180%]">
+                    <button class="cursor-pointer bg-[url('../assets/vista_inicial/boton_cancelar.png')] bg-contain bg-no-repeat bg-center w-[50%] h-[100%] font-boldenvan text-[#E64141] text-[2.3vw]">
                         Cancelar
                     </button>
                 </div>
             </div>
             
         </div>
+        <!-- cuadros introductorios -->
+        <div class="absolute h-[70%] w-[63%] flex justify-center items-center">
+            <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
+                <h1 class="text-[4vw] font-boldenvan text-[#015989]">Hola,</h1>
+                <span class="text-[4vw] font-boldenvan text-[#009DC8]">¡Bienvenido a Growin!</span>
+                <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">
+                    En este juego podrás cuidar de tu avatar virtual.<br>
+                    ¡Ayúdalo a crecer sano y fuerte!
+                </p>
+            </div>
+
+            <!-- Estados -->
+            <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
+                <div>
+                    
+                </div>
+                <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">
+                    La barra de estado tendrá el porcentaje según el bienestar <br> acumulado al completar los cuidados de cada área. <br> ¡Cuida que tu avatar esté bien en todos los aspectos!
+                </p>
+            </div>
+
+            <!-- Introduccion -->
+            <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
+                <div class="h-[20vh] flex justify-center items-end">
+                    <img class="h-[20vh] w-[18vw] mb-[1.5vh]" src="../assets/vista_inicial/alimentacion.png">
+                </div>
+                <br>
+                <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">
+                    La barra de <span class="text-[#009DC8]">alimentación</span> se completará mientras tu avatar <br> consuma más alimentos nutritivos. ¡Aunque de vez en cuando <br> puede darse un gusto!
+                </p>
+            </div>
+            <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
+                <div class="h-[20vh] flex justify-center items-end">
+                    <img class="h-[16.5vh] w-[18vw] mb-[.5vh]" src="../assets/vista_inicial/salud.png">
+                </div>
+                <br>
+                <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">
+                    La barra de <span class="text-[#009DC8]">salud</span> se completará mientras tu avatar reciba todos <br> los cuidados necesarios y se aplique su tratamiento con hormona <br> de crecimiento.
+                </p>
+            </div>
+            <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
+                <div class="h-[20vh] flex justify-center items-end">
+                    <img class="h-[18vh] w-[18vw]" src="../assets/vista_inicial/energia.png">
+                </div>
+                <br>
+                <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">
+                    La barra de <span class="text-[#009DC8]">descanso</span> se completará mientras tu avatar descanse <br> las horas recomendadas. ¡Ayúdalo a sentirse más cómodo <br> mientras duerme!
+                </p>
+            </div>
+            <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
+                <div class="h-[20vh] flex justify-center items-end">
+                    <img class="h-[16vh] w-[18vw] mb-[1vh]" src="../assets/vista_inicial/entretenimiento.png">
+                </div>
+                <br>
+                <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">
+                    La barra de <span class="text-[#009DC8]">entretenimiento</span> se completará mientras tu avatar <br> juegue el tiempo necesario, ¿a quién no le gusta divertirse? <br> ¡Disfruta de los minijuegos que Growin tiene para ti!
+                </p>
+            </div>
+
+            <!-- seleccionar avatar y genero -->
+            <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
+                <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">Elige el personaje para tu avatar:</p>
+                <div class="flex gap-5">
+                    <button data-personaje="Zen" class="avatarSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnZen.png')] bg-contain bg-center bg-no-repeat"></button>
+                    <button data-personaje="Loui" class="avatarSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnLoui.png')] bg-contain bg-center bg-no-repeat"></button>
+                </div>
+            </div>
+            <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
+                <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">Elige el género para tu avatar:</p>
+                <div class="flex gap-5">
+                    <button data-genero="Niña" class="genderSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnNina.png')] bg-contain bg-center bg-no-repeat"></button>
+                    <button data-genero="Niño" class="genderSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnNino.png')] bg-contain bg-center bg-no-repeat"></button>
+                </div>
+            </div>
+
+            <!-- Ingresar Nombres -->
+            <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
+                <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">¿Cómo se llamará tu avatar?:</p><br>
+                <div class="relative flex justify-center items-center">
+                    <input id="nombreAvatar" class="h-[15vh] w-[16vw] bg-[url('../assets/vista_inicial/inputNombre.png')] bg-contain bg-center bg-no-repeat text-center focus:outline-none px-[1vw] text-[#B35B3D] text-[3vw] font-boldenvan" type="text" autocomplete="none">
+                    <div id="cursor" class="absolute h-[4vw] w-[.6vw] bg-[#B35B3D] animate-blink"></div>
+                    <div class="absolute h-[6vh] w-[6vw] -top-[1.5vh] -right-[1vh] bg-[url('../assets/vista_inicial/btnEditar.png')] bg-contain bg-center bg-no-repeat"></div>
+                </div>
+            </div>
+
+            <button id="prevBtn" class="h-[15%] w-[10%] absolute right-[15%] bottom-[5%] bg-[url('../assets/vista_inicial/btnPrev.png')] bg-center bg-contain bg-no-repeat"></button>
+
+            <button id="nextBtn" class="h-[15%] w-[10%] absolute right-[3%] bottom-[5%] bg-[url('../assets/vista_inicial/btnNext.png')] bg-center bg-contain bg-no-repeat"></button>
+
+            <button id="nexthome" class="h-[15%] w-[10%] hidden absolute right-[3%] bottom-[5%] bg-[url('../assets/vista_inicial/btnNext.png')] bg-center bg-contain bg-no-repeat"></button>
+
+        </div>
+
     </div>
     <script src="../dist/bundle.js"></script>
 </body>

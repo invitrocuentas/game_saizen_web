@@ -1,0 +1,6 @@
+const homeInicio = () => {
+};
+
+export {
+    homeInicio
+};
