@@ -33,6 +33,8 @@
   background-color: #EFEFEF; /* Color del track (fondo) */
 }
 
+/* animacion blink de input */
+
 @keyframes blink {
   0%, 100% {
     opacity: 1;
@@ -46,6 +48,7 @@
   animation: blink 1s infinite;
 }
 
+/* borde de texto */
 .texto-borde_estado_85 {
   -webkit-text-stroke: .2vh #009CC5;
 }
@@ -56,4 +59,39 @@
 
 .texto-borde_estado_15 {
   -webkit-text-stroke: .2vh #C60000;
+}
+
+/* productos botones splide */
+
+#productos button svg{
+  display: none !important;
+}
+
+#productos .splide__arrow--prev{
+  background: url('../assets/vista_inicial/btnPrev.png');
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  left: -15vh !important;
+  opacity: 1 !important;
+}
+
+#productos .splide__arrow--next{
+  background: url('../assets/vista_inicial/btnNext.png');
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  right: -15vh !important;
+  opacity: 1 !important;
+}
+
+#productos .splide__arrow{
+  height: 30vh !important;
+  width: 10vh !important;
+}
+
+#productos .splide__arrow:hover{
+  scale: 105%;
+  transition-duration: 500ms;
+  transition: ease-in-out;
 }

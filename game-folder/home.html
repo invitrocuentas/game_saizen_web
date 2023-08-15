@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego Saizen - GROWIN</title>
-    <link rel="stylesheet" href="../dist/bundle.css">
+    <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
     <div class="bg-[url('../assets/vista_inicial/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
@@ -25,7 +25,7 @@
                 </button>
             </div>
             <!-- tienda -->
-            <a href="tienda.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
+            <a href="tiendaInicio.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
                 <img class="absolute h-[13vh] top-[6vh]" src="../assets/home/fondoTienda.png" alt="">
                 <img class="absolute bottom-[3vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../assets/home/logoTienda.png" alt="">
                 <img class="absolute bottom-0" src="../assets/home/nombreTienda.png" alt="">
@@ -71,6 +71,193 @@
                 <button class="h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/descansoMenu.png')] hover:-translate-x-3 duration-500 ease-in-out"></button>
                 <button class="h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/entretenimientoMenu.png')] hover:-translate-x-3 duration-500 ease-in-out"></button>
             </div>
+        </div>
+    </div>
+
+    <!-- menu principal -->
+    <div id="menu-principal" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[90vh] w-[100vh]" src="../assets/home/popupMenu.png" alt="">
+        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
+            <img class="h-[12vh]" src="../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[85vh] w-[95vh] absolute z-30 flex flex-col justify-center items-center gap-0">
+            <div class="w-full h-[12vh] flex justify-around items-center">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnMusica.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%]"></div>
+            </div>
+            <div class="w-full h-[12vh] flex justify-around items-center">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnSonido.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%]"></div>
+            </div>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh]">
+                <div class="w-[35vh] h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnVibracion.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnPausaJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnSalirJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnSobreJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnTerminoCondiciones.png" alt="">
+            </button>
+        </div>
+    </div>
+    <!-- pausar juego -->
+    <div id="pausar-juego" class="w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[40vh] w-[75vh]" src="../assets/home/popupMenu.png" alt="">
+        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[24vh] right-[47vh]">
+            <img class="h-[12vh]" src="../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[40vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center gap-0">
+            <img class="w-[55vh]" src="../assets/home/tituloPausa.png" alt="">
+            <br>
+            <button class="text-[3.5vh] font-boldenvan text-[#098E00] hover:scale-105 duration-500 ease-in-out h-[9vh] w-[35vh] flex justify-center items-center bg-[url('../assets/home/fondoContinuar.png')] bg-center bg-no-repeat bg-contain">
+                Continuar jugando
+            </button>
+            <button class="text-[3.5vh] font-boldenvan text-[#E64141] hover:scale-105 duration-500 ease-in-out h-[9vh] w-[35vh] flex justify-center items-center bg-[url('../assets/home/fondoSalir.png')] bg-center bg-no-repeat bg-contain">
+                Guardar y salir
+            </button>
+        </div>
+    </div>
+    <!-- salir juego -->
+    <div id="salir-juego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[90vh] w-[100vh]" src="../assets/home/popupMenu.png" alt="">
+        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
+            <img class="h-[12vh]" src="../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[85vh] w-[95vh] absolute z-30 flex flex-col justify-center items-center gap-0">
+            <div class="w-full h-[12vh] flex justify-around items-center">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnMusica.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%]"></div>
+            </div>
+            <div class="w-full h-[12vh] flex justify-around items-center">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnSonido.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%]"></div>
+            </div>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh]">
+                <div class="w-[35vh] h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnVibracion.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnPausaJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnSalirJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnSobreJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnTerminoCondiciones.png" alt="">
+            </button>
+        </div>
+    </div>
+    <!-- sobre este juego -->
+    <div id="sobre-juego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[90vh] w-[100vh]" src="../assets/home/popupMenu.png" alt="">
+        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
+            <img class="h-[12vh]" src="../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[85vh] w-[95vh] absolute z-30 flex flex-col justify-center items-center gap-0">
+            <div class="w-full h-[12vh] flex justify-around items-center">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnMusica.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%]"></div>
+            </div>
+            <div class="w-full h-[12vh] flex justify-around items-center">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnSonido.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%]"></div>
+            </div>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh]">
+                <div class="w-[35vh] h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnVibracion.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnPausaJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnSalirJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnSobreJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnTerminoCondiciones.png" alt="">
+            </button>
+        </div>
+    </div>
+    <!-- terminos y condicionesm del juego -->
+    <div id="terminos-juego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[90vh] w-[100vh]" src="../assets/home/popupMenu.png" alt="">
+        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
+            <img class="h-[12vh]" src="../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[85vh] w-[95vh] absolute z-30 flex flex-col justify-center items-center gap-0">
+            <div class="w-full h-[12vh] flex justify-around items-center">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnMusica.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%]"></div>
+            </div>
+            <div class="w-full h-[12vh] flex justify-around items-center">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnSonido.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%]"></div>
+            </div>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh]">
+                <div class="w-[35vh] h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../assets/home/btnVibracion.png" alt="">
+                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnPausaJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnSalirJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnSobreJuego.png" alt="">
+            </button>
+            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                <img class="w-[80vh]" src="../assets/home/btnTerminoCondiciones.png" alt="">
+            </button>
         </div>
     </div>
     <script src="../dist/bundle.js"></script>

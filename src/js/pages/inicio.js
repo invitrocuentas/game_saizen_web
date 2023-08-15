@@ -19,6 +19,7 @@ const politicas_privacidad = () => {
 
         botonPoliticas.addEventListener('click', function(){
             politicas_privacidad.classList.add('hidden');
+            localStorage.setItem('estado', 2)
         })
     }
 
