@@ -2,11 +2,13 @@
 import "../style.css";
 
 // JS
-import mainPage from "./pages/index";
+import pages from "./pages/index";
+import utils from "./util/index";
 
 (() => {
   window.addEventListener("load", () => {
-    mainPage();
+    pages();
+    utils();
   });
 
 })();

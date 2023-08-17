@@ -8,14 +8,22 @@ const politicas_privacidad = () => {
         const politicas_privacidad = document.getElementById('politicas_privacidad');
         const botonPoliticas = document.getElementById('botonPoliticas');
         const valorAlmacenado = localStorage.getItem('estado');
+        const ninoAlmacenado = localStorage.getItem('selectedGenero');
+        const personajeAlmacenado = localStorage.getItem('selectedPersonaje');
+        const nombreAlmacenado = localStorage.getItem('NombrePersonaje');
 
-        console.log(valorAlmacenado);
-
-        if(valorAlmacenado && valorAlmacenado == 1){
-            politicas_privacidad.classList.remove('hidden');
+        if(valorAlmacenado){
+            if(valorAlmacenado == 3){
+                window.location.href = 'inicio/home.html';
+            }else if(!ninoAlmacenado || !personajeAlmacenado || !nombreAlmacenado){
+                politicas_privacidad.classList.add('hidden');
+            }else{
+                window.location.href = 'inicio/home.html';
+            }
         }else{
-            window.location.href = 'home.html';
+            politicas_privacidad.classList.remove('hidden');
         }
+        
 
         botonPoliticas.addEventListener('click', function(){
             politicas_privacidad.classList.add('hidden');
@@ -135,12 +143,13 @@ const cambioPanel = () => {
 
         nexthome.addEventListener('click', () => {
             localStorage.setItem('NombrePersonaje', inputField.value);
+            localStorage.setItem('estado', 3);
             // ================
             // AQUI VA LA API
             // se estan guardando los datos en localstorage solo para registro
             // NombrePersonaje, selectedGenero, selectedPersonaje
             // ================
-            window.location.href = 'home.html';
+            window.location.href = 'inicio/home.html';
         })
     }
 }
