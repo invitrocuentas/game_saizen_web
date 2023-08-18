@@ -27,7 +27,29 @@
     Tu navegador no soporta el elemento de audio.
   </audio>
   <div class="iframe-container">
-    <iframe src="game-folder/vistas/juegos/home.html" frameborder="0"></iframe>
+    <iframe src="game-folder/tienda/tiendaProductos.html" frameborder="0"></iframe>
   </div>
+  <script>
+    var audio = document.getElementById("miAudio");
+
+    window.addEventListener("message", function(event) {
+      if (event.data === "play") {
+        audio.play();
+      } else if (event.data === "pause") {
+        audio.pause();
+      }else if (event.data.type === "cambiarVolumen") {
+        var percentage = event.data.volumen;
+        var volume = percentage / 100; // Convertir el porcentaje en un valor de volumen [0, 1]
+        
+        if (volume < 0) {
+          volume = 0;
+        } else if (volume > 1) {
+          volume = 1;
+        }
+
+        audio.volume = volume;
+      }
+    });
+  </script>
 </body>
 </html>

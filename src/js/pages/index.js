@@ -1,5 +1,4 @@
-import { politicas_privacidad } from "./inicio";
-import { cambioPanel } from "./inicio";
+import { politicas_privacidad, cambioPanel } from "./inicio";
 
 import { homeInicio } from "./home";
 

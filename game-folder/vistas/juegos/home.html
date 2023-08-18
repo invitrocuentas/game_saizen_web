@@ -29,17 +29,44 @@
                 <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
             </div>
 
+            <!-- Estados -->
+            <div class="absolute bg-[url('../assets/vistas/juegos/bannerInfo.png')] bg-contain bg-no-repeat bg-center h-[10vh] w-[80vh] flex justify-center items-center gap-[8vh]">
+                <div class="w-[7vh] relative flex justify-center items-center">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoAlimentacion.png" alt="">
+                </div>
+                <div class="w-[10vh] relative flex justify-center items-center">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoSalud.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoSalud.png" alt="">
+                </div>
+                <div class="w-[7vh] relative flex justify-center items-center">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoDescanso.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoDescanso.png" alt="">
+                </div>
+                <div class="w-[10vh] relative flex justify-center items-center">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoEntretenimiento.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
+                </div>
+            </div>
+
+            <!-- Dialogos y Personaje-->
             <div class="absolute h-[70vh] w-[70vh] bottom-0 flex justify-center">
                 <!-- Personaje -->
                 <div class="absolute top-[18vh] h-[50vh] w-full flex justify-center">
-                    <div class="absolute -top-[5vh] -left-[10vh] bg-[url('../assets/home/nubeDialogo.png')] bg-center bg-contain bg-no-repeat h-[20vh] w-[30vh] flex justify-center items-center pb-[3vh] pr-[3vh]">
+                    <div class="hidden absolute -top-[5vh] -left-[10vh] bg-[url('../assets/home/nubeDialogo.png')] bg-center bg-contain bg-no-repeat h-[20vh] w-[30vh] flex justify-center items-center pb-[3vh] pr-[3vh]">
                         <span class="absolute w-[28vh] text-center -rotate-[20deg] text-[4vh] font-boldenvan text-white truncate">
                             Quiero <br> jugar
                         </span>
                     </div>
                     <div class="absolute bottom-0 flex justify-center items-center h-[40vh]">
-                        <div class="h-[50vh] w-[55vh] px-[2vh] relative">
-                            <img class="avataresPerformance opacity-100 transition-opacity duration-500 ease-in-out absolute bottom-0 avatares " src="../../../assets/vista_inicial/Zen.png">
+                        <!-- personaje -->
+                        <div class="h-[50vh] w-[55vh] px-[2vh] relative justify-center items-center flex">
+                            <!-- personaje limpio -->
+                            <img class="hidden avataresPerformance opacity-100 transition-opacity duration-500 ease-in-out absolute bottom-0 avatares w-[80vh]" src="../../../assets/vista_inicial/Zen.png">
+                            <!-- personaje sucio -->
+                            <img class="avataresPerformance opacity-100 transition-opacity duration-500 ease-in-out absolute bottom-[10vh] avatares w-[45vh]" src="../../../assets/vistas/juegos/zenSucio.png">
+                            <!-- personaje hambre -->
+                            <img class="hidden avataresPerformance opacity-100 transition-opacity duration-500 ease-in-out absolute bottom-[8vh] avatares w-[45vh]" src="../../../assets/vistas/juegos/zenHambre.png">
                         </div>
                     </div>
                 </div>
@@ -56,6 +83,35 @@
                 </div>
             </div>
 
+            <!-- Notificaciones de accion (Bañarse, Comer, Descanso) -->
+            <div class="h-full w-[50vh] absolute left-0 flex justify-center items-center">
+                <a href="#" class="absolute w-full flex justify-center items-center">
+                    <img class="hover:scale-105 duration-500 ease-in-out absolute w-[16vh] z-10 left-0" src="../../../assets/vistas/juegos/iconoJabon.png" alt="">
+                    <img class="absolute w-[50vh]" src="../../../assets/vistas/juegos/tituloBano.png" alt="">
+                </a>
+            </div>
+
+            <!-- botones de juego -->
+            <div class="absolute right-0 w-[50vh] h-full flex flex-col justify-center items-center">
+                <button id="juegoObstaculos" class="relative h-[25vh] w-[20vh] flex justify-center items-center">
+                    <img class="absolute h-auto w-[87%] top-[6vh]" src="../../../assets/vistas/juegos/fondojuegos.png" alt="">
+                    <img class="absolute bottom-[7vh] h-[15vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/vistas/juegos/iconosObstaculos.png" alt="">
+                    <img class="absolute bottom-[2vh] h-[6.5vh]" src="../../../assets/vistas/juegos/tituloObstaculos.png" alt="">
+                </button>
+                <!-- bloqueado obstaculos -->
+                <div class="h-[25vh] w-[20vh] flex justify-center absolute top-[20vh]">
+                    <img class="absolute h-auto w-[89%] top-[3vh] z-10 opacity-40" src="../../../assets/vistas/juegos/contenidoObtaculos.png" alt="">
+                    <button class="absolute top-[4vh] right-[4vh] z-10">
+                        <img class="h-auto w-[5vh]" src="../../../assets/home/iconoInfo.png" alt="">
+                    </button>
+                </div>
+                <button id="juegoMemoria" class="relative h-[25vh] w-[20vh] flex justify-center items-center">
+                    <img class="absolute h-auto w-[87%] top-[6vh]" src="../../../assets/vistas/juegos/fondojuegos.png" alt="">
+                    <img class="absolute bottom-[5vh] h-[15vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/vistas/juegos/iconosMemoria.png" alt="">
+                    <img class="absolute bottom-[2vh] h-[6.5vh]" src="../../../assets/vistas/juegos/tituloMemoria.png" alt="">
+                </button>
+            </div>
+
             <!-- inicio -->
             <a href="../../inicio/home.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
                 <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
@@ -68,15 +124,31 @@
                 <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoVolver.png" alt="">
                 <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloVolver.png" alt="">
             </button>
-             <!-- almacen -->
+             <!-- tienda -->
              <a href="../../tienda/tiendaOpciones.html" class="absolute bottom-0 left-[30vh] h-[20vh] w-[20vh] flex justify-center items-center">
                 <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
                 <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/logoAlmacen.png" alt="">
                 <img class="absolute bottom-0 h-[6vh]" src="../../../assets/almacen/tituloTienda.png" alt="">
             </a>
-
         </div>
     </div>
+    
+    <!-- modal introduccion al juego -->
+    <div id="pausar-juego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[50vh] w-[75vh]" src="../../../assets/home/popupMenu.png" alt="">
+        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[19vh] right-[47vh]">
+            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[50vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
+            <h1 class="text-center text-[6vh] font-boldenvan text-[#B35B3D]">Juego de memoria</h1>
+            <p class="text-[3.4vh] font-boogaloo_regular text-center text-[#7B90A1] flex-wrap px-[8vh]">Demuestra tus habilidades de memorizar imágenes. Da vuelta a las tarjetas con un clic hasta lograr destapar todas las parejas.</p>
+            <a href="#" class="cursor-pointer text-[4vh] font-boldenvan text-[#25AA1C] hover:scale-105 duration-500 ease-in-out h-[10vh] w-[38vh] flex justify-center items-center bg-[url('../assets/home/fondoContinuar.png')] bg-center bg-no-repeat bg-contain">
+                Empezar a jugar
+            </a>
+        </div>
+    </div>
+    
     <script src="../../../dist/bundle.js"></script>
 </body>
 </html>

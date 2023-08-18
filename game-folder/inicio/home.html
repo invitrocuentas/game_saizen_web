@@ -14,13 +14,13 @@
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../assets/home/iconoEstrella.png" alt="">
                 <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
-                <button class="absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
+                <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- niveles y menu -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
                 <img class="h-[15vh] w-[17vw]" src="../../assets/home/nivel1.png" alt="">
                 <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
-                <button class="hover:scale-105 duration-500 ease-in-out bg-[url('../assets/home/fondoMenu.png')] bg-center bg-cover bg-no-repeat h-[10vh] w-[13vh] flex justify-center items-center p-[1vh] mt-[1.5vh]">
+                <button data-modal="menuPrincipal" class="open-modal-button hover:scale-105 duration-500 ease-in-out bg-[url('../assets/home/fondoMenu.png')] bg-center bg-cover bg-no-repeat h-[10vh] w-[13vh] flex justify-center items-center p-[1vh] mt-[1.5vh]">
                     <img class="h-full hover:-rotate-[25deg] duration-500 ease-in-out" src="../../assets/home/menu.png" alt="">
                 </button>
             </div>
@@ -74,152 +74,167 @@
         </div>
     </div>
 
+    <!-- info Puntos -->
+    <div id="infoPuntos" data-modalclose="infoPuntos" class="hidden modal cursor-pointer close w-[28vh] h-[25vh] absolute top-[20vh] left-[7vh] z-10">
+        <img class="z-10 h-full w-auto" src="../../assets/home/cuadroDialogo.png" alt="">
+        <div class="h-full w-full absolute z-30 top-0 text-center text-[2vh] font-boogaloo_regular flex-wrap p-[2vh] flex justify-center items-center text-[#7B90A1]">
+            Manteniendo saludable a tu avatar gana puntos para poder desbloquear juegos y niveles en la sección de entretenimiento. <br> Podrás revisar todas las reglas del juego en: <br> Configuración > Sobre el juego.
+        </div>
+    </div>
     <!-- menu principal -->
-    <div id="menu-principal" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
-        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+    <div id="menuPrincipal" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="menuPrincipal" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
         <img class="z-10 h-[90vh] w-[100vh]" src="../../assets/home/popupMenu.png" alt="">
-        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
+        <button data-modalclose="menuPrincipal" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
             <img class="h-[12vh]" src="../../assets/home/cerrarModal.png" alt="">
         </button>
         <div class="h-[85vh] w-[95vh] absolute z-30 flex flex-col justify-center items-center gap-0">
-            <div class="w-full h-[12vh] flex justify-around items-center">
+            <div class="w-full h-[12vh] flex items-center gap-[5vh] pl-[7.5vh]">
                 <div class="w-auto h-[10vh] relative flex justify-center items-center">
                     <img class="h-[10vh]" src="../../assets/home/btnMusica.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                    <div id="musicaAudio" class="hidden absolute bg-gray-500 opacity-40 z-40 w-full h-full rounded-[2vh]"></div>
                 </div>
-                <div class="w-[42%]"></div>
+                <div class="w-[42%] h-[6vh]">
+                    <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
+                        <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
+                            <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
+                            <img data-mute="musicaAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../assets/vista_inicial/Zen.png" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="w-full h-[12vh] flex justify-around items-center">
+            <div class="w-full h-[12vh] flex items-center gap-[5vh] pl-[7.5vh]">
                 <div class="w-auto h-[10vh] relative flex justify-center items-center">
                     <img class="h-[10vh]" src="../../assets/home/btnSonido.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+                    <div id="sonidoAudio"  class="hidden absolute bg-gray-500 opacity-40 z-40 w-full h-full rounded-[2vh]"></div>
                 </div>
-                <div class="w-[42%]"></div>
+                <div class="w-[42%] h-[6vh]">
+                    <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
+                        <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
+                            <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
+                            <img data-mute="sonidoAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../assets/vista_inicial/Zen.png" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh]">
-                <div class="w-[35vh] h-[10vh] relative flex justify-center items-center">
+            <div class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh] flex items-center">
+                <button id="btnVibrar" class="w-[35vh] h-[10vh] relative flex items-center">
                     <img class="h-[10vh]" src="../../assets/home/btnVibracion.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
-                </div>
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+                    <div class="veloOcultar hidden absolute bg-gray-500 opacity-40 z-40 w-full h-full rounded-[2vh]"></div>
+                </button>
+            </div>
+            <button data-modalclose="menuPrincipal" data-modal="pausarJuego" class="close open-modal-button hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center items-center">
                 <img class="w-[80vh]" src="../../assets/home/btnPausaJuego.png" alt="">
             </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+            <button data-modalclose="menuPrincipal" data-modal="salirJuego" class="close open-modal-button hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center items-center">
                 <img class="w-[80vh]" src="../../assets/home/btnSalirJuego.png" alt="">
             </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+            <button data-modalclose="menuPrincipal" data-modal="sobreJuego" class="close open-modal-button hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center items-center">
                 <img class="w-[80vh]" src="../../assets/home/btnSobreJuego.png" alt="">
             </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
+            <button data-modalclose="menuPrincipal" data-modal="terminosJuego" class="close open-modal-button hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center items-center">
                 <img class="w-[80vh]" src="../../assets/home/btnTerminoCondiciones.png" alt="">
             </button>
         </div>
     </div>
     <!-- pausar juego -->
-    <div id="pausar-juego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
-        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
-        <img class="z-10 h-[40vh] w-[75vh]" src="../../assets/home/popupMenu.png" alt="">
-        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[24vh] right-[47vh]">
+    <div id="pausarJuego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="pausarJuego" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[50vh] w-[75vh]" src="../../assets/home/popupMenu.png" alt="">
+        <button data-modalclose="pausarJuego" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[24vh] right-[47vh]">
             <img class="h-[12vh]" src="../../assets/home/cerrarModal.png" alt="">
         </button>
-        <div class="h-[40vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center gap-0">
-            <img class="w-[55vh]" src="../../assets/home/tituloPausa.png" alt="">
-            <br>
-            <button class="text-[3.5vh] font-boldenvan text-[#098E00] hover:scale-105 duration-500 ease-in-out h-[9vh] w-[35vh] flex justify-center items-center bg-[url('../assets/home/fondoContinuar.png')] bg-center bg-no-repeat bg-contain">
-                Continuar jugando
-            </button>
-            <button class="text-[3.5vh] font-boldenvan text-[#E64141] hover:scale-105 duration-500 ease-in-out h-[9vh] w-[35vh] flex justify-center items-center bg-[url('../assets/home/fondoSalir.png')] bg-center bg-no-repeat bg-contain">
-                Guardar y salir
-            </button>
+        <div class="h-[50vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
+            <img class="w-[57vh]" src="../../assets/home/tituloPausa.png" alt="">
+            <div>
+                <button data-modalclose="pausarJuego" class="close text-[4vh] font-boldenvan text-[#25AA1C] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoContinuar.png')] bg-center bg-no-repeat bg-contain">
+                    Continuar jugando
+                </button>
+                <button class="text-[4vh] font-boldenvan text-[#E64141] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoSalir.png')] bg-center bg-no-repeat bg-contain">
+                    Guardar y salir
+                </button>
+            </div>
         </div>
     </div>
     <!-- salir juego -->
-    <div id="salir-juego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
-        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
-        <img class="z-10 h-[90vh] w-[100vh]" src="../../assets/home/popupMenu.png" alt="">
-        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
+    <div id="salirJuego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="salirJuego" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[80vh] w-[60vw]" src="../../assets/home/popupMenu.png" alt="">
+        <button data-modalclose="salirJuego" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[4vh] right-[30vh]">
             <img class="h-[12vh]" src="../../assets/home/cerrarModal.png" alt="">
         </button>
-        <div class="h-[85vh] w-[95vh] absolute z-30 flex flex-col justify-center items-center gap-0">
-            <div class="w-full h-[12vh] flex justify-around items-center">
-                <div class="w-auto h-[10vh] relative flex justify-center items-center">
-                    <img class="h-[10vh]" src="../../assets/home/btnMusica.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
-                </div>
-                <div class="w-[42%]"></div>
+        <div class="h-[80vh] w-[60vw] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
+            <img class="w-[80vh]" src="../../assets/home/btnSalirJuego.png" alt="">
+            <span class="text-[6vh] font-boogaloo_regular text-[#7B90A1]">
+                ¿Seguro de que deseas salir?
+            </span>
+            <div class="flex flex-row justify-center items-center gap-[2vh]">
+                <button class="text-[4vh] font-boldenvan text-[#E64141] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoSalir.png')] bg-center bg-no-repeat bg-contain">
+                    Guardar y salir
+                </button>
+                <button data-modalclose="salirJuego" class="close text-[4vh] font-boldenvan text-[#25AA1C] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoContinuar.png')] bg-center bg-no-repeat bg-contain">
+                    Continuar jugando
+                </button>
             </div>
-            <div class="w-full h-[12vh] flex justify-around items-center">
-                <div class="w-auto h-[10vh] relative flex justify-center items-center">
-                    <img class="h-[10vh]" src="../../assets/home/btnSonido.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
-                </div>
-                <div class="w-[42%]"></div>
+            <div class="h-[25vh] w-[85%] bg-white rounded-[2vh] flex flex-col justify-center items-center">
+                <img class="h-[8vh]" src="../../assets/home/exclamacion.png" alt="">
+                <span class="text-center text-[4vh] font-boogaloo_regular text-[#7B90A1]">
+                    Recuerda dejar a NOMBRE DEL AVATAR <br> durmiendo para que pueda recuperar energía.
+                </span>
             </div>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh]">
-                <div class="w-[35vh] h-[10vh] relative flex justify-center items-center">
-                    <img class="h-[10vh]" src="../../assets/home/btnVibracion.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
-                </div>
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnPausaJuego.png" alt="">
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnSalirJuego.png" alt="">
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnSobreJuego.png" alt="">
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnTerminoCondiciones.png" alt="">
-            </button>
         </div>
     </div>
     <!-- sobre este juego -->
-    <div id="sobre-juego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
-        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
-        <img class="z-10 h-[90vh] w-[100vh]" src="../../assets/home/popupMenu.png" alt="">
-        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
+    <div id="sobreJuego" class="w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="sobreJuego" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[90vh] w-[60vw]" src="../../assets/home/popupMenu.png" alt="">
+        <button data-modalclose="sobreJuego" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[4vh] right-[30vh]">
             <img class="h-[12vh]" src="../../assets/home/cerrarModal.png" alt="">
         </button>
-        <div class="h-[85vh] w-[95vh] absolute z-30 flex flex-col justify-center items-center gap-0">
-            <div class="w-full h-[12vh] flex justify-around items-center">
-                <div class="w-auto h-[10vh] relative flex justify-center items-center">
-                    <img class="h-[10vh]" src="../../assets/home/btnMusica.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
-                </div>
-                <div class="w-[42%]"></div>
+        <div class="h-[90vh] w-[60vw] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
+            <img class="w-[80vh]" src="../../assets/home/btnSobreJuego.png" alt="">
+            <div class="h-[60vh] hidden text-center itemSobre transition-opacity duration-500 ease-in-out">
+                <p class="text-start text-[2.8vh] font-boogaloo_regular text-[#7B90A1] flex-wrap px-[9vh] leading-[3vh]">
+                    Bienvenido a Growin, el juego perfecto para divertirte y cuidar de tu propia mascota virtual! <br><br> En Growin, tendrás la responsabilidad de cuidar a tu adorable compañero, y ayudarlo con su crecimiento. Podrás elegir entre dos personajes y personalizarlos a tu gusto; desde su apariencia hasta su ropa, ¡todo está en tus manos! <br><br> Tu objetivo principal será asegurarte que tu avatar esté feliz y sano(a). Tendrás que alimentarlo(a), jugar con el(ella), darle un lugar cómodo para dormir y, por supuesto, darle mucho amor y cariño. Cuanto mejor cuides a tu avatar, más crecerá y se desarrollará.<br><br> ¡La diversión no acaba ahí! En Growin, también podrás explorar emocionantes minijuegos y desafíos. Obtén puntos al completar tareas y desbloquea nuevos accesorios y elementos decorativos para tu avatar y su entorno.<br><br>
+                    <span class="flex flex-wrap pr-[19vh]">
+                        Growin es un juego diseñado especialmente para niños y niñas entre los 7 y los 14 años, con controles intuitivos y seguros para que puedas jugar sin preocupaciones. Aprenderás sobre la importancia del cuidado para un crecimiento sano y desarrollarás habilidades de responsabilidad mientras te diviertes y creas recuerdos inolvidables de tu avatar virtual.
+                    </span>
+                </p>
             </div>
-            <div class="w-full h-[12vh] flex justify-around items-center">
-                <div class="w-auto h-[10vh] relative flex justify-center items-center">
-                    <img class="h-[10vh]" src="../../assets/home/btnSonido.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
-                </div>
-                <div class="w-[42%]"></div>
+            <div class="h-[60vh] hidden text-start itemSobre transition-opacity duration-500 ease-in-out">
+                <p class="text-start text-[2.8vh] font-boogaloo_regular text-[#7B90A1] flex-wrap px-[9vh] leading-[3vh]">
+                    <span class="text-[4vh] text-[#B35B3D]">¿Cómo jugar?</span> <br><br>
+                    Ayuda a tu avatar a mantener un nivel de energía saludable de más del 75%. Para lograrlo deberás estar pendiente de las solicitudes que te haga; el avatar te dirá si tiene hambre, sueño, si está enfermo o si desea divertirse. <br><br> Es normal que el avatar disminuya o aumente su nivel de energía, esto permite que haya un balance para su sano crecimiento; al realizar las acciones relacionadas con alimentación, salud y descanso, recargará su nivel de energía para poder jugar, por eso si tienes mucha energía acumulada, ¡será necesario que vayas a los minijuegos! <br><br> Para realizar las acciones que solicita el avatar deberás obtener artículos en la tienda, los obtienes con puntos. <br><br> Los artículos que obtengas los puedes tener guardados en el almacén, necesitas tener artículos en el almacén para poder brindárselos al avatar.
+                </p>
             </div>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh]">
-                <div class="w-[35vh] h-[10vh] relative flex justify-center items-center">
-                    <img class="h-[10vh]" src="../../assets/home/btnVibracion.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+            <div class="h-[60vh] hidden text-start itemSobre transition-opacity duration-500 ease-in-out">
+                <div class="text-start text-[2.8vh] font-boogaloo_regular text-[#7B90A1] flex-wrap px-[9vh]">
+                    <span class="text-[4vh] text-[#B35B3D]">¿Cómo obtener puntos?</span> <br>
+                    <ul class="list-disc text-[2.8vh] text-[#7B90A1] pl-[4vh] leading-[2.8vh]">
+                        <li>Por acciones realizadas para el avatar cuando él las solicita.</li>
+                        <li>Por superar niveles en los minijuegos.</li>
+                        <li>Por mantener al avatar con más de 85% de energía por 1 semana</li>
+                        <li>Por acciones realizadas por tus padres o cuidadores dentro de la página web: lectura de artículos, uso de la calculadora de crecimiento, etc.</li>
+                    </ul>
+                    <span class="text-[4vh] text-[#B35B3D]">¿Cómo ganar energia?</span> <br>
+                    <ul class="list-disc text-[2.8vh] text-[#7B90A1] pl-[4vh] leading-[2.8vh]">
+                        <li>Realizar las acciones solicitadas por el personaje te recargan de energía.</li>
+                        <li>No hacer las acciones que necesita hace que se pierda energía.</li>
+                    </ul>
+                    <span class="text-[4vh] text-[#B35B3D]">¿Cómo obtener los elementos que quiere tu avatar?</span>
+                    <br>
+                    <ul class="list-disc text-[2.8vh] text-[#7B90A1] pl-[4vh] pr-[18vh] leading-[2.8vh]">
+                        <li>Cuando el avatar te solicite realizar alguna acción, ve al almacén para identificar si hay algún elemento con el cual puedes satisfacer su necesidad y da clic sobre dicho artículo.</li>
+                        <li>Caso el artículo esté bloqueado (en gris), deberás ir a la tienda y obtenerlo a cambio de puntos que has venido acumulando.</li>
+                    </ul>
                 </div>
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnPausaJuego.png" alt="">
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnSalirJuego.png" alt="">
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnSobreJuego.png" alt="">
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnTerminoCondiciones.png" alt="">
-            </button>
+            </div>
+            <button id="prevBtnSobre" class="hidden h-[15%] w-[10%] absolute right-[9%] bottom-[5%] bg-[url('../assets/vista_inicial/btnPrev.png')] bg-center bg-contain bg-no-repeat"></button>
+            <button id="nextBtnSobre" class="h-[15%] w-[10%] absolute right-[9%] bottom-[5%] bg-[url('../assets/vista_inicial/btnNext.png')] bg-center bg-contain bg-no-repeat"></button>
         </div>
     </div>
     <!-- terminos y condicionesm del juego -->
-    <div id="terminos-juego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+    <div id="terminosJuego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
         <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
         <img class="z-10 h-[90vh] w-[100vh]" src="../../assets/home/popupMenu.png" alt="">
         <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
@@ -260,6 +275,6 @@
             </button>
         </div>
     </div>
-    <script src="../../../dist/bundle.js"></script>
+    <script src="../../dist/bundle.js"></script>
 </body>
 </html>

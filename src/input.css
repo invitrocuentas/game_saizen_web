@@ -95,3 +95,11 @@
   transition-duration: 500ms;
   transition: ease-in-out;
 }
+
+.range-filled {
+  height: 100%;
+  background-color: #007bff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
