@@ -55,9 +55,8 @@
                 <!-- estado -->
                 <div class="absolute bottom-0 flex justify-center items-center">
                     <div class="bg-[url('../assets/home/estadoCarga.png')] bg-center bg-contain bg-no-repeat h-[11vh] w-[74vh]">
-                        <div class="absolute h-full w-[85%] !max-w-[100%] !min-w-[15%] top-0 left-0 bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-full flex">
-                            <img class="absolute -right-[4vh] top-[1vh] h-[10vh] w-[10vh]" src="../../assets/vista_inicial/Zen.png" alt="">
-                        </div>
+                        <div style="clip-path: inset(0 15% 0 0);" class="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-full flex"></div>
+                        <img style="left: 77%;" class="absolute top-[1vh] h-[10vh] w-[10vh]" src="../../assets/vista_inicial/Zen.png" alt="">
                     </div>
                     <span class="absolute font-boldenvan text-white text-[5vh] texto-borde_estado_85 font-black">
                         Estado: 85%
@@ -185,7 +184,7 @@
         </div>
     </div>
     <!-- sobre este juego -->
-    <div id="sobreJuego" class="w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+    <div id="sobreJuego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
         <div data-modalclose="sobreJuego" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
         <img class="z-10 h-[90vh] w-[60vw]" src="../../assets/home/popupMenu.png" alt="">
         <button data-modalclose="sobreJuego" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[4vh] right-[30vh]">
@@ -193,7 +192,7 @@
         </button>
         <div class="h-[90vh] w-[60vw] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
             <img class="w-[80vh]" src="../../assets/home/btnSobreJuego.png" alt="">
-            <div class="h-[60vh] hidden text-center itemSobre transition-opacity duration-500 ease-in-out">
+            <div class="h-[60vh] hidden opacity-100 text-center itemSobre transition-opacity duration-500 ease-in-out">
                 <p class="text-start text-[2.8vh] font-boogaloo_regular text-[#7B90A1] flex-wrap px-[9vh] leading-[3vh]">
                     Bienvenido a Growin, el juego perfecto para divertirte y cuidar de tu propia mascota virtual! <br><br> En Growin, tendrás la responsabilidad de cuidar a tu adorable compañero, y ayudarlo con su crecimiento. Podrás elegir entre dos personajes y personalizarlos a tu gusto; desde su apariencia hasta su ropa, ¡todo está en tus manos! <br><br> Tu objetivo principal será asegurarte que tu avatar esté feliz y sano(a). Tendrás que alimentarlo(a), jugar con el(ella), darle un lugar cómodo para dormir y, por supuesto, darle mucho amor y cariño. Cuanto mejor cuides a tu avatar, más crecerá y se desarrollará.<br><br> ¡La diversión no acaba ahí! En Growin, también podrás explorar emocionantes minijuegos y desafíos. Obtén puntos al completar tareas y desbloquea nuevos accesorios y elementos decorativos para tu avatar y su entorno.<br><br>
                     <span class="flex flex-wrap pr-[19vh]">
@@ -201,13 +200,13 @@
                     </span>
                 </p>
             </div>
-            <div class="h-[60vh] hidden text-start itemSobre transition-opacity duration-500 ease-in-out">
+            <div class="h-[60vh] hidden opacity-100 text-start itemSobre transition-opacity duration-500 ease-in-out">
                 <p class="text-start text-[2.8vh] font-boogaloo_regular text-[#7B90A1] flex-wrap px-[9vh] leading-[3vh]">
                     <span class="text-[4vh] text-[#B35B3D]">¿Cómo jugar?</span> <br><br>
                     Ayuda a tu avatar a mantener un nivel de energía saludable de más del 75%. Para lograrlo deberás estar pendiente de las solicitudes que te haga; el avatar te dirá si tiene hambre, sueño, si está enfermo o si desea divertirse. <br><br> Es normal que el avatar disminuya o aumente su nivel de energía, esto permite que haya un balance para su sano crecimiento; al realizar las acciones relacionadas con alimentación, salud y descanso, recargará su nivel de energía para poder jugar, por eso si tienes mucha energía acumulada, ¡será necesario que vayas a los minijuegos! <br><br> Para realizar las acciones que solicita el avatar deberás obtener artículos en la tienda, los obtienes con puntos. <br><br> Los artículos que obtengas los puedes tener guardados en el almacén, necesitas tener artículos en el almacén para poder brindárselos al avatar.
                 </p>
             </div>
-            <div class="h-[60vh] hidden text-start itemSobre transition-opacity duration-500 ease-in-out">
+            <div class="h-[60vh] hidden opacity-100 text-start itemSobre transition-opacity duration-500 ease-in-out">
                 <div class="text-start text-[2.8vh] font-boogaloo_regular text-[#7B90A1] flex-wrap px-[9vh]">
                     <span class="text-[4vh] text-[#B35B3D]">¿Cómo obtener puntos?</span> <br>
                     <ul class="list-disc text-[2.8vh] text-[#7B90A1] pl-[4vh] leading-[2.8vh]">
@@ -229,50 +228,26 @@
                     </ul>
                 </div>
             </div>
-            <button id="prevBtnSobre" class="hidden h-[15%] w-[10%] absolute right-[9%] bottom-[5%] bg-[url('../assets/vista_inicial/btnPrev.png')] bg-center bg-contain bg-no-repeat"></button>
-            <button id="nextBtnSobre" class="h-[15%] w-[10%] absolute right-[9%] bottom-[5%] bg-[url('../assets/vista_inicial/btnNext.png')] bg-center bg-contain bg-no-repeat"></button>
+            <button id="prevBtnSobre" class="hidden h-[15%] w-[10%] absolute right-[16%] bottom-[5%] bg-[url('../assets/vista_inicial/btnPrev.png')] bg-center bg-contain bg-no-repeat"></button>
+            <button id="nextBtnSobre" class="h-[15%] w-[10%] absolute right-[4%] bottom-[5%] bg-[url('../assets/vista_inicial/btnNext.png')] bg-center bg-contain bg-no-repeat"></button>
         </div>
     </div>
     <!-- terminos y condicionesm del juego -->
-    <div id="terminosJuego" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
-        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
-        <img class="z-10 h-[90vh] w-[100vh]" src="../../assets/home/popupMenu.png" alt="">
-        <button class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
+    <div id="terminosJuego" class="w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="terminosJuego" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[90vh] w-[80vw]" src="../../assets/home/cuadroDialogo.png" alt="">
+        <button data-modalclose="terminosJuego" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[12vh]">
             <img class="h-[12vh]" src="../../assets/home/cerrarModal.png" alt="">
         </button>
-        <div class="h-[85vh] w-[95vh] absolute z-30 flex flex-col justify-center items-center gap-0">
-            <div class="w-full h-[12vh] flex justify-around items-center">
-                <div class="w-auto h-[10vh] relative flex justify-center items-center">
-                    <img class="h-[10vh]" src="../../assets/home/btnMusica.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
+        <div class="h-[85vh] w-[65vw] absolute z-30 flex flex-col justify-center items-center gap-0">
+            <img class="w-[80vh]" src="../../assets/home/btnTerminoCondiciones.png" alt="">
+            <div class="h-[60vh] text-center transition-opacity duration-500 ease-in-out">
+                <div class="w-full h-full overflow-y-auto politicas_contenido">
+                    <p class="text-justify text-[2.4vh] font-avenir_book text-[#7B90A1] flex-wrap px-[1vh] leading-[3vh]">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellatAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat
+                    </p>
                 </div>
-                <div class="w-[42%]"></div>
             </div>
-            <div class="w-full h-[12vh] flex justify-around items-center">
-                <div class="w-auto h-[10vh] relative flex justify-center items-center">
-                    <img class="h-[10vh]" src="../../assets/home/btnSonido.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
-                </div>
-                <div class="w-[42%]"></div>
-            </div>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh]">
-                <div class="w-[35vh] h-[10vh] relative flex justify-center items-center">
-                    <img class="h-[10vh]" src="../../assets/home/btnVibracion.png" alt="">
-                    <div class="hidden absolute bg-gray-500 opacity-60 z-40 w-full h-full rounded-[2vh]"></div>
-                </div>
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnPausaJuego.png" alt="">
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnSalirJuego.png" alt="">
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnSobreJuego.png" alt="">
-            </button>
-            <button class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center">
-                <img class="w-[80vh]" src="../../assets/home/btnTerminoCondiciones.png" alt="">
-            </button>
         </div>
     </div>
     <script src="../../dist/bundle.js"></script>
