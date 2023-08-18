@@ -60,9 +60,34 @@ const vibracionBtn = () => {
 
 const cambiarContenido = () => {
     if(document.getElementById('nextBtnSobre')){
+        const items = document.querySelectorAll('.itemSobre');
+        const prevBtn = document.getElementById('prevBtnSobre');
+        const nextBtn = document.getElementById('nextBtnSobre');
+        let currentIndex = 0;
+
+        function showItem(index) {
+            items.forEach(item => {
+                item.classList.add('hidden');
+                item.classList.remove('opacity-100');
+            });
+
+            items[index].classList.remove('hidden');
+            items[index].classList.add('opacity-100');
+
+            if (index === items.length - 1) {
+                nextBtn.classList.add('hidden');
+                prevBtn.classList.remove('hidden');
+            }else if (index === 0){
+                nextBtn.classList.remove('hidden');
+                prevBtn.classList.add('hidden');
+            }else{
+                nextBtn.classList.remove('hidden');
+                prevBtn.classList.remove('hidden');
+            }
+
+        }
         document.getElementById('nextBtnSobre').addEventListener('click', () => {
             currentIndex = Math.min(currentIndex + 1, items.length - 1);
-    
             console.log(currentIndex);
             showItem(currentIndex);
             
@@ -80,5 +105,6 @@ const cambiarContenido = () => {
 export {
     marcharAtras,
     modalesAcciones,
-    vibracionBtn
+    vibracionBtn,
+    cambiarContenido
 };
