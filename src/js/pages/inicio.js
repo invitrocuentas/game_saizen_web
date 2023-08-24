@@ -154,7 +154,70 @@ const cambioPanel = () => {
     }
 }
 
+const cambioEstado = () => {
+    if(document.querySelector('.box')){
+        const box = document.querySelector('.box');
+        let currentIndex = 0;
+
+        const clipPaths = [
+        'inset(0 0% 0 0)',
+        'inset(0 15% 0 0)',
+        'inset(0 51% 0 0)',
+        'inset(0 85% 0 0)'
+        ];
+
+        const gradients = [
+        'linear-gradient(to bottom, #77CFE7, #009DC8, #005F8E, #015989)',
+        'linear-gradient(to bottom, #77CFE7, #009DC8, #005F8E, #015989)',
+        'linear-gradient(to bottom, #E7DC77, #C8B400, #8E8500, #895C01)',
+        'linear-gradient(to bottom, #E77777, #C80000, #8E0000, #890101)'
+        ];
+
+        const colorText = [
+            'texto-borde_estado_85',
+            'texto-borde_estado_85',
+            'texto-borde_estado_50',
+            'texto-borde_estado_15'
+            ];
+
+        const leftValues = ['92%', '77%', '41%', '7%'];
+
+        const valores = ['100%', '85%', '51%', '15%'];
+
+        box.addEventListener('click', () => {
+
+            currentIndex = (currentIndex + 1) % clipPaths.length;
+
+            if(currentIndex == 0){
+                box.parentElement.querySelector('.open-modal-button').classList.remove('hidden');
+                box.classList.add(colorText[currentIndex]);
+                box.classList.remove(colorText[(colorText.length - 1)]);
+            }else{
+                box.parentElement.querySelector('.open-modal-button').classList.add('hidden');
+                if(colorText[currentIndex] != colorText[(currentIndex - 1)]){
+                    box.classList.add(colorText[currentIndex]);
+                    box.classList.remove(colorText[(currentIndex - 1)]);
+                }
+            }
+
+            const newClipPath = clipPaths[currentIndex];
+            const newGradient = gradients[currentIndex];
+            const newLeftValue = leftValues[currentIndex];
+
+            box.textContent = `Estado: ${valores[currentIndex]}`;
+            
+            const innerDiv = box.parentElement.querySelector('.fondoEstado');
+            const img = box.parentElement.querySelector('img');
+            
+            innerDiv.style.clipPath = newClipPath;
+            box.parentElement.querySelector('.fondoEstado').style.backgroundImage = newGradient;
+            img.style.left = newLeftValue;
+        });
+    }
+}
+
 export {    
     politicas_privacidad,
-    cambioPanel
+    cambioPanel,
+    cambioEstado
 };
