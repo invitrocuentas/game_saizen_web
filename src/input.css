@@ -152,6 +152,7 @@
   height: 10vh;
   background-color: #ccc;
   border-radius: 5vh;
+  overflow: hidden; /* Esto ocultará cualquier contenido que se desborde */
 }
 
 .progress {
