@@ -35,7 +35,9 @@ const flip = () => {
     }
 
     let cantidadImagenes = 4;
-    let tiempoEstablecido = 180;
+    let tiempoEstablecido = 30;
+    let tiempoMostrar = 10;
+    let nivel = 1;
     let puntosPorNivel = 15;
 
     // Obtener 4 imágenes aleatorias
@@ -54,7 +56,6 @@ const flip = () => {
 
     // Barajar el array de imágenes duplicadas para obtener un orden aleatorio
     barajarArray(imagenesDuplicadas);
-
     if (document.getElementById('memory-card')) {
 
         // VARIABLES GLOBALES
@@ -75,21 +76,59 @@ const flip = () => {
         let interval;
         let redireccionar = false;
 
-        // function evaluarPuntos(){
-        //     let tiempo2 = tiempoEstablecido % 3;
-        //     let tiempo3 = tiempo2 * 2;
+        function actualizarEstrellas(cantidad) {
+            const estrellas = document.querySelectorAll("#estrellasMostrar img");
+            const siguienteNivel = document.getElementById('btnSiguiente');
+            const intentarNuevamente = document.getElementById('btnIntentar');
             
-        //     // UNA ESTRELLA
-        //     if(tiempoRestante < tiempo2 && intentos > cantidad * 3){
+            // Iterar a través de las imágenes de estrellas
+            for (let i = 0; i < estrellas.length; i++) {
+                if (i < cantidad) {
+                    // Mostrar estrella llena
+                    estrellas[i].src = "../../../assets/vistas/juegos/estrellaPuntos.png";
+                } else {
+                    // Mostrar estrella vacía
+                    estrellas[i].src = "../../../assets/vistas/juegos/estrellaPuntosSin.png"; // Cambia la ruta a tu imagen de estrella vacía
+                }
+            }
 
-        //     // UNA ESTRELLA
-        //     }else if(tiempoRestante < tiempo2 && intentos > cantidad * 2){
+            if(cantidad > 1){
+                siguienteNivel.classList.remove('hidden');
+                intentarNuevamente.classList.add('hidden');
+                document.getElementById('verificarPuntos').classList.remove('hidden');
+                document.getElementById('nivelVer').textContent = nivel;
+                document.getElementById('puntosVer').textContent = (puntosPorNivel/3) * cantidad;
+                
+                document.getElementById('tituloGame').textContent = '¡Felicidades!';
+                document.getElementById('descripcionGame').textContent = 'Completaste el nivel y conseguiste:';
+            }else{
+                siguienteNivel.classList.add('hidden');
+                intentarNuevamente.classList.remove('hidden');
+                document.getElementById('verificarPuntos').classList.add('hidden');
 
-        //     // UNA ESTRELLA
-        //     }else{
+                document.getElementById('tituloGame').textContent = 'Ups!!';
+                document.getElementById('descripcionGame').textContent = 'No lograste completar el nivel a tiempo';
+                
+            }
 
-        //     }
-        // }
+            gameOver.classList.remove('hidden');
+
+        }
+
+        function evaluarPuntos(){
+            let intentosOptimos = cantidadImagenes + (cantidadImagenes/2);
+
+            // TRES ESTRELLAS
+            if(intentos <= Math.floor(intentosOptimos)){
+                actualizarEstrellas(3);
+            // DOS ESTRELLAS
+            }else if(intentos <= Math.floor(intentosOptimos + (intentosOptimos/2)) && intentos > Math.floor(intentosOptimos)){
+                actualizarEstrellas(2);
+            // UNA ESTRELLA
+            }else{
+                actualizarEstrellas(1);
+            }
+        }
 
         function actualizarTemporizador() {
             const minutos = Math.floor(tiempoRestante / 60);
@@ -107,13 +146,7 @@ const flip = () => {
             if (tiempoRestante <= 0) {
                 // Aquí puedes realizar acciones cuando se agote el tiempo
                 detenerTemporizador(); // Detener el temporizador
-
-                const siguienteNivel = document.getElementById('btnSiguiente');
-                const intentarNuevamente = document.getElementById('btnIntentar');
-                siguienteNivel.classList.add('hidden');
-                intentarNuevamente.classList.remove('hidden');
-
-                gameOver.classList.remove('hidden');
+                actualizarEstrellas(0);
             }
             tiempoRestante--;
         }
@@ -316,12 +349,7 @@ const flip = () => {
                 // Todos los pares se han emparejado
                 detenerTemporizador(); // Detener el temporizador
                 redireccionar = true;
-                const siguienteNivel = document.getElementById('btnSiguiente');
-                const intentarNuevamente = document.getElementById('btnIntentar');
-                siguienteNivel.classList.remove('hidden');
-                intentarNuevamente.classList.add('hidden');
-
-                gameOver.classList.remove('hidden');
+                evaluarPuntos();
             }
         }
 
@@ -338,9 +366,8 @@ const flip = () => {
 
         }
         // Llama a mostrarYVoltearCartas después de 3 segundos (3000 milisegundos)
-        setTimeout(mostrarYVoltearCartas, 3000);
+        setTimeout(mostrarYVoltearCartas, tiempoMostrar);
     }
-    
 };
 
 export {

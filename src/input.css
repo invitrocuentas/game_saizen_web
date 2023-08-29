@@ -192,6 +192,11 @@
   backface-visibility: hidden;
 }
 
+.card-front img,
+.card-back img{
+  height: 100%;
+}
+
 .card-back {
   display: flex;
   justify-content: center;
@@ -241,4 +246,16 @@
   top: 4.8vh;
   width: 21vh;
   z-index: 99;
+}
+
+.bloqued::before{
+  background-color: #000;
+  border-radius: 3vh;
+  content: "";
+  height: 18vh;
+  opacity: .5;
+  position: absolute;
+  width: 18vh;
+  z-index: 99;
+  pointer-events: none;
 }

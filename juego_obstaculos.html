@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Plataforma Circular</title>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        // Obtén el elemento canvas y su contexto
+        const canvas = document.getElementById("gameCanvas");
+        const context = canvas.getContext("2d");
+
+        // Define las propiedades de la plataforma circular (el suelo)
+        const circleRadius = 250; // Radio del círculo
+        const circleCenterX = canvas.width / 2; // Coordenada X del centro del círculo
+        const circleCenterY = canvas.height * 1; // Coordenada Y del centro del círculo (en la parte inferior del canvas)
+
+        // Define las propiedades del personaje
+        const personajeWidth = 20; // Ancho del personaje
+        const personajeHeight = 40; // Alto del personaje
+        let personajeY = circleCenterY - circleRadius - personajeHeight; // Coordenada Y del personaje (en la parte superior del círculo)
+        let saltando = false; // Variable para rastrear si el personaje está saltando
+        let velocidadSalto = 0; // Velocidad vertical del salto
+        const gravedad = 0.7; // Valor de la gravedad
+        let enElAire = false;
+
+        // Define la lista de obstáculos
+        const obstaculos = [];
+        let distanciaRecorrida = 0; // Distancia recorrida por el personaje alrededor de la semicircunferencia
+        const distanciaMinimaEntreObstaculos = 3; // Distancia mínima deseada entre obstáculos
+        const velocidadObstaculos = 0.01; // Velocidad constante de los obstáculos
+
+        // Función para generar un nuevo obstáculo aleatorio desde un extremo de la semicircunferencia
+        function generarObstaculo() {
+            const obstaculoWidth = 20; // Ancho del obstáculo
+            const obstaculoHeight = 40; // Alto del obstáculo
+            const anguloInicial = Math.random() * Math.PI; // Ángulo aleatorio para el extremo inicial de la semicircunferencia
+
+            const obstaculo = {
+                x: circleCenterX + circleRadius * Math.cos(anguloInicial) - obstaculoWidth / 2,
+                y: circleCenterY + circleRadius * Math.sin(anguloInicial) - obstaculoHeight / 2,
+                width: obstaculoWidth,
+                height: obstaculoHeight,
+                anguloInicial: anguloInicial, // Ángulo inicial del obstáculo
+                anguloActual: anguloInicial, // Ángulo actual del obstáculo
+            };
+
+            obstaculos.push(obstaculo);
+        }
+
+        function generarPrimerObstaculo() {
+            const obstaculoWidth = 20; // Ancho del obstáculo
+            const obstaculoHeight = 40; // Alto del obstáculo
+            const anguloInicial = Math.PI; // Ángulo inicial de 180 grados
+
+            const obstaculo = {
+                x: circleCenterX + circleRadius * Math.cos(anguloInicial) - obstaculoWidth / 2,
+                y: circleCenterY + circleRadius * Math.sin(anguloInicial) - obstaculoHeight / 2,
+                width: obstaculoWidth,
+                height: obstaculoHeight,
+                anguloInicial: anguloInicial, // Ángulo inicial del obstáculo
+                anguloActual: anguloInicial, // Ángulo actual del obstáculo
+            };
+
+            obstaculos.push(obstaculo);
+        }
+
+        // Función para dibujar la plataforma circular (el suelo)
+        function dibujarPlataforma() {
+            context.beginPath();
+            context.arc(circleCenterX, circleCenterY, circleRadius, 0, Math.PI * 2);
+            context.fillStyle = "blue"; // Color de la plataforma
+            context.fill();
+            context.closePath();
+        }
+
+        // Función para dibujar el personaje
+        function dibujarPersonaje() {
+            context.fillStyle = "green"; // Color del personaje
+            context.fillRect(circleCenterX - personajeWidth / 2, personajeY, personajeWidth, personajeHeight);
+        }
+
+        // Función para dibujar obstáculos
+        function dibujarObstaculos() {
+            context.fillStyle = "red"; // Color de los obstáculos
+
+            for (let i = 0; i < obstaculos.length; i++) {
+                const obstaculo = obstaculos[i];
+                context.fillRect(obstaculo.x, obstaculo.y, obstaculo.width, obstaculo.height);
+            }
+        }
+
+        // Función para mover el personaje y aplicar gravedad
+        function moverPersonaje() {
+            // Aplica gravedad para que el personaje regrese a su posición inicial después del salto
+            if (personajeY < circleCenterY - circleRadius - personajeHeight || velocidadSalto < 0) {
+                personajeY += velocidadSalto;
+                velocidadSalto += gravedad;
+            } else {
+                personajeY = circleCenterY - circleRadius - personajeHeight;
+                saltando = false;
+                velocidadSalto = 0;
+                enElAire = false; // El personaje vuelve al suelo después del salto
+            }
+        }
+
+        // Función para mover los obstáculos
+        // function moverObstaculos() {
+        //     for (let i = 0; i < obstaculos.length; i++) {
+        //         const obstaculo = obstaculos[i];
+
+        //         // Calcula las coordenadas X e Y del obstáculo en función del ángulo y el radio
+        //         obstaculo.x = circleCenterX + circleRadius * Math.cos(obstaculo.anguloActual) - obstaculo.width / 2;
+        //         obstaculo.y = circleCenterY + circleRadius * Math.sin(obstaculo.anguloActual) - obstaculo.height / 2;
+
+        //         // Aumenta el ángulo del obstáculo para simular el movimiento alrededor del círculo
+        //         obstaculo.anguloActual += velocidadObstaculos;
+        //     }
+
+        //     // Genera un nuevo obstáculo aleatorio con una probabilidad baja
+        //     if (Math.random() < 0.04) {
+        //         generarObstaculo();
+        //     }
+        // }
+
+        // Función para mover los obstáculos
+        function moverObstaculos() {
+
+            for (let i = 0; i < obstaculos.length; i++) {
+                const obstaculo = obstaculos[i];
+
+                // Calcula las coordenadas X e Y del obstáculo en función del ángulo y el radio
+                obstaculo.x = circleCenterX + circleRadius * Math.cos(obstaculo.anguloActual) - obstaculo.width / 2;
+                obstaculo.y = circleCenterY + circleRadius * Math.sin(obstaculo.anguloActual) - obstaculo.height / 2;
+
+                // Aumenta el ángulo del obstáculo para simular el movimiento alrededor del círculo
+                obstaculo.anguloActual += velocidadObstaculos;
+                // Aumenta la distancia recorrida
+                distanciaRecorrida += velocidadObstaculos;
+
+                console.log(distanciaRecorrida);
+
+                // Si el obstáculo ha llegado al final de la semicircunferencia, elimínalo
+                if (obstaculo.anguloActual >= Math.PI * 2) {
+                    obstaculos.splice(i, 1); // Elimina el obstáculo del arreglo
+                    i--; // Reduce el índice para evitar omitir obstáculos en el ciclo
+                }
+            }
+
+            // Genera un nuevo obstáculo aleatorio con una probabilidad baja al comienzo de la semicircunferencia
+            if (distanciaRecorrida >= distanciaMinimaEntreObstaculos) {
+                generarPrimerObstaculo();
+                distanciaRecorrida = 0;
+            }
+        }
+
+        // Función para detectar la pulsación de la tecla de espacio para saltar
+        document.addEventListener("keydown", function(event) {
+            if (event.key === " " && !saltando) { // Espacio y no está saltando
+                saltar();
+            }
+        });
+
+        // Función para manejar el salto del personaje
+        function saltar() {
+            if (!enElAire) {
+                saltando = true;
+                velocidadSalto = -10; // Velocidad inicial hacia arriba (ajusta según sea necesario)
+                enElAire = true; // El personaje está en el aire después de saltar
+            }
+        }
+
+        function verificarColisiones() {
+            const personajeX = circleCenterX - personajeWidth / 2;
+            const personajeY = circleCenterY - circleRadius - personajeHeight;
+
+            // Si el personaje está en el aire, no verificar colisiones
+            if (enElAire) {
+                return;
+            }
+
+            for (let i = 0; i < obstaculos.length; i++) {
+                const obstaculo = obstaculos[i];
+
+                // Calcula la posición y dimensiones del obstáculo
+                const obstaculoX = obstaculo.x;
+                const obstaculoY = obstaculo.y;
+                const obstaculoWidth = obstaculo.width;
+                const obstaculoHeight = obstaculo.height;
+
+                // Comprueba si hay una colisión entre el personaje y el obstáculo
+                if (
+                    personajeX < obstaculoX + obstaculoWidth &&
+                    personajeX + personajeWidth > obstaculoX &&
+                    personajeY < obstaculoY + obstaculoHeight &&
+                    personajeY + personajeHeight > obstaculoY
+                ) {
+                    // Colisión detectada, pausa el juego
+                    detenerJuego();
+                    return;
+                }
+            }
+        }
+        let juegoActivo = true;
+        let juegoFrameId; // Almacena el ID del fotograma de animación
+
+        // Función para detener el juego
+        function detenerJuego() {
+            juegoActivo = false; // Establece el juego como inactivo
+            cancelAnimationFrame(juegoFrameId); // Cancela el bucle de animación
+
+            // Aquí puedes realizar otras acciones, como mostrar un mensaje de fin de juego.
+            console.log("¡Has perdido! El juego se ha detenido.");
+        }
+
+        // Función para reiniciar el juego
+        function reiniciarJuego() {
+            // Restablece todas las variables del juego
+            obstaculos.length = 0;
+            personajeY = circleCenterY - circleRadius - personajeHeight;
+            saltando = false;
+            velocidadSalto = 0;
+            enElAire = false;
+            juegoActivo = true; // Establece el juego como activo nuevamente
+
+            // Genera un obstáculo inicial
+            generarObstaculo();
+
+            // Reinicia el juego
+            juegoFrameId = requestAnimationFrame(actualizarJuego); // Inicia el bucle de animación
+        }
+
+        // Función para actualizar y dibujar el juego en cada fotograma
+        function actualizarJuego() {
+            if (!juegoActivo) {
+                return; // Si el juego no está activo, no realices más actualizaciones.
+            }
+
+            context.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
+            dibujarPlataforma(); // Dibuja la plataforma circular
+
+            // Mueve el personaje y aplica gravedad
+            moverPersonaje();
+
+            // Dibuja los obstáculos
+            dibujarObstaculos();
+
+            // Verifica colisiones
+            verificarColisiones();
+
+            // Mueve los obstáculos
+            moverObstaculos();
+
+            // Dibuja el personaje en su posición actual
+            dibujarPersonaje();
+
+            // Llama a esta función nuevamente para la próxima animación
+            juegoFrameId = requestAnimationFrame(actualizarJuego); // Almacena el ID del fotograma de animación
+        }
+
+        // Iniciar el juego
+        reiniciarJuego();
+
+        // Función para cambiar el tamaño del canvas
+        function ajustarCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // Además, puedes ajustar el tamaño de otros elementos del juego según sea necesario
+        }
+
+        // Llama a la función para ajustar el tamaño del canvas cuando se carga la página
+        window.addEventListener('load', ajustarCanvasSize);
+
+        // Llama a la función para ajustar el tamaño del canvas cuando se cambia el tamaño de la ventana
+        window.addEventListener('resize', ajustarCanvasSize);
+    </script>
+</body>
+</html>

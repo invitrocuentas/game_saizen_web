@@ -49,7 +49,7 @@
             </div>
 
             <div class="w-full h-full flex justify-center items-center">
-                <div class="absolute flex top-[12vh] gap-[4vh] font-boogaloo_regular tex-[5vh]">
+                <div class="absolute flex top-[12vh] gap-[4vh] font-boogaloo_regular text-[5vh]">
                     <p>Intentos: <span id="intentos">0</span></p>
                     <p>Aciertos: <span id="aciertos">0</span></p>
                     <p>Fallos: <span id="fallos">0</span></p>
@@ -316,7 +316,7 @@
             </span>
             <div class="flex flex-row justify-center items-center gap-[2vh]">
                 <button id="confirmBtn" class="text-[4vh] font-boldenvan text-[#E64141] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoSalir.png')] bg-center bg-no-repeat bg-contain">
-                    Guardar y salir
+                    Salir
                 </button>
                 <button id="cancelBtn" class="text-[4vh] font-boldenvan text-[#25AA1C] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoContinuar.png')] bg-center bg-no-repeat bg-contain">
                     Continuar jugando
@@ -337,29 +337,26 @@
         <img class="z-10 h-[60vh] w-[40vw]" src="../../../assets/home/popupMenu.png" alt="">
         <div class="h-[60vh] w-[40vw] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
             <div id="estrellasMostrar" class="absolute h-[30vh] w-full flex flex-row justify-center items-center -top-[20vh] gap-[2vh]">
-                <img class="h-[12vh] rotate-45 mt-[12vh]" src="../../../assets/vistas/juegos/estrellaPuntos.png" alt="">
-                <img class="h-[18vh]" src="../../../assets/vistas/juegos/estrellaPuntos.png" alt="">
-                <img class="h-[12vh] -rotate-45 mt-[12vh]" src="../../../assets/vistas/juegos/estrellaPuntos.png" alt="">
+                <img class="h-[12vh] rotate-45 mt-[12vh]" alt="">
+                <img class="h-[18vh]" alt="">
+                <img class="h-[12vh] -rotate-45 mt-[12vh]" alt="">
             </div>
             <div class="text-center mb-[7vh]">
-                <h1 id="tituloGame" class="font-boldenvan text-[#B35B3D] text-[5vh]">¡Felicidades!</h1>
-                <p id="descripcionGame" class="text-[3.5vh] font-boldenvan text-[#7B90A1] px-[9vh]">
-                    Completaste el nivel y conseguiste:
-                </p>
+                <h1 id="tituloGame" class="font-boldenvan text-[#B35B3D] text-[5vh]"></h1>
+                <p id="descripcionGame" class="text-[3.5vh] font-boldenvan text-[#7B90A1] px-[9vh]"></p>
                 <div id="verificarPuntos" class="flex justify-center items-center gap-[5vh]">
                     <div class="flex flex-col justify-center items-center text-[5vh] font-boldenvan">
                         <span class="text-[#B35B3D]">Nivel</span>
-                        <div class="flex justify-center items-center text-center text-[7vh] text-[#015989] w-[20vh] h-[11vh] bg-[url('../assets/home/fondoDato.png')] bg-no-repeat bg-center bg-[length:100%_100%]">
-                            2
+                        <div id="nivelVer" class="flex justify-center items-center text-center text-[7vh] text-[#015989] w-[20vh] h-[11vh] bg-[url('../assets/home/fondoDato.png')] bg-no-repeat bg-center bg-[length:100%_100%]">
                         </div>
                     </div>
                     <div class="flex flex-col justify-center items-center text-[5vh] font-boldenvan">
                         <span class="text-[#B35B3D]">Puntos</span>
                         <div class="flex justify-center items-center gap-[1vh] w-[20vh] h-[11vh] bg-[url('../assets/home/fondoDato.png')] bg-no-repeat bg-center bg-[length:100%_100%]">
-                            <img class="h-[70%]" src="../../../assets/vistas/juegos/estellasPuntos.png" alt="">
+                            <img class="h-[70%]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
                             <div class="flex justify-center items-center text-[7vh] text-[#015989]">
                                 <span class="text-[8vh]">+</span>
-                                <span>15</span>
+                                <span id="puntosVer"></span>
                             </div>
                         </div>
                     </div>
@@ -372,12 +369,6 @@
                     <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoInicio.png" alt="">
                     <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloInicio.png" alt="">
                 </a>
-                <!-- volver -->
-                <button id="btnAtras" class="relative h-[20vh] w-[20vh] flex justify-center items-center">
-                    <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
-                    <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoVolver.png" alt="">
-                    <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloVolver.png" alt="">
-                </button>
                 <!-- Intentar nuevamente -->
                 <button id="btnIntentar" class="btnConfirmar relative h-[20vh] w-[20vh] flex justify-center items-center">
                     <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">

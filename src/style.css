@@ -731,6 +731,10 @@ video {
   left: -4.5%;
 }
 
+.-left-\[4vh\] {
+  left: -4vh;
+}
+
 .-left-\[7vh\] {
   left: -7vh;
 }
@@ -985,6 +989,10 @@ video {
 
 .top-\[52\%\] {
   top: 52%;
+}
+
+.top-\[5vh\] {
+  top: 5vh;
 }
 
 .top-\[6vh\] {
@@ -1713,8 +1721,18 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.-rotate-\[15deg\] {
+  --tw-rotate: -15deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .-rotate-\[20deg\] {
   --tw-rotate: -20deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-rotate-\[30deg\] {
+  --tw-rotate: -30deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -2029,6 +2047,10 @@ video {
 
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-cols-\[1fr_2fr\] {
+  grid-template-columns: 1fr 2fr;
 }
 
 .flex-row {
@@ -2884,6 +2906,10 @@ video {
 
 .bg-\[url\(\'\.\.\/assets\/vistas\/alimentacion\/fondo\.jpg\'\)\] {
   background-image: url('../assets/vistas/alimentacion/fondo.jpg');
+}
+
+.bg-\[url\(\'\.\.\/assets\/vistas\/alimentacion\/nubeDialogo_right\.png\'\)\] {
+  background-image: url('../assets/vistas/alimentacion/nubeDialogo_right.png');
 }
 
 .bg-\[url\(\'\.\.\/assets\/vistas\/descanso\/fondo\.jpg\'\)\] {
@@ -3792,6 +3818,10 @@ video {
   transition-duration: 150ms;
 }
 
+.duration-150 {
+  transition-duration: 150ms;
+}
+
 .duration-500 {
   transition-duration: 500ms;
 }
@@ -4001,6 +4031,11 @@ video {
   backface-visibility: hidden;
 }
 
+.card-front img,
+.card-back img{
+  height: 100%;
+}
+
 .card-back {
   display: flex;
   justify-content: center;
@@ -4054,6 +4089,18 @@ video {
   top: 4.8vh;
   width: 21vh;
   z-index: 99;
+}
+
+.bloqued::before{
+  background-color: #000;
+  border-radius: 3vh;
+  content: "";
+  height: 18vh;
+  opacity: .5;
+  position: absolute;
+  width: 18vh;
+  z-index: 99;
+  pointer-events: none;
 }
 
 @media (min-width: 640px) {
