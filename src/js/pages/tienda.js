@@ -1,24 +1,6 @@
-import { Splide } from "@splidejs/splide";
-// Default theme
-import '@splidejs/splide/css';
-
-// or other themes
-import '@splidejs/splide/css/skyblue';
-import '@splidejs/splide/css/sea-green';
-
-// or only core styles
-import '@splidejs/splide/css/core';
 import { Api } from "../Api";
 
 const tiendaProductos = async () => {
-
-    if(document.querySelector('#productos')){
-        const splide = new Splide( '#productos', {
-            perPage: 4,
-        } );
-        
-        splide.mount();
-    }
 
     if(document.querySelector("#modulos-tienda")){
         const api = new Api

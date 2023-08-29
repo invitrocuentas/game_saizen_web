@@ -63,7 +63,7 @@
 
 /* productos botones splide */
 
-#productos button svg{
+#alimentosVer button svg, #productosVer button svg,#productos button svg{
   display: none !important;
 }
 
@@ -85,12 +85,70 @@
   opacity: 1 !important;
 }
 
-#productos .splide__arrow{
+#alimentosVer .splide__arrow, #productosVer .splide__arrow, #productos .splide__arrow{
   height: 30vh !important;
   width: 10vh !important;
 }
 
-#productos .splide__arrow:hover{
+#alimentosVer .splide__arrow:hover, #productosVer .splide__arrow:hover, #productos .splide__arrow:hover{
+  scale: 105%;
+  transition-duration: 500ms;
+  transition: ease-in-out;
+}
+
+/* lista de alimentos */
+
+#alimentosVer .splide__arrow--prev{
+  display: none !important;
+}
+
+#alimentosVer .splide__arrow--next{
+  background: url('../assets/vista_inicial/btnNext.png');
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  left: 4vh !important;
+  bottom: -25vh !important;
+  opacity: 1 !important;
+  rotate: 90deg !important;
+}
+
+/* productos descripcion splide */
+
+#productosVer button svg{
+  display: none !important;
+}
+
+#productosVer .splide__arrows{
+  bottom: 5vh !important;
+  position: absolute !important;
+  right: 25vh !important;
+}
+
+#productosVer .splide__arrow--prev{
+  background: url('../assets/vista_inicial/btnPrev.png');
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  left: -15vh !important;
+  opacity: 1 !important;
+}
+
+#productosVer .splide__arrow--next{
+  background: url('../assets/vista_inicial/btnNext.png');
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  right: -15vh !important;
+  opacity: 1 !important;
+}
+
+#productosVer .splide__arrow{
+  height: 13vh !important;
+  width: 13vh !important;
+}
+
+#productosVer .splide__arrow:hover{
   scale: 105%;
   transition-duration: 500ms;
   transition: ease-in-out;
@@ -161,4 +219,26 @@
   background-color: #4caf50; /* Color de la barra de progreso */
   border-radius: 5vh;
   transition: width 1s ease-in-out; /* Transición para la animación de la barra de progreso */
+}
+
+.active-tab {
+  background-color: white;
+  color: #B35B3D;
+}
+
+/* Mostrar el contenido de la pestaña activa */
+.tab-content.active-content {
+  display: flex;
+}
+
+.item_inhabilitado::before{
+  background-color: #000;
+  border-radius: 2vh;
+  content: "";
+  height: 22vh;
+  opacity: .5;
+  position: absolute;
+  top: 4.8vh;
+  width: 21vh;
+  z-index: 99;
 }

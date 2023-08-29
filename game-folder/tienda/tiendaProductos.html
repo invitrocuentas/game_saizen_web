@@ -15,15 +15,20 @@
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../assets/home/iconoEstrella.png" alt="">
                 <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
-                <button class="absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
+                <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- niveles y menu -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
                 <img class="h-[15vh] w-[17vw]" src="../../assets/home/nivel1.png" alt="">
                 <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
             </div>
-            <!-- introduccion tienda -->
-            <div class="absolute h-[80vh] w-[100vh] flex flex-col justify-center items-center">
+            <!-- Productos listados -->
+            <div class="absolute h-[80vh] w-[158vh] flex flex-col justify-center items-center">
+                <!-- SOLO CUANDO ES PARA entretenimiento -->
+                <a href="../vistas/juegos/home.html" class="absolute -left-[7vh] top-[15vh] bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[2vh] py-[1vh] cursor-pointer hover:scale-105 duration-500 ease-in-out">
+                    <img class="h-[8vh]" src="../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
+                </a>
+                <!-- FIN ENTRETENIMIENTO -->
                 <img class="h-[12vh]" src="../../assets/almacen/tituloTienda.png"><br>
                 <section id="productos" class="splide w-[140vh] h-[40vh] !p-0" aria-label="Splide Basic HTML Example">
                     <div class="splide__track h-full">
@@ -34,7 +39,7 @@
                                     <div class="w-full h-[80%] flex justify-center items-center">
                                         <img class="w-[70%]" src="../../assets/tienda/productos/zZz.png" alt="">
                                     </div>
-                                    <button class="bg-[url('../assets/tienda/btnGratis.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[30vh]"></button>
+                                    <button class="bg-[url('../assets/tienda/btnGratis.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[15vh]"></button>
                                 </div>
                             </li>
                             <li class="splide__slide">
@@ -43,7 +48,7 @@
                                     <div class="w-full h-[80%] flex justify-center items-center">
                                         <img class="w-[70%]" src="../../assets/tienda/productos/nightkiss.png" alt="">
                                     </div>
-                                    <button class="bg-[url('../assets/tienda/btnGratis.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[30vh]"></button>
+                                    <button class="bg-[url('../assets/tienda/btnGratis.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[15vh]"></button>
                                 </div>
                             </li>
                             <li class="splide__slide">
@@ -52,8 +57,8 @@
                                     <div class="w-full h-[80%] flex justify-center items-center">
                                         <img class="w-[70%]" src="../../assets/tienda/productos/antifaz.png" alt="">
                                     </div>
-                                    <button class="bg-[url('../assets/tienda/btnObtener.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[30vh]"></button>
-                                    <div class="flex justify-center items-center bg-[url('../assets/tienda/productos/fondoStar.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[2vh] -right-[6.5vh] h-[10vh] w-[10vh]">
+                                    <button class="bg-[url('../assets/tienda/btnObtener.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[15vh]"></button>
+                                    <div class="flex justify-center items-center bg-[url('../assets/tienda/productos/fondoStar.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[2vh] -right-[3.5vh] h-[10vh] w-[10vh]">
                                         <img class="h-[4vh]" src="../../assets/tienda/productos/star.png" alt="">
                                         <span class="text-[3vh] font-boldenvan text-[#B35B3D]">x15</span>
                                     </div>
@@ -65,8 +70,8 @@
                                     <div class="w-full h-[80%] flex justify-center items-center">
                                         <img class="w-[70%]" src="../../assets/tienda/productos/pijama.png" alt="">
                                     </div>
-                                    <button class="bg-[url('../assets/tienda/btnObtener.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[30vh]"></button>
-                                    <div class="flex justify-center items-center bg-[url('../assets/tienda/productos/fondoStar.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[2vh] -right-[6.5vh] h-[10vh] w-[10vh]">
+                                    <button class="bg-[url('../assets/tienda/btnObtener.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[15vh]"></button>
+                                    <div class="flex justify-center items-center bg-[url('../assets/tienda/productos/fondoStar.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[2vh] -right-[3.5vh] h-[10vh] w-[10vh]">
                                         <img class="h-[4vh]" src="../../assets/tienda/productos/star.png" alt="">
                                         <span class="text-[3vh] font-boldenvan text-[#B35B3D]">x15</span>
                                     </div>
@@ -96,6 +101,15 @@
             </a>
         </div>
     </div>
+
+    <!-- info Puntos -->
+    <div id="infoPuntos" data-modalclose="infoPuntos" class="hidden modal cursor-pointer close w-[28vh] h-[25vh] absolute top-[20vh] left-[7vh] z-10">
+        <img class="z-10 h-full w-auto" src="../../assets/home/cuadroDialogo.png" alt="">
+        <div class="h-full w-full absolute z-30 top-0 text-center text-[2vh] font-boogaloo_regular flex-wrap p-[2vh] flex justify-center items-center text-[#7B90A1]">
+            Manteniendo saludable a tu avatar gana puntos para poder desbloquear juegos y niveles en la sección de entretenimiento. <br> Podrás revisar todas las reglas del juego en: <br> Configuración > Sobre el juego.
+        </div>
+    </div>
+
     <script src="../../dist/bundle.js"></script>
 </body>
 </html>
