@@ -1,1 +1,388 @@
-<h1>dadad</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Saizen - GROWIN</title>
+    <link rel="stylesheet" href="../../../dist/bundle.css">
+</head>
+<body>
+    <div class="bg-[url('../assets/vistas/juegos/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+        <img src="../../../assets/vista_inicial/instrucciones.png" class="h-[85%] w-[82%]">
+        <div class="absolute h-[90vh] w-[95vw] flex justify-center">
+            <!-- puntuacion -->
+            <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
+                <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../../assets/home/fondoDato.png" alt="">
+                <img class="absolute h-[13vh] w-[13vh]" src="../../../assets/home/iconoEstrella.png" alt="">
+                <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
+            </div>
+            <!-- menu -->
+            <div class="absolute top-[12vh] -left-[2vh] h-[14vh] flex justify-center items-center gap-[3vh]">
+                <button id="abrirMenu" data-modal="menuPrincipal" class="open-modal-button hover:scale-105 duration-500 ease-in-out bg-[url('../assets/home/fondoMenu.png')] bg-center bg-cover bg-no-repeat h-[10vh] w-[13vh] flex justify-center items-center p-[1vh] mt-[1.5vh]">
+                    <img class="h-full hover:-rotate-[25deg] duration-500 ease-in-out" src="../../../assets/home/menu.png" alt="">
+                </button>
+            </div>
+            <!-- niveles -->
+            <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
+                <img class="h-[15vh] w-[17vw]" src="../../../assets/home/nivel1.png" alt="">
+                <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
+            </div>
+
+            <!-- Estados -->
+            <div class="absolute bg-[url('../assets/vistas/juegos/bannerInfo.png')] bg-contain bg-no-repeat bg-center h-[10vh] w-[80vh] flex justify-center items-center gap-[8vh]">
+                <div class="w-[7vh] relative flex justify-center items-center">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoAlimentacion.png" alt="">
+                </div>
+                <div class="w-[10vh] relative flex justify-center items-center">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoSalud.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoSalud.png" alt="">
+                </div>
+                <div class="w-[7vh] relative flex justify-center items-center">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoDescanso.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoDescanso.png" alt="">
+                </div>
+                <div class="w-[10vh] relative flex justify-center items-center">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoEntretenimiento.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
+                </div>
+            </div>
+
+            <div class="w-full h-full flex justify-center items-center">
+                <div class="semaforo absolute top-[15vh] !flex justify-center items-center !flex-row z-[5] w-[70vw] h-[60vh]">
+                    <div class="circulo rojo hidden" id="rojo"></div>
+                    <div class="circulo amarillo hidden" id="amarillo"></div>
+                    <div class="circulo verde hidden" id="verde"></div>
+                </div>
+                <div id="gameCanvas" class="bg-white w-[70vw] h-[60vh] absolute top-[13vh] rounded-[5vh] border-[1vh] border-[#B35B3D] overflow-hidden">
+                    <div class="suelo absolute bg-[url('../assets/vistas/juegos/plataforma.png')] bg-contain bg-repeat bg-center w-[200%] h-[10vh] z-[2] left-0 bottom-0"></div>
+                    <div class="zeni zeni-corriendo absolute bg-[url('../assets/vistas/juegos/jugador.png')] bg-contain bg-no-repeat bg-center w-[10vh] h-[10vh] z-[2] left-[5vh] bottom-[10vh]"></div>
+                    <div class="score w-[8vh] h-[5vh] absolute top-[2vh] right-[5vh] z-[10] text-gray-500 text-[5vh] font-bold text-right">0</div>
+                </div>
+            </div> 
+
+            <img class="avataresPerformance opacity-100 transition-opacity duration-500 ease-in-out absolute bottom-0 right-[5vh] avatares w-[20vh]" src="../../../assets/vistas/juegos/zenSucio.png">
+
+            <!-- inicio -->
+            <a href="../../inicio/home.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
+                <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoInicio.png" alt="">
+                <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloInicio.png" alt="">
+            </a>
+            <!-- volver -->
+            <button id="btnAtras" class="absolute bottom-0 left-[15vh] h-[20vh] w-[20vh] flex justify-center items-center">
+                <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoVolver.png" alt="">
+                <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloVolver.png" alt="">
+            </button>
+             <!-- tienda -->
+             <a href="../../tienda/tiendaOpciones.html" class="absolute bottom-0 left-[30vh] h-[20vh] w-[20vh] flex justify-center items-center">
+                <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                <img class="absolute bottom-[5vh] h-[10vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/almacen/logoTienda.png" alt="">
+                <img class="absolute bottom-0 h-[6vh]" src="../../../assets/almacen/tituloTienda.png" alt="">
+            </a>
+        </div>
+    </div>
+
+<!-- MODALES MENU -->
+    <!-- menu principal -->
+    <div id="menuPrincipal" class="modalVerificar hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="menuPrincipal" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[90vh] w-[100vh]" src="../../../assets/home/popupMenu.png" alt="">
+        <button data-modalclose="menuPrincipal" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[35vh]">
+            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[85vh] w-[95vh] absolute z-30 flex flex-col justify-center items-center gap-0">
+            <div class="w-full h-[12vh] flex items-center gap-[5vh] pl-[7.5vh]">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../../../assets/home/btnMusica.png" alt="">
+                    <div id="musicaAudio" class="hidden absolute bg-gray-500 opacity-40 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%] h-[6vh]">
+                    <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
+                        <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
+                            <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
+                            <img data-mute="musicaAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../../assets/vista_inicial/Zen.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-[12vh] flex items-center gap-[5vh] pl-[7.5vh]">
+                <div class="w-auto h-[10vh] relative flex justify-center items-center">
+                    <img class="h-[10vh]" src="../../../assets/home/btnSonido.png" alt="">
+                    <div id="sonidoAudio"  class="hidden absolute bg-gray-500 opacity-40 z-40 w-full h-full rounded-[2vh]"></div>
+                </div>
+                <div class="w-[42%] h-[6vh]">
+                    <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
+                        <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
+                            <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
+                            <img data-mute="sonidoAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../../assets/vista_inicial/Zen.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hover:scale-105 duration-500 ease-in-out w-full h-[12vh] pl-[7.5vh] flex items-center">
+                <button id="btnVibrar" class="w-[35vh] h-[10vh] relative flex items-center">
+                    <img class="h-[10vh]" src="../../../assets/home/btnVibracion.png" alt="">
+                    <div class="veloOcultar hidden absolute bg-gray-500 opacity-40 z-40 w-full h-full rounded-[2vh]"></div>
+                </button>
+            </div>
+            <button data-modalclose="menuPrincipal" data-modal="pausarJuego" class="close open-modal-button hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center items-center">
+                <img class="w-[80vh]" src="../../../assets/home/btnPausaJuego.png" alt="">
+            </button>
+            <button data-modalclose="menuPrincipal" data-modal="salirJuego" class="close open-modal-button hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center items-center">
+                <img class="w-[80vh]" src="../../../assets/home/btnSalirJuego.png" alt="">
+            </button>
+            <button data-modalclose="menuPrincipal" data-modal="sobreJuego" class="close open-modal-button hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center items-center">
+                <img class="w-[80vh]" src="../../../assets/home/btnSobreJuego.png" alt="">
+            </button>
+            <button data-modalclose="menuPrincipal" data-modal="terminosJuego" class="close open-modal-button hover:scale-105 duration-500 ease-in-out w-full h-[12vh] flex justify-center items-center">
+                <img class="w-[80vh]" src="../../../assets/home/btnTerminoCondiciones.png" alt="">
+            </button>
+        </div>
+    </div>
+    <!-- pausar juego -->
+    <div id="pausarJuego" class="modalVerificar hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="pausarJuego" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[50vh] w-[75vh]" src="../../../assets/home/popupMenu.png" alt="">
+        <button data-modalclose="pausarJuego" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[24vh] right-[47vh]">
+            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[50vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
+            <img class="w-[57vh]" src="../../../assets/home/tituloPausa.png" alt="">
+            <div>
+                <button data-modalclose="pausarJuego" class="close text-[4vh] font-boldenvan text-[#25AA1C] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoContinuar.png')] bg-center bg-no-repeat bg-contain">
+                    Continuar jugando
+                </button>
+                <button class="text-[4vh] font-boldenvan text-[#E64141] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoSalir.png')] bg-center bg-no-repeat bg-contain">
+                    Guardar y salir
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- salir juego -->
+    <div id="salirJuego" class="modalVerificar hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="salirJuego" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[80vh] w-[60vw]" src="../../../assets/home/popupMenu.png" alt="">
+        <button data-modalclose="salirJuego" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[4vh] right-[30vh]">
+            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[80vh] w-[60vw] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
+            <img class="w-[80vh]" src="../../../assets/home/btnSalirJuego.png" alt="">
+            <span class="text-[6vh] font-boogaloo_regular text-[#7B90A1]">
+                ¿Seguro de que deseas salir?
+            </span>
+            <div class="flex flex-row justify-center items-center gap-[2vh]">
+                <button class="text-[4vh] font-boldenvan text-[#E64141] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoSalir.png')] bg-center bg-no-repeat bg-contain">
+                    Guardar y salir
+                </button>
+                <button data-modalclose="salirJuego" class="close text-[4vh] font-boldenvan text-[#25AA1C] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoContinuar.png')] bg-center bg-no-repeat bg-contain">
+                    Continuar jugando
+                </button>
+            </div>
+            <div class="h-[25vh] w-[85%] bg-white rounded-[2vh] flex flex-col justify-center items-center">
+                <img class="h-[8vh]" src="../../../assets/home/exclamacion.png" alt="">
+                <span class="text-center text-[4vh] font-boogaloo_regular text-[#7B90A1]">
+                    Recuerda dejar a NOMBRE DEL AVATAR <br> durmiendo para que pueda recuperar energía.
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- sobre este juego -->
+    <div id="sobreJuego" class="modalVerificar hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="sobreJuego" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[90vh] w-[60vw]" src="../../../assets/home/popupMenu.png" alt="">
+        <button data-modalclose="sobreJuego" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[4vh] right-[30vh]">
+            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[90vh] w-[60vw] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
+            <img class="w-[80vh]" src="../../../assets/home/btnSobreJuego.png" alt="">
+            <div class="h-[60vh] hidden opacity-100 text-center itemSobre transition-opacity duration-500 ease-in-out">
+                <p class="text-start text-[2.8vh] font-boogaloo_regular text-[#7B90A1] flex-wrap px-[9vh] leading-[3vh]">
+                    Bienvenido a Growin, el juego perfecto para divertirte y cuidar de tu propia mascota virtual! <br><br> En Growin, tendrás la responsabilidad de cuidar a tu adorable compañero, y ayudarlo con su crecimiento. Podrás elegir entre dos personajes y personalizarlos a tu gusto; desde su apariencia hasta su ropa, ¡todo está en tus manos! <br><br> Tu objetivo principal será asegurarte que tu avatar esté feliz y sano(a). Tendrás que alimentarlo(a), jugar con el(ella), darle un lugar cómodo para dormir y, por supuesto, darle mucho amor y cariño. Cuanto mejor cuides a tu avatar, más crecerá y se desarrollará.<br><br> ¡La diversión no acaba ahí! En Growin, también podrás explorar emocionantes minijuegos y desafíos. Obtén puntos al completar tareas y desbloquea nuevos accesorios y elementos decorativos para tu avatar y su entorno.<br><br>
+                    <span class="flex flex-wrap pr-[19vh]">
+                        Growin es un juego diseñado especialmente para niños y niñas entre los 7 y los 14 años, con controles intuitivos y seguros para que puedas jugar sin preocupaciones. Aprenderás sobre la importancia del cuidado para un crecimiento sano y desarrollarás habilidades de responsabilidad mientras te diviertes y creas recuerdos inolvidables de tu avatar virtual.
+                    </span>
+                </p>
+            </div>
+            <div class="h-[60vh] hidden opacity-100 text-start itemSobre transition-opacity duration-500 ease-in-out">
+                <p class="text-start text-[2.8vh] font-boogaloo_regular text-[#7B90A1] flex-wrap px-[9vh] leading-[3vh]">
+                    <span class="text-[4vh] text-[#B35B3D]">¿Cómo jugar?</span> <br><br>
+                    Ayuda a tu avatar a mantener un nivel de energía saludable de más del 75%. Para lograrlo deberás estar pendiente de las solicitudes que te haga; el avatar te dirá si tiene hambre, sueño, si está enfermo o si desea divertirse. <br><br> Es normal que el avatar disminuya o aumente su nivel de energía, esto permite que haya un balance para su sano crecimiento; al realizar las acciones relacionadas con alimentación, salud y descanso, recargará su nivel de energía para poder jugar, por eso si tienes mucha energía acumulada, ¡será necesario que vayas a los minijuegos! <br><br> Para realizar las acciones que solicita el avatar deberás obtener artículos en la tienda, los obtienes con puntos. <br><br> Los artículos que obtengas los puedes tener guardados en el almacén, necesitas tener artículos en el almacén para poder brindárselos al avatar.
+                </p>
+            </div>
+            <div class="h-[60vh] hidden opacity-100 text-start itemSobre transition-opacity duration-500 ease-in-out">
+                <div class="text-start text-[2.8vh] font-boogaloo_regular text-[#7B90A1] flex-wrap px-[9vh]">
+                    <span class="text-[4vh] text-[#B35B3D]">¿Cómo obtener puntos?</span> <br>
+                    <ul class="list-disc text-[2.8vh] text-[#7B90A1] pl-[4vh] leading-[2.8vh]">
+                        <li>Por acciones realizadas para el avatar cuando él las solicita.</li>
+                        <li>Por superar niveles en los minijuegos.</li>
+                        <li>Por mantener al avatar con más de 85% de energía por 1 semana</li>
+                        <li>Por acciones realizadas por tus padres o cuidadores dentro de la página web: lectura de artículos, uso de la calculadora de crecimiento, etc.</li>
+                    </ul>
+                    <span class="text-[4vh] text-[#B35B3D]">¿Cómo ganar energia?</span> <br>
+                    <ul class="list-disc text-[2.8vh] text-[#7B90A1] pl-[4vh] leading-[2.8vh]">
+                        <li>Realizar las acciones solicitadas por el personaje te recargan de energía.</li>
+                        <li>No hacer las acciones que necesita hace que se pierda energía.</li>
+                    </ul>
+                    <span class="text-[4vh] text-[#B35B3D]">¿Cómo obtener los elementos que quiere tu avatar?</span>
+                    <br>
+                    <ul class="list-disc text-[2.8vh] text-[#7B90A1] pl-[4vh] pr-[18vh] leading-[2.8vh]">
+                        <li>Cuando el avatar te solicite realizar alguna acción, ve al almacén para identificar si hay algún elemento con el cual puedes satisfacer su necesidad y da clic sobre dicho artículo.</li>
+                        <li>Caso el artículo esté bloqueado (en gris), deberás ir a la tienda y obtenerlo a cambio de puntos que has venido acumulando.</li>
+                    </ul>
+                </div>
+            </div>
+            <button id="prevBtnSobre" class="hidden h-[15%] w-[10%] absolute right-[16%] bottom-[5%] bg-[url('../assets/vista_inicial/btnPrev.png')] bg-center bg-contain bg-no-repeat"></button>
+            <button id="nextBtnSobre" class="h-[15%] w-[10%] absolute right-[4%] bottom-[5%] bg-[url('../assets/vista_inicial/btnNext.png')] bg-center bg-contain bg-no-repeat"></button>
+        </div>
+    </div>
+    <!-- terminos y condicionesm del juego -->
+    <div id="terminosJuego" class="modalVerificar hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="terminosJuego" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[90vh] w-[80vw]" src="../../../assets/home/cuadroDialogo.png" alt="">
+        <button data-modalclose="terminosJuego" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-0 right-[12vh]">
+            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[85vh] w-[65vw] absolute z-30 flex flex-col justify-center items-center gap-0">
+            <img class="w-[80vh]" src="../../../assets/home/btnTerminoCondiciones.png" alt="">
+            <div class="h-[60vh] text-center transition-opacity duration-500 ease-in-out">
+                <div class="w-full h-full overflow-y-auto politicas_contenido text-[1vw] font-avenir_book text-[#7B90A1]">
+                    <ol class="list-decimal text-justify p-[1vh_2.5vh] space-y-[1vh]">
+                        <li>Bienvenido a Growin, el juego perfecto para aprender jugando sobre la importancia e impacto que todas las actividades de autocuidado tienen en el crecimiento de un niño, niña o adolescente.</li>
+                        <li>Antes de entrar al mundo Growin, es importante que tú y/o tu padre, madre o tutor lean la siguiente información:
+                            <ul class="space-y-[1vh]">
+                                <li>Growin no sugiere relación alguna entre éste y la eficacia del tratamiento que el paciente se encuentre recibiendo. En otras palabras, la evolución del avatar no tiene relación alguna con su crecimiento en talla o estatura, o evolución clínica como paciente.</li>
+                                <li>En efecto, el éxito del tratamiento con hormona de crecimiento está sujeto a las características específicas y únicas de cada paciente, su diagnóstico, la edad de inicio del mismo, la adherencia en la administración del medicamento, y el cumplimiento a las instrucciones dadas por el médico tratante; sin que sea posible garantizar un resultado o talla final.</li>
+                                <li>Cualquier aspecto relacionado al tratamiento y/o a su evolución debe ser discutida directamente con el médico tratante.</li>
+                            </ul>
+                        </li>
+                        <li>Ahora solo resta que tú y tus padres o tutor revisen las instrucciones de juego, ¡y ya serás parte del mundo Growin!</li>
+                    </ol>
+                    <ul class="text-justify px-[.7vh] space-y-[1vh]">
+                        <li>Las siguientes instrucciones para el juego también podrán ser detalladas en la sección de configuración del juego.</li>
+                        <li><strong>INSTRUCCIONES PARA EL JUEGO</strong></li>
+                        <li><strong>SOBRE EL JUEGO</strong></li>
+                        <li>Growin es el juego perfecto para divertirte y cuidar de tu propia mascota virtual. Tendrás la responsabilidad de cuidar a tu adorable compañero, y ayudarlo con su crecimiento. Podrás elegir entre dos personajes y personalizarlos a tu gusto; desde su apariencia hasta su ropa, ¡todo está en tus manos!</li>
+                        <li>Tu objetivo principal será asegurarte que tu avatar esté feliz y sano(a). Tendrás que alimentarlo(a), jugar con el(ella), darle un lugar cómodo para dormir y, por supuesto, darle mucho amor y cariño. Cuanto mejor cuides a tu avatar, más crecerá y se desarrollará.</li>
+                        <li>¡La diversión no acaba ahí! En Growin, también podrás explorar emocionantes minijuegos y desafíos. Obtén puntos al completar tareas y desbloquea nuevos accesorios y elementos decorativos para tu avatar y su entorno.</li>
+                        <li>Growin es un juego diseñado especialmente para niños y niñas desde los 7 años, con controles intuitivos y seguros para que puedas jugar sin preocupaciones. Aprenderás sobre la importancia del cuidado para un crecimiento sano y desarrollarás habilidades de responsabilidad mientras te diviertes y creas recuerdos inolvidables de tu avatar virtual.</li>
+                        <li><strong>¿Cómo jugar?</strong></li>
+                        <li>Ayuda a tu avatar a mantener un nivel de energía saludable de más del 75%. Para lograrlo deberás estar pendiente de las solicitudes que te haga; el avatar te dirá si tiene hambre, sueño, si está enfermo o si desea divertirse.</li>
+                        <li>Es normal que el avatar disminuya o aumente su nivel de energía, esto permite que haya un balance para su sano crecimiento; al realizar las acciones relacionadas con alimentación, salud y descanso, recargará su nivel de energía para poder jugar, por eso si tienes mucha energía acumulada, ¡será necesario que vayas al módulo de entretenimiento!</li>
+                        <li>El buen cuidado de tu avatar y otras misiones dentro de Growin te darán puntos que podrás canjear en la tienda. Aquí podrás obtener los artículos que te ayudarán a realizar las acciones que el avatar solicita.</li>
+                        <li>Los artículos que obtengas serán guardados en el almacén, desde donde podrás brindárselos al avatar.</li>
+                        <li><strong>¿Cómo obtener puntos?</strong></li>
+                        <li>
+                            <ul class="list-disc p-[1vh_5vh] text-justify">
+                                <li>Por acciones realizadas para el avatar cuando él las solicita.</li>
+                                <li>Por superar niveles en los minijuegos del módulo entretenimiento.</li>
+                                <li>Por mantener al avatar con más de 85% de energía por 1 semana</li>
+                                <li>Por acciones realizadas por tus padres o cuidadores dentro de la página web: lectura de artículos, uso de la calculadora de crecimiento, etc.</li>
+                            </ul>
+                        </li>
+                        <li><strong>¿Cómo obtener los elementos que requiere tu avatar?</strong></li>
+                        <li>Cuando el avatar te solicite realizar alguna acción, ve al almacén para identificar si hay algún elemento con el cual puedes satisfacer su necesidad y da clic sobre dicho artículo.</li>
+                        <li>Caso el artículo esté bloqueado (en gris), deberás ir a la tienda y obtenerlo a cambio de puntos que has venido acumulando.</li>
+                        <li class="text-center">¡Esperamos que te diviertas!</li>
+                        <li class="text-center">***</li>
+                        <li><strong><i>Las menciones que estas instrucciones hacen a conceptos tales como “desarrollo” o “crecimiento” se encuentran referidas al desarrollo vital de los niños, niñas y adolescentes y no a su crecimiento en talla, estatura o cambio morfológico alguno. Growin no sugiere relación alguna entre las acciones de cuidado promovidas por los avatares y la eficacia del tratamiento que se encuentren recibiendo los pacientes, por lo que nada en éste deberá ser interpretado en ese sentido.</i></strong></li>
+                        <li><strong><i>En efecto, el éxito del tratamiento con hormona de crecimiento está sujeto a las características específicas y únicas de cada paciente, su diagnóstico, la edad de inicio del mismo, la adherencia en la administración del medicamento, y el cumplimiento a las instrucciones dadas por el médico tratante; sin que sea posible garantizar un resultado o talla final. Cualquier aspecto relacionado al tratamiento y/o a su evolución debe ser discutida directamente con el médico tratante.</i></strong></li>
+                        <li><strong><i>La edad mínima indicada para Growin refleja únicamente el nivel de capacidades y/o desarrollo funcional requerido para poder comprender el juego y utilizar sus funcionalidades. Este no implica una recomendación de uso ni posicionamiento alguno respecto a las ventajas o desventajas de la utilización de dispositivos electrónicos por parte de menores de edad; todo lo cual es de exclusiva determinación de los padres o tutores del menor.</i></strong></li>
+                        <li><strong><i>Estas instrucciones están diseñadas para ser leídas por los padres o tutores y/o por el menor junto a aquellos, quienes deberán asegurarse de comprender correctamente qué es Growin (por ejemplo, una herramienta de entretención educativa) y qué no es Growin (por ejemplo, una garantía o sugerencia de que jugándolo o realizando las acciones de cuidado que promueve, el paciente podrá crecer más o mejor en términos de estatura, talla o cualquier cambio morfológico), así como de explicar correctamente a su hijo o pupilo las presentes instrucciones.</i></strong></li>
+                        <li><strong><i>A mayor abundamiento, los padres o tutores son y serán los únicos responsables de la decisión de permitir a su hijo o pupilo utilizar Growin, así como la forma y tiempo por el cual lo hace. Los padres o tutores son libres de determinar si su hijo o pupilo podrá utilizar Growin por sí sólo o acompañado.</i></strong></li>
+                        <li><strong><i>El presente juego se encuentra regido por la Política de Privacidad y Términos y Condiciones de Uso del sitio web, disponibles en el pie de página del website para pacientes.</i></strong></li>
+                        <li class="text-center">***</li>
+                        <li>
+                            <p class="text-center my-[3vh]">Garantizo que, en mi calidad de padre, madre o tutor(a) de un menor perteneciente al PSP, he leído íntegramente las presentes instrucciones y mensajes iniciales, todo lo cual he explicado adecuadamente a mi hijo(a) o pupilo(a). Asimismo, acepto y me hago responsable de que mi hijo(a) o pupilo(a) utilice Growin, en la forma y tiempos que yo determine.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- FIN MODALES MENU -->
+
+    <!-- modal detener el juego -->
+    <div id="recargaRedirigir" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div class="z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[80vh] w-[60vw]" src="../../../assets/home/popupMenu.png" alt="">
+        <div class="h-[80vh] w-[60vw] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
+            <img class="w-[80vh]" src="../../../assets/home/btnSalirJuego.png" alt="">
+            <span class="text-[6vh] font-boogaloo_regular text-[#7B90A1]">
+                ¿Seguro de que deseas salir?
+            </span>
+            <div class="flex flex-row justify-center items-center gap-[2vh]">
+                <button id="confirmBtn" class="text-[4vh] font-boldenvan text-[#E64141] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoSalir.png')] bg-center bg-no-repeat bg-contain">
+                    Salir
+                </button>
+                <button id="cancelBtn" class="text-[4vh] font-boldenvan text-[#25AA1C] hover:scale-105 duration-500 ease-in-out h-[12vh] w-[45vh] flex justify-center items-center bg-[url('../assets/home/fondoContinuar.png')] bg-center bg-no-repeat bg-contain">
+                    Continuar jugando
+                </button>
+            </div>
+            <div class="h-[25vh] w-[85%] bg-white rounded-[2vh] flex flex-col justify-center items-center">
+                <img class="h-[8vh]" src="../../../assets/home/exclamacion.png" alt="">
+                <span class="text-center text-[4vh] font-boogaloo_regular text-[#7B90A1]">
+                    Recuerda que solo se guardaran los puntos de los niveles finalizados.
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal juego finalizado -->
+    <div id="gameOver" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div class="z-0 w-full h-full bg-black opacity-50 absolute"></div>
+        <img class="z-10 h-[60vh] w-[40vw]" src="../../../assets/home/popupMenu.png" alt="">
+        <div class="h-[60vh] w-[40vw] absolute z-30 flex flex-col justify-center items-center gap-[4vh]">
+            <div id="estrellasMostrar" class="absolute h-[30vh] w-full flex flex-row justify-center items-center -top-[20vh] gap-[2vh]">
+                <img class="h-[12vh] rotate-45 mt-[12vh]" alt="">
+                <img class="h-[18vh]" alt="">
+                <img class="h-[12vh] -rotate-45 mt-[12vh]" alt="">
+            </div>
+            <div class="text-center mb-[7vh]">
+                <h1 id="tituloGame" class="font-boldenvan text-[#B35B3D] text-[5vh]"></h1>
+                <p id="descripcionGame" class="text-[3.5vh] font-boldenvan text-[#7B90A1] px-[9vh]"></p>
+                <div id="verificarPuntos" class="flex justify-center items-center gap-[5vh]">
+                    <div class="flex flex-col justify-center items-center text-[5vh] font-boldenvan">
+                        <span class="text-[#B35B3D]">Nivel</span>
+                        <div id="nivelVer" class="flex justify-center items-center text-center text-[7vh] text-[#015989] w-[20vh] h-[11vh] bg-[url('../assets/home/fondoDato.png')] bg-no-repeat bg-center bg-[length:100%_100%]">
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center text-[5vh] font-boldenvan">
+                        <span class="text-[#B35B3D]">Puntos</span>
+                        <div class="flex justify-center items-center gap-[1vh] w-[20vh] h-[11vh] bg-[url('../assets/home/fondoDato.png')] bg-no-repeat bg-center bg-[length:100%_100%]">
+                            <img class="h-[70%]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
+                            <div class="flex justify-center items-center text-[7vh] text-[#015989]">
+                                <span class="text-[8vh]">+</span>
+                                <span id="puntosVer"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="h-[13vh] w-full absolute bottom-0 flex flex-row justify-center items-center">
+                <!-- inicio -->
+                <a href="../../inicio/home.html" class="relative h-[20vh] w-[20vh] flex justify-center items-center">
+                    <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                    <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoInicio.png" alt="">
+                    <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloInicio.png" alt="">
+                </a>
+                <!-- Intentar nuevamente -->
+                <button id="btnIntentar" class="btnConfirmar relative h-[20vh] w-[20vh] flex justify-center items-center">
+                    <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                    <img class="absolute bottom-[3vh] h-[12vh] hover:-rotate-[360deg] duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoVolver.png" alt="">
+                    <img class="absolute bottom-0 h-[6vh]" src="../../../assets/vistas/juegos/tituloIntentar.png" alt="">
+                </button>
+                <!-- Siguiente Nivel -->
+                <button id="btnSiguiente" class="btnConfirmar relative h-[20vh] w-[20vh] flex justify-center items-center">
+                    <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                    <img class="absolute ml-[2vh] bottom-[5vh] h-[8vh] hover:translate-x-[1vh] duration-500 ease-in-out cursor-pointer" src="../../../assets/vistas/juegos/siguienteNivel.png" alt="">
+                    <img class="absolute bottom-0 h-[6vh]" src="../../../assets/vistas/juegos/tituloSiguiente.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../../../dist/bundle.js"></script>
+</body>
+</html>

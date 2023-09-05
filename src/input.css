@@ -18,6 +18,10 @@
 @tailwind components;
 @tailwind utilities;
 
+img{
+  -webkit-user-drag: none;
+}
+
 /* Estilos personalizados para el scrollbar */
 .politicas_contenido::-webkit-scrollbar {
   width: 8px; /* Ancho de la scrollbar */
@@ -258,4 +262,50 @@
   width: 18vh;
   z-index: 99;
   pointer-events: none;
+}
+
+/* Estilo para el semáforo */
+.semaforo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos para los círculos de luces */
+.circulo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 10px;
+  transition: background-color 0.5s; /* Transición de color */
+}
+
+/* Estilos para las clases de colores */
+.rojo {
+  background-color: red;
+}
+
+.amarillo {
+  background-color: yellow;
+}
+
+.verde {
+  background-color: green;
+}
+
+.zeni-corriendo{
+  animation: animarDino 0.25s steps(2) infinite;
+}
+
+.zeni-estrellado{
+  background-position-x: -40vh;
+}
+
+@keyframes animarZen{
+  from{
+    background-position-x: -30vh;
+  }
+  to{
+    background-position-x: -40vh;
+  }
 }

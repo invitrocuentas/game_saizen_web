@@ -15,7 +15,7 @@
         // Define las propiedades de la plataforma circular (el suelo)
         const circleRadius = 250; // Radio del círculo
         const circleCenterX = canvas.width / 2; // Coordenada X del centro del círculo
-        const circleCenterY = canvas.height * 1; // Coordenada Y del centro del círculo (en la parte inferior del canvas)
+        const circleCenterY = canvas.height / 1.1; // Coordenada Y del centro del círculo (en la parte inferior del canvas)
 
         // Define las propiedades del personaje
         const personajeWidth = 20; // Ancho del personaje
@@ -25,18 +25,20 @@
         let velocidadSalto = 0; // Velocidad vertical del salto
         const gravedad = 0.7; // Valor de la gravedad
         let enElAire = false;
+        let ultimoAnguloObstaculo = 0;
+        let ultimaDistanciaRecorrida = 0;
 
         // Define la lista de obstáculos
         const obstaculos = [];
         let distanciaRecorrida = 0; // Distancia recorrida por el personaje alrededor de la semicircunferencia
         const distanciaMinimaEntreObstaculos = 3; // Distancia mínima deseada entre obstáculos
-        const velocidadObstaculos = 0.01; // Velocidad constante de los obstáculos
+        const velocidadObstaculos = 0.01 ; // Velocidad constante de los obstáculos
 
         // Función para generar un nuevo obstáculo aleatorio desde un extremo de la semicircunferencia
         function generarObstaculo() {
             const obstaculoWidth = 20; // Ancho del obstáculo
             const obstaculoHeight = 40; // Alto del obstáculo
-            const anguloInicial = Math.random() * Math.PI; // Ángulo aleatorio para el extremo inicial de la semicircunferencia
+            const anguloInicial = Math.PI; // Ángulo aleatorio para el extremo inicial de la semicircunferencia
 
             const obstaculo = {
                 x: circleCenterX + circleRadius * Math.cos(anguloInicial) - obstaculoWidth / 2,
@@ -140,7 +142,7 @@
                 // Aumenta la distancia recorrida
                 distanciaRecorrida += velocidadObstaculos;
 
-                console.log(distanciaRecorrida);
+                // console.log(distanciaRecorrida);
 
                 // Si el obstáculo ha llegado al final de la semicircunferencia, elimínalo
                 if (obstaculo.anguloActual >= Math.PI * 2) {
@@ -148,13 +150,24 @@
                     i--; // Reduce el índice para evitar omitir obstáculos en el ciclo
                 }
             }
+            // Genera un nuevo obstáculo aleatorio solo si el ángulo del último obstáculo es mayor o igual a 2
+            // const ultimoObstaculo = obstaculos[obstaculos.length - 1];
+            // if (ultimoObstaculo && ultimoObstaculo.anguloActual >= 2) {
+            //     generarPrimerObstaculo();
+            // }
+            const min = 3.45;
+            const max = 5;
+
+            // Genera un número aleatorio entre min (inclusive) y max (inclusive)
+            const numeroAleatorio = Math.random() * (max - min) + min;
 
             // Genera un nuevo obstáculo aleatorio con una probabilidad baja al comienzo de la semicircunferencia
-            if (distanciaRecorrida >= distanciaMinimaEntreObstaculos) {
+            if (obstaculos[obstaculos.length - 1].anguloActual >= numeroAleatorio ) {
                 generarPrimerObstaculo();
                 distanciaRecorrida = 0;
             }
         }
+
 
         // Función para detectar la pulsación de la tecla de espacio para saltar
         document.addEventListener("keydown", function(event) {
