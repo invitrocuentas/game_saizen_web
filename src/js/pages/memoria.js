@@ -35,7 +35,7 @@ const flip = () => {
     }
 
     let cantidadImagenes = 4;
-    let tiempoEstablecido = 5;
+    let tiempoEstablecido = 30;
     let tiempoMostrar = 10;
     let nivel = 1;
     let puntosPorNivel = 15;

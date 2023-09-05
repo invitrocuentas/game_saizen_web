@@ -297,8 +297,33 @@ img{
   animation: animarDino 0.25s steps(2) infinite;
 }
 
+.zeni-agacharse{
+  height: 8vh;
+}
+
 .zeni-estrellado{
-  background-position-x: -40vh;
+  opacity: .5;
+}
+
+.cactus{
+  width: 4vh;
+  height: 6vh;
+
+  position: absolute;
+  bottom: absolute;
+  bottom: 13vh;
+  left: 60vh;
+  z-index: 5;
+  background-color: #000;
+}
+
+.cactus2{
+  width: 6vh;
+  height: 4vh;
+
+  position: absolute;
+  bottom: 25vh;
+  background-color: #000;
 }
 
 @keyframes animarZen{

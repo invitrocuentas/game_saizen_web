@@ -2,7 +2,7 @@ import { politicas_privacidad, cambioPanel, cambioEstado } from "./inicio";
 
 import { homeInicio } from "./home";
 
-import { tiendaProductos } from "./tienda";
+import { tiendaOpciones } from "./tienda";
 
 import { flip } from "./memoria";
 
@@ -13,7 +13,7 @@ const init = () => {
     cambioPanel();
     cambioEstado();
     homeInicio();
-    tiendaProductos();
+    tiendaOpciones();
     flip();
     obstaculosGame();
 };

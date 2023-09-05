@@ -1,10 +1,10 @@
-import axios from "axios"
+
 
 class Api {
 
 
     constructor(){
-        this.url = "http://localhost/regional/api"
+        this.url = 
     }
 
     getURL(URL){

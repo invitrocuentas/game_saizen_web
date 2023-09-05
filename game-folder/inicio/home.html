@@ -8,18 +8,30 @@
 </head>
 <body>
     <div id="home" class="bg-[url('../assets/vista_inicial/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-white">
+            <div class="animate-pulse flex relative h-full w-full">
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] left-[5vh]"></div>
+                <div class="h-[13vh] w-[15vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[3vh]"></div>
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[21vh]"></div>
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[18vh] left-[74vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[40vh] w-[40vh] absolute bottom-[17vh] left-[38.5vw]"></div>
+                <div class="h-[13vh] w-[20vh] bg-gray-200 rounded-[3vh] absolute bottom-[5vh] left-[4vh]"></div>
+                <div class="h-[11vh] w-[74.3vh] bg-gray-200 rounded-[7vh] absolute bottom-[5vh] left-[52vh]"></div>
+                <div class="h-[55vh] w-[46vh] bg-gray-200 rounded-[3vh] absolute bottom-[11vh] right-[4.5vh]"></div>
+            </div>
+        </div>
         <div class="absolute h-[90vh] w-[95vw] flex justify-center">
             <!-- puntuacion -->
             <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../assets/home/iconoEstrella.png" alt="">
-                <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
+                <span id="monedasUsuario" class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">0</span>
                 <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- niveles y menu -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
                 <img class="h-[15vh] w-[17vw]" src="../../assets/home/nivel1.png" alt="">
-                <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
+                <span id="nivelUsuario" class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">0</span>
                 <button data-modal="menuPrincipal" class="open-modal-button hover:scale-105 duration-500 ease-in-out bg-[url('../assets/home/fondoMenu.png')] bg-center bg-cover bg-no-repeat h-[10vh] w-[13vh] flex justify-center items-center p-[1vh] mt-[1.5vh]">
                     <img class="h-full hover:-rotate-[25deg] duration-500 ease-in-out" src="../../assets/home/menu.png" alt="">
                 </button>
@@ -34,13 +46,13 @@
             <div class="absolute h-[80vh] w-[70vh] bottom-0 flex justify-center">
                 <!-- nombre -->
                 <div class=" absolute top-0 bg-[url('../assets/home/nombreAvatar.png')] bg-center bg-contain bg-no-repeat h-[18vh] w-[28vh] flex justify-center items-center px-[2vh]">
-                    <span class="text-[5vh] font-boldenvan text-[#B35B3D] truncate">NOMBRE</span>
+                    <span id="nombreAvatar" class="text-[5vh] font-boldenvan text-[#B35B3D] truncate">NOMBRE</span>
                 </div>
                 <!-- Personaje -->
                 <div class="absolute top-[18vh] h-[50vh] w-full flex justify-center">
                     <div class="absolute -top-[10vh] -left-[25vh] bg-[url('../assets/home/nubeDialogo.png')] bg-center bg-contain bg-no-repeat h-[30vh] w-[40vh] flex justify-center items-center pb-[3vh] pr-[3vh]">
                         <span class="absolute w-[28vh] text-center -rotate-[20deg] text-[5vh] font-boldenvan text-white truncate">
-                            ¡Hola soy <br> NOMBRE!
+                            ¡Hola soy <br> <span id="nombreAvatar2">NOMBRE</span>
                         </span>
                     </div>
                     <div class="absolute bottom-0 flex justify-center items-center h-[40vh]">
@@ -55,10 +67,10 @@
                 <!-- estado -->
                 <div class="absolute bottom-0 flex justify-center items-center">
                     <div class="bg-[url('../assets/home/estadoCarga.png')] bg-center bg-contain bg-no-repeat h-[11vh] w-[74vh]">
-                        <div style="clip-path: inset(0 15% 0 0);" class="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-full flex"></div>
-                        <img style="left: 77%;" class="absolute top-[1vh] h-[10vh] w-[10vh]" src="../../assets/vista_inicial/Zen.png" alt="">
+                        <div id="estadoCarga" style="clip-path: inset(0 15% 0 0);" class="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-full flex"></div>
+                        <img id="personajeCarga" style="left: 77%;" class="absolute top-[1vh] h-[10vh] w-[10vh]" src="../../assets/vista_inicial/Zen.png" alt="">
                     </div>
-                    <span class="absolute font-boldenvan text-white text-[5vh] texto-borde_estado_85 font-black">
+                    <span id="estadoPorcentaje" class="absolute font-boldenvan text-white text-[5vh] texto-borde_estado_85 font-black">
                         Estado: 85%
                     </span>
                 </div>

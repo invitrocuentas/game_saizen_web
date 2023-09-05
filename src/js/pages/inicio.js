@@ -1,34 +1,42 @@
+import { postInicio, postVerify } from "../../services/user.service";
+
 let selectedPersonaje = '';
 let selectedGenero = '';
+let identificador = '';
 
-const politicas_privacidad = () => {
+const politicas_privacidad = async () => {
     
     if(document.querySelector('#politicas_privacidad')){
 
-        const politicas_privacidad = document.getElementById('politicas_privacidad');
-        const botonPoliticas = document.getElementById('botonPoliticas');
-        const valorAlmacenado = localStorage.getItem('estado');
-        const ninoAlmacenado = localStorage.getItem('selectedGenero');
-        const personajeAlmacenado = localStorage.getItem('selectedPersonaje');
-        const nombreAlmacenado = localStorage.getItem('NombrePersonaje');
+        try {
+            const politicas_privacidad = document.getElementById('politicas_privacidad');
+            const botonPoliticas = document.getElementById('botonPoliticas');
+            identificador = localStorage.getItem('identificador');
+            const ninoAlmacenado = localStorage.getItem('selectedGenero');
+            const personajeAlmacenado = localStorage.getItem('selectedPersonaje');
+            const nombreAlmacenado = localStorage.getItem('NombrePersonaje');
 
-        if(valorAlmacenado){
-            if(valorAlmacenado == 3){
-                window.location.href = 'inicio/home.html';
-            }else if(!ninoAlmacenado || !personajeAlmacenado || !nombreAlmacenado){
-                politicas_privacidad.classList.add('hidden');
-            }else{
-                window.location.href = 'inicio/home.html';
+            if(identificador){
+
+                const rsp = await postVerify({id_user: identificador});
+
+                if(rsp.existe){
+                    window.location.href = 'inicio/home.html';
+                }
             }
-        }else{
-            politicas_privacidad.classList.remove('hidden');
-        }
-        
 
-        botonPoliticas.addEventListener('click', function(){
-            politicas_privacidad.classList.add('hidden');
-            localStorage.setItem('estado', 2)
-        })
+            politicas_privacidad.classList.remove('hidden');
+            
+
+            botonPoliticas.addEventListener('click', function(){
+                politicas_privacidad.classList.add('hidden');
+                localStorage.setItem('estado', 2)
+            })
+        } catch (error) {
+            console.log(error)
+        } finally{
+            document.querySelector('#loader').classList.add('hidden');
+        }
     }
 
 };
@@ -141,15 +149,23 @@ const cambioPanel = () => {
             }
         });
 
-        nexthome.addEventListener('click', () => {
-            localStorage.setItem('NombrePersonaje', inputField.value);
-            localStorage.setItem('estado', 3);
-            // ================
-            // AQUI VA LA API
-            // se estan guardando los datos en localstorage solo para registro
-            // NombrePersonaje, selectedGenero, selectedPersonaje
-            // ================
-            window.location.href = 'inicio/home.html';
+        nexthome.addEventListener('click', async () => {
+            try {
+                localStorage.setItem('NombrePersonaje', inputField.value);
+                
+                const rsp = await postInicio({
+                                                id_user: identificador,
+                                                personaje: selectedPersonaje,
+                                                genero: selectedGenero,
+                                                avatar: inputField.value
+                                            });
+
+                if(rsp.data){
+                    window.location.href = 'inicio/home.html';
+                }
+            } catch (error) {
+                console.log(error);
+            }
         })
     }
 }

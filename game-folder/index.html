@@ -12,6 +12,18 @@
         <img id="personajesFront" src="../assets/vista_inicial/personajes.png" class="h-[80%] w-auto absolute top-[17%] -left-[3.5%] z-10">
         <img id="Loui" src="../assets/vista_inicial/Loui.png" class="h-[85%] hidden w-auto absolute top-[12%] -left-[4.5%] z-10">
         <img id="Zen" src="../assets/vista_inicial/Zen.png" class="h-[48%] hidden w-auto absolute top-[52%] left-[5.5%] z-10">
+        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-white">
+            <div class="animate-pulse flex relative h-full w-full">
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] left-[5vh]"></div>
+                <div class="h-[13vh] w-[15vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[3vh]"></div>
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[21vh]"></div>
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[18vh] left-[74vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[40vh] w-[40vh] absolute bottom-[17vh] left-[38.5vw]"></div>
+                <div class="h-[13vh] w-[20vh] bg-gray-200 rounded-[3vh] absolute bottom-[5vh] left-[4vh]"></div>
+                <div class="h-[11vh] w-[74.3vh] bg-gray-200 rounded-[7vh] absolute bottom-[5vh] left-[52vh]"></div>
+                <div class="h-[55vh] w-[46vh] bg-gray-200 rounded-[3vh] absolute bottom-[11vh] right-[4.5vh]"></div>
+            </div>
+        </div>
         <!-- politicas -->
         <div id="politicas_privacidad" class="bg-[url('../assets/vista_inicial/politicas.png')] bg-cover bg-no-repeat bg-center h-[90%] w-[82%] m-auto z-20 px-[7%] py-[3%] hidden absolute">
             <div class="text-center overflow-x-auto w-full h-full pr-[6%] politicas_contenido text-[1vw] font-avenir_book text-[#7B90A1]">
@@ -154,15 +166,15 @@
             <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
                 <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">Elige el personaje para tu avatar:</p>
                 <div class="flex gap-5">
-                    <button data-personaje="Zen" class="avatarSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnZen.png')] bg-contain bg-center bg-no-repeat"></button>
-                    <button data-personaje="Loui" class="avatarSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnLoui.png')] bg-contain bg-center bg-no-repeat"></button>
+                    <button data-personaje="zen" class="avatarSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnZen.png')] bg-contain bg-center bg-no-repeat"></button>
+                    <button data-personaje="loui" class="avatarSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnLoui.png')] bg-contain bg-center bg-no-repeat"></button>
                 </div>
             </div>
             <div class="text-center item opacity-0 hidden transition-opacity duration-500 ease-in-out">
                 <p class="text-center text-[2vw] font-boogaloo_regular text-[#7B90A1]">Elige el género para tu avatar:</p>
                 <div class="flex gap-5">
-                    <button data-genero="Niña" class="genderSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnNina.png')] bg-contain bg-center bg-no-repeat"></button>
-                    <button data-genero="Niño" class="genderSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnNino.png')] bg-contain bg-center bg-no-repeat"></button>
+                    <button data-genero="niña" class="genderSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnNina.png')] bg-contain bg-center bg-no-repeat"></button>
+                    <button data-genero="niño" class="genderSelect cursor-pointer hover:scale-105 duration-500 ease-in-out h-[40vh] w-[40vh] bg-[url('../assets/vista_inicial/btnNino.png')] bg-contain bg-center bg-no-repeat"></button>
                 </div>
             </div>
 
