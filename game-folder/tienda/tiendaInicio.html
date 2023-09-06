@@ -9,18 +9,37 @@
 <body>
     <div class="bg-[url('../assets/vista_inicial/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
         <img src="../../assets/vista_inicial/instrucciones.png" class="h-[70%] w-auto">
+        
+        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-white">
+            <div class="animate-pulse flex relative h-full w-full">
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] left-[5vh]"></div>
+                <div class="h-[13vh] w-[15vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[3vh]"></div>
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[21vh]"></div>
+                <div class="h-[13vh] w-[26vh] bg-gray-200 rounded-[3vh] absolute top-[15vh] left-[76vh]"></div>
+                
+                <div class="h-[35vh] w-[32.3vh] bg-gray-200 rounded-[3vh] absolute top-[37vh] left-[17.7vh]"></div>
+                <div class="h-[35vh] w-[32.3vh] bg-gray-200 rounded-[3vh] absolute top-[37vh] left-[55vh]"></div>
+                <div class="h-[35vh] w-[32.3vh] bg-gray-200 rounded-[3vh] absolute top-[37vh] left-[90.7vh]"></div>
+                <div class="h-[35vh] w-[32.3vh] bg-gray-200 rounded-[3vh] absolute top-[37vh] right-[17.7vh]"></div>
+                
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[7.5vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[22.5vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[37.5vh]"></div>
+            </div>
+        </div>
+
         <div class="absolute h-[90vh] w-[95vw] flex justify-center">
             <!-- puntuacion -->
             <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../assets/home/iconoEstrella.png" alt="">
-                <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
+                <span id="monedasUsuario" class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
                 <button class="absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- niveles y menu -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
                 <img class="h-[15vh] w-[17vw]" src="../../assets/home/nivel1.png" alt="">
-                <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
+                <span id="nivelUsuario" class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
                 <button class="hover:scale-105 duration-500 ease-in-out bg-[url('../assets/home/fondoMenu.png')] bg-center bg-cover bg-no-repeat h-[10vh] w-[13vh] flex justify-center items-center p-[1vh] mt-[1.5vh]">
                     <img class="h-full hover:-rotate-[25deg] duration-500 ease-in-out" src="../../assets/home/menu.png" alt="">
                 </button>
