@@ -1,27 +1,21 @@
 import { postInicio, postVerify } from "../../services/user.service";
-
-let selectedPersonaje = '';
-let selectedGenero = '';
-let identificador = '';
+import { URL } from "../../config/const/api.const";
 
 const politicas_privacidad = async () => {
     
     if(document.querySelector('#politicas_privacidad')){
-
         try {
             const politicas_privacidad = document.getElementById('politicas_privacidad');
             const botonPoliticas = document.getElementById('botonPoliticas');
-            identificador = localStorage.getItem('identificador');
-            const ninoAlmacenado = localStorage.getItem('selectedGenero');
-            const personajeAlmacenado = localStorage.getItem('selectedPersonaje');
-            const nombreAlmacenado = localStorage.getItem('NombrePersonaje');
+            window.identificador = window.parent.identificador;
 
-            if(identificador){
+            if(window.identificador){
 
-                const rsp = await postVerify({id_user: identificador});
+                const rsp = await postVerify({id_user: window.identificador});
 
                 if(rsp.existe){
-                    window.location.href = 'inicio/home.html';
+                    window.objUsuario = rsp.datos;
+                    window.location.href = URL+'inicio/home.html';
                 }
             }
 
@@ -30,7 +24,6 @@ const politicas_privacidad = async () => {
 
             botonPoliticas.addEventListener('click', function(){
                 politicas_privacidad.classList.add('hidden');
-                localStorage.setItem('estado', 2)
             })
         } catch (error) {
             console.log(error)
@@ -97,8 +90,6 @@ const cambioPanel = () => {
 
         document.getElementById('nextBtn').addEventListener('click', () => {
             currentIndex = Math.min(currentIndex + 1, items.length - 1);
-
-            console.log(currentIndex);
             showItem(currentIndex);
             
         });
@@ -115,8 +106,7 @@ const cambioPanel = () => {
         avatarButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const personaje = button.getAttribute('data-personaje');
-                selectedPersonaje = personaje;
-                localStorage.setItem('selectedPersonaje', personaje);
+                window.selectedPersonaje = personaje;
 
                 currentIndex = Math.min(currentIndex + 1, items.length - 1);
                 showItem(currentIndex);
@@ -128,8 +118,7 @@ const cambioPanel = () => {
         genderButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const genero = button.getAttribute('data-genero');
-                selectedGenero = genero;
-                localStorage.setItem('selectedGenero', genero);
+                window.selectedGenero = genero;
 
                 currentIndex = Math.min(currentIndex + 1, items.length - 1);
                 showItem(currentIndex);
@@ -151,17 +140,18 @@ const cambioPanel = () => {
 
         nexthome.addEventListener('click', async () => {
             try {
-                localStorage.setItem('NombrePersonaje', inputField.value);
+
+                window.objUsuario = {
+                    id_user: identificador,
+                    personaje: selectedPersonaje,
+                    genero: selectedGenero,
+                    avatar: inputField.value
+                }
                 
-                const rsp = await postInicio({
-                                                id_user: identificador,
-                                                personaje: selectedPersonaje,
-                                                genero: selectedGenero,
-                                                avatar: inputField.value
-                                            });
+                const rsp = await postInicio(window.objUsuario);
 
                 if(rsp.data){
-                    window.location.href = 'inicio/home.html';
+                    window.location.href = URL+'inicio/home.html';
                 }
             } catch (error) {
                 console.log(error);
