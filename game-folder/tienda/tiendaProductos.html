@@ -7,80 +7,59 @@
     <link rel="stylesheet" href="../../dist/bundle.css">
 </head>
 <body>
-    <div class="bg-[url('../assets/tienda/productos/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+    <div id="fondoProductos" class="bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-cover bg-no-repeat bg-center ">
+            <div class="animate-pulse flex relative h-full w-full">
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] left-[5vh]"></div>
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[3vh]"></div>
+                <div class="h-[13vh] w-[26vh] bg-gray-200 rounded-[3vh] absolute top-[8vh] left-[76vh]"></div>
+                
+                <div class="h-[35vh] w-[32.3vh] bg-gray-200 rounded-[3vh] absolute top-[30vh] left-[17.7vh]"></div>
+                <div class="h-[35vh] w-[32.3vh] bg-gray-200 rounded-[3vh] absolute top-[30vh] left-[55vh]"></div>
+                <div class="h-[35vh] w-[32.3vh] bg-gray-200 rounded-[3vh] absolute top-[30vh] left-[90.7vh]"></div>
+                <div class="h-[35vh] w-[32.3vh] bg-gray-200 rounded-[3vh] absolute top-[30vh] right-[17.7vh]"></div>
+                
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[7.5vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[22.5vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[37.5vh]"></div>
+            </div>
+        </div>
         <img src="../../assets/vista_inicial/instrucciones.png" class="h-[75%] w-[90%]">
         <div class="absolute h-[90vh] w-[95vw] flex justify-center">
             <!-- puntuacion -->
             <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../assets/home/iconoEstrella.png" alt="">
-                <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
+                <span id="monedasUsuario" class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
                 <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- niveles y menu -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
                 <img class="h-[15vh] w-[17vw]" src="../../assets/home/nivel1.png" alt="">
-                <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
+                <span id="nivelUsuario" class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
             </div>
             <!-- Productos listados -->
-            <div class="absolute h-[80vh] w-[158vh] flex flex-col justify-center items-center">
+            <div id="productosLista" class="absolute h-[80vh] w-[158vh] flex flex-col justify-center items-center">
                 <!-- SOLO CUANDO ES PARA entretenimiento -->
-                <a href="../vistas/juegos/home.html" class="absolute -left-[7vh] top-[15vh] bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[2vh] py-[1vh] cursor-pointer hover:scale-105 duration-500 ease-in-out">
+                <a id="entretenimientoButton" href="../vistas/juegos/home.html" class="hidden absolute -left-[7vh] top-[15vh] bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[2vh] py-[1vh] cursor-pointer hover:scale-105 duration-500 ease-in-out">
                     <img class="h-[8vh]" src="../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
                 </a>
                 <!-- FIN ENTRETENIMIENTO -->
                 <img class="h-[12vh]" src="../../assets/almacen/tituloTienda.png"><br>
                 <section id="productos" class="splide w-[140vh] h-[40vh] !p-0" aria-label="Splide Basic HTML Example">
                     <div class="splide__track h-full">
-                        <ul class="splide__list">
-                            <li class="splide__slide">
-                                <div class="flex flex-col justify-between items-center shadow-lg w-[30vh] h-[90%] bg-white rounded-[2vh] border-[#B35B3D] border-[1vh] relative">
-                                    <span class="text-[3vh] text-[#009DC8] font-boldenvan w-full text-center px-[3vh]">Dormir</span>
-                                    <div class="w-full h-[80%] flex justify-center items-center">
-                                        <img class="w-[70%]" src="../../assets/tienda/productos/zZz.png" alt="">
-                                    </div>
-                                    <button class="bg-[url('../assets/tienda/btnGratis.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[15vh]"></button>
-                                </div>
-                            </li>
-                            <li class="splide__slide">
-                                <div class="flex flex-col justify-between items-center shadow-lg w-[30vh] h-[90%] bg-white rounded-[2vh] border-[#B35B3D] border-[1vh] relative">
-                                    <span class="text-[3vh] text-[#009DC8] font-boldenvan w-full text-center px-[3vh]">Besito de buenas noches</span>
-                                    <div class="w-full h-[80%] flex justify-center items-center">
-                                        <img class="w-[70%]" src="../../assets/tienda/productos/nightkiss.png" alt="">
-                                    </div>
-                                    <button class="bg-[url('../assets/tienda/btnGratis.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[15vh]"></button>
-                                </div>
-                            </li>
-                            <li class="splide__slide">
-                                <div class="flex flex-col justify-between items-center shadow-lg w-[30vh] h-[90%] bg-white rounded-[2vh] border-[#B35B3D] border-[1vh] relative">
-                                    <span class="text-[3vh] text-[#009DC8] font-boldenvan w-full text-center px-[3vh]">Antifaz</span>
-                                    <div class="w-full h-[80%] flex justify-center items-center">
-                                        <img class="w-[70%]" src="../../assets/tienda/productos/antifaz.png" alt="">
-                                    </div>
-                                    <button class="bg-[url('../assets/tienda/btnObtener.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[15vh]"></button>
-                                    <div class="flex justify-center items-center bg-[url('../assets/tienda/productos/fondoStar.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[2vh] -right-[3.5vh] h-[10vh] w-[10vh]">
-                                        <img class="h-[4vh]" src="../../assets/tienda/productos/star.png" alt="">
-                                        <span class="text-[3vh] font-boldenvan text-[#B35B3D]">x15</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="splide__slide">
-                                <div class="flex flex-col justify-between items-center shadow-lg w-[30vh] h-[90%] bg-white rounded-[2vh] border-[#B35B3D] border-[1vh] relative">
-                                    <span class="text-[3vh] text-[#009DC8] font-boldenvan w-full text-center px-[3vh]">Pijama</span>
-                                    <div class="w-full h-[80%] flex justify-center items-center">
-                                        <img class="w-[70%]" src="../../assets/tienda/productos/pijama.png" alt="">
-                                    </div>
-                                    <button class="bg-[url('../assets/tienda/btnObtener.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[5vh] h-[8vh] w-[15vh]"></button>
-                                    <div class="flex justify-center items-center bg-[url('../assets/tienda/productos/fondoStar.png')] bg-center bg-contain bg-no-repeat absolute -bottom-[2vh] -right-[3.5vh] h-[10vh] w-[10vh]">
-                                        <img class="h-[4vh]" src="../../assets/tienda/productos/star.png" alt="">
-                                        <span class="text-[3vh] font-boldenvan text-[#B35B3D]">x15</span>
-                                    </div>
-                                </div>
-                            </li>
+                        <ul id="productosList" class="splide__list">
+                        </ul>
+                    </div>
+                </section>
+                <section id="productoEntretenimiento" class="hidden w-[140vh] h-[40vh] !p-0" aria-label="Splide Basic HTML Example">
+                    <div class="h-full">
+                        <ul id="productosListEntretenimiento" class="flex justify-center splide__list">
                         </ul>
                     </div>
                 </section>
             </div>
+
             <!-- inicio -->
             <a href="../inicio/home.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
                 <img class="absolute h-[13vh] top-[6vh]" src="../../assets/home/fondoTienda.png" alt="">

@@ -334,3 +334,24 @@ img{
     background-position-x: -40vh;
   }
 }
+
+.boton_gratis{
+  background-image: url('../assets/tienda/btnGratis.png');
+}
+
+.boton_obtener{
+  background-image: url('../assets/tienda/btnObtener.png');
+}
+
+.bg_alimentacion{
+  background-image: url('../assets/vistas/alimentacion/fondo.jpg');
+}
+.bg_salud-aseo{
+  background-image: url('../assets/vistas/salud/fondo.jpg');
+}
+.bg_descanso{
+  background-image: url('../assets/vistas/descanso/fondo.jpg');
+}
+.bg_minijuegos{
+  background-image: url('../assets/vistas/juegos/fondo.jpg');
+}

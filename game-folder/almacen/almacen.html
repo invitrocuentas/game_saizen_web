@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="bg-[url('../assets/vista_inicial/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
-        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-white">
+        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-[url('../assets/vista_inicial/fondo.jpg')] bg-cover bg-no-repeat bg-center ">
             <div class="animate-pulse flex relative h-full w-full">
                 <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] left-[5vh]"></div>
                 <div class="h-[13vh] w-[15vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[3vh]"></div>
@@ -49,11 +49,11 @@
 
             <img class="absolute top-[2vh] h-[12vh]" src="../../assets/almacen/tituloAlmacen.png">
 
-            <div class="w-full h-full flex justify-center items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap dark:bg-gray-800 dark:text-gray-100 z-0">
+            <div id="almacenTabs" class="w-full h-full flex justify-center items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap dark:bg-gray-800 dark:text-gray-100 z-0">
                 <div class="w-[85vw] h-[60vh] relative">
                     <div class="grid grid-cols-4 w-full gap-[2vh] relative z-[99]">
                         <a class="tab bg-[#B35B3D] rounded-t-[5vh] py-[2vh] text-center font-boldenvan text-[3.5vh] text-white border-[1vh] border-[#B35B3D] border-b-0 cursor-pointer active-tab">Alimentación</a>
-                        <a class="tab bg-[#B35B3D] rounded-t-[5vh] py-[2vh] text-center font-boldenvan text-[3.5vh] text-white border-[1vh] border-[#B35B3D] border-b-0 cursor-pointer">Salud</a>
+                        <a class="tab bg-[#B35B3D] rounded-t-[5vh] py-[2vh] text-center font-boldenvan text-[3.5vh] text-white border-[1vh] border-[#B35B3D] border-b-0 cursor-pointer">Salud y Aseo</a>
                         <a class="tab bg-[#B35B3D] rounded-t-[5vh] py-[2vh] text-center font-boldenvan text-[3.5vh] text-white border-[1vh] border-[#B35B3D] border-b-0 cursor-pointer">Descanso</a>
                         <a class="tab bg-[#B35B3D] rounded-t-[5vh] py-[2vh] text-center font-boldenvan text-[3.5vh] text-white border-[1vh] border-[#B35B3D] border-b-0 cursor-pointer">Entretenimiento</a>
                     </div>
@@ -61,38 +61,38 @@
                     <div class="tab-content flex justify-center items-center absolute hidden h-[62vh] w-full top-[9.3vh] bg-white rounded-b-[5vh] border-[1vh] border-[#B35B3D] active-content">
                         <div class="grid grid-cols-5 w-full h-full px-[5vh] py-[2vh]">
                             <!-- Elementos en las primeras 5 columnas -->
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Frutas" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/a_frutas.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Golosinas" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/a_golosinas.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Carbohidratos" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/a_carbohidratos.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Verduras" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/a_verduras.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Lacteos" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/a_lacteos.png" alt="">
                             </div>
                             <div class="col-span-1"></div>
                             <!-- Elementos centrados en la parte inferior -->
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Proteinas" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/a_proteinas.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Comida rápida" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/a_comida_rapida.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative item_inhabilitado">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
+                            <div data-nombre="Bebidas saludables" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/a_bebidas.png" alt="">
                             </div>
                         </div>
@@ -100,20 +100,20 @@
                     <div class="tab-content flex justify-center items-center absolute hidden h-[62vh] w-full top-[9.3vh] bg-white rounded-b-[5vh] border-[1vh] border-[#B35B3D]">
                         <div class="grid grid-cols-4 gap-[1vh] w-full h-full px-[25vh] py-[2vh]">
                             <!-- Elementos en las primeras 5 columnas -->
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Curitas" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/a_curita.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Visitas con el medico" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/s_medico.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Termómetro" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/s_termometro.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Elementos para hacer ejercicio" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/s_ejercicio.png" alt="">
                             </div>
                             <div class="col-span-1 flex items-center justify-center relative ">
@@ -133,28 +133,28 @@
                     <div class="tab-content flex justify-center items-center absolute hidden h-[62vh] w-full top-[9.3vh] bg-white rounded-b-[5vh] border-[1vh] border-[#B35B3D]">
                         <div class="grid grid-cols-4 gap-[1vh] w-full h-full px-[25vh] py-[2vh]">
                             <!-- Elementos en las primeras 5 columnas -->
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Antifaz" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/d_antifaz.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Pijama" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/d_pijama.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Cepillo de dientes" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/d_cepillo_dientes.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Despertador" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/d_despertador.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Cuento" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/d_cuento.png" alt="">
                             </div>
-                            <div class="col-span-1 flex items-center justify-center relative ">
-                                <span class="absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">5</span>
+                            <div data-nombre="Tiempo de siesta" class="productoAlmacen col-span-1 flex items-center justify-center relative item_inhabilitado">
+                                <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                                 <img class="w-[23vh]" src="../../assets/almacen/d_siesta.png" alt="">
                             </div>
                             <div class="col-span-1 flex items-center justify-center relative ">
@@ -166,7 +166,8 @@
                         </div>
                     </div>
                     <div class="tab-content flex justify-center items-center absolute hidden h-[62vh] w-full top-[9.3vh] bg-white rounded-b-[5vh] border-[1vh] border-[#B35B3D]">
-                        <div class="flex items-center justify-center relative ">
+                        <div data-nombre="Juego de Obstaculos" class="productoAlmacen flex items-center justify-center relative item_inhabilitado">
+                            <span class="cantidadProducto absolute top-[0.4vh] font-normal text-[3.5vh] text-white font-boldenvan">0</span>
                             <img class="w-[23vh]" src="../../assets/almacen/e_juegos.png" alt="">
                         </div>
                     </div>

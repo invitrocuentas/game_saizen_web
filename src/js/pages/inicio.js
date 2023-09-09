@@ -14,7 +14,7 @@ const politicas_privacidad = async () => {
                 const rsp = await postVerify({id_user: window.identificador});
 
                 if(rsp.existe){
-                    window.objUsuario = rsp.datos;
+                    window.parent.objUsuario = rsp.datos;
                     window.location.href = URL+'inicio/home.html';
                 }
             }

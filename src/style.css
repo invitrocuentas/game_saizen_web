@@ -787,6 +787,10 @@ video {
   bottom: 11vh;
 }
 
+.bottom-\[12vh\] {
+  bottom: 12vh;
+}
+
 .bottom-\[15vh\] {
   bottom: 15vh;
 }
@@ -797,6 +801,10 @@ video {
 
 .bottom-\[18vh\] {
   bottom: 18vh;
+}
+
+.bottom-\[23vh\] {
+  bottom: 23vh;
 }
 
 .bottom-\[2vh\] {
@@ -863,6 +871,10 @@ video {
   left: 22.5vh;
 }
 
+.left-\[22vh\] {
+  left: 22vh;
+}
+
 .left-\[2vh\] {
   left: 2vh;
 }
@@ -885,6 +897,10 @@ video {
 
 .left-\[5\.5\%\] {
   left: 5.5%;
+}
+
+.left-\[50vh\] {
+  left: 50vh;
 }
 
 .left-\[52vh\] {
@@ -925,6 +941,10 @@ video {
 
 .left-\[76vh\] {
   left: 76vh;
+}
+
+.left-\[78vh\] {
+  left: 78vh;
 }
 
 .left-\[7vh\] {
@@ -971,6 +991,10 @@ video {
   right: 21vh;
 }
 
+.right-\[22vh\] {
+  right: 22vh;
+}
+
 .right-\[3\%\] {
   right: 3%;
 }
@@ -1003,8 +1027,16 @@ video {
   right: 4vh;
 }
 
+.right-\[50\.8vh\] {
+  right: 50.8vh;
+}
+
 .right-\[5vh\] {
   right: 5vh;
+}
+
+.right-\[7\.5vh\] {
+  right: 7.5vh;
 }
 
 .top-0 {
@@ -1063,6 +1095,14 @@ video {
   top: 2vh;
 }
 
+.top-\[30vh\] {
+  top: 30vh;
+}
+
+.top-\[32vh\] {
+  top: 32vh;
+}
+
 .top-\[37vh\] {
   top: 37vh;
 }
@@ -1113,150 +1153,6 @@ video {
 
 .top-\[9\.3vh\] {
   top: 9.3vh;
-}
-
-.top-\[7vh\] {
-  top: 7vh;
-}
-
-.right-\[37\.5vh\] {
-  right: 37.5vh;
-}
-
-.right-\[7\.5vh\] {
-  right: 7.5vh;
-}
-
-.right-\[7vh\] {
-  right: 7vh;
-}
-
-.bottom-\[20vh\] {
-  bottom: 20vh;
-}
-
-.bottom-\[25vh\] {
-  bottom: 25vh;
-}
-
-.bottom-\[23vh\] {
-  bottom: 23vh;
-}
-
-.top-\[30vh\] {
-  top: 30vh;
-}
-
-.top-\[32vh\] {
-  top: 32vh;
-}
-
-.left-\[19\.7vh\] {
-  left: 19.7vh;
-}
-
-.left-\[20\.7vh\] {
-  left: 20.7vh;
-}
-
-.left-\[201vh\] {
-  left: 201vh;
-}
-
-.left-\[21vh\] {
-  left: 21vh;
-}
-
-.left-\[45vh\] {
-  left: 45vh;
-}
-
-.left-\[51vh\] {
-  left: 51vh;
-}
-
-.left-\[22vh\] {
-  left: 22vh;
-}
-
-.left-\[49vh\] {
-  left: 49vh;
-}
-
-.left-\[50vh\] {
-  left: 50vh;
-}
-
-.left-\[84vh\] {
-  left: 84vh;
-}
-
-.left-\[75vh\] {
-  left: 75vh;
-}
-
-.left-\[78vh\] {
-  left: 78vh;
-}
-
-.right-\[22vh\] {
-  right: 22vh;
-}
-
-.right-\[vh\] {
-  right: vh;
-}
-
-.right-\[45vh\] {
-  right: 45vh;
-}
-
-.right-\[65vh\] {
-  right: 65vh;
-}
-
-.right-\[56vh\] {
-  right: 56vh;
-}
-
-.right-\[49vh\] {
-  right: 49vh;
-}
-
-.right-\[50vh\] {
-  right: 50vh;
-}
-
-.right-\[52vh\] {
-  right: 52vh;
-}
-
-.right-\[51vh\] {
-  right: 51vh;
-}
-
-.right-\[49\.5vh\] {
-  right: 49.5vh;
-}
-
-.right-\[50\.1vh\] {
-  right: 50.1vh;
-}
-
-.right-\[50\.5vh\] {
-  right: 50.5vh;
-}
-
-.right-\[50\.8vh\] {
-  right: 50.8vh;
-}
-
-.bottom-\[32vh\] {
-  bottom: 32vh;
-}
-
-.bottom-\[12vh\] {
-  bottom: 12vh;
 }
 
 .isolate {
@@ -1367,6 +1263,10 @@ video {
 
 .mb-\[1vh\] {
   margin-bottom: 1vh;
+}
+
+.mb-\[5vh\] {
+  margin-bottom: 5vh;
 }
 
 .mb-\[7vh\] {
@@ -1568,6 +1468,10 @@ video {
   height: 25vh;
 }
 
+.h-\[27vh\] {
+  height: 27vh;
+}
+
 .h-\[30vh\] {
   height: 30vh;
 }
@@ -1700,14 +1604,6 @@ video {
   height: 100vh;
 }
 
-.h-\[23vh\] {
-  height: 23vh;
-}
-
-.h-\[27vh\] {
-  height: 27vh;
-}
-
 .w-\[\.6vw\] {
   width: .6vw;
 }
@@ -1778,6 +1674,10 @@ video {
 
 .w-\[20vh\] {
   width: 20vh;
+}
+
+.w-\[22vh\] {
+  width: 22vh;
 }
 
 .w-\[23vh\] {
@@ -2002,18 +1902,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[27vh\] {
-  width: 27vh;
-}
-
-.w-\[32vh\] {
-  width: 32vh;
-}
-
-.w-\[22vh\] {
-  width: 22vh;
 }
 
 .flex-shrink {
@@ -3147,6 +3035,10 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-\[url\(\"\.\.\/assets\/tienda\/productos\/fondoStar\.png\"\)\] {
+  background-image: url("../assets/tienda/productos/fondoStar.png");
+}
+
 .bg-\[url\(\'\.\.\/assets\/home\/alimentacionMenu\.png\'\)\] {
   background-image: url('../assets/home/alimentacionMenu.png');
 }
@@ -3201,14 +3093,6 @@ video {
 
 .bg-\[url\(\'\.\.\/assets\/home\/saludMenu\.png\'\)\] {
   background-image: url('../assets/home/saludMenu.png');
-}
-
-.bg-\[url\(\'\.\.\/assets\/tienda\/btnGratis\.png\'\)\] {
-  background-image: url('../assets/tienda/btnGratis.png');
-}
-
-.bg-\[url\(\'\.\.\/assets\/tienda\/btnObtener\.png\'\)\] {
-  background-image: url('../assets/tienda/btnObtener.png');
 }
 
 .bg-\[url\(\'\.\.\/assets\/tienda\/productos\/fondo\.jpg\'\)\] {
@@ -3922,10 +3806,6 @@ video {
   opacity: 0.5;
 }
 
-.opacity-80 {
-  opacity: 0.8;
-}
-
 .bg-blend-normal {
   background-blend-mode: normal;
 }
@@ -4559,6 +4439,30 @@ img{
   to{
     background-position-x: -40vh;
   }
+}
+
+.boton_gratis{
+  background-image: url('../assets/tienda/btnGratis.png');
+}
+
+.boton_obtener{
+  background-image: url('../assets/tienda/btnObtener.png');
+}
+
+.bg_alimentacion{
+  background-image: url('../assets/vistas/alimentacion/fondo.jpg');
+}
+
+.bg_salud-aseo{
+  background-image: url('../assets/vistas/salud/fondo.jpg');
+}
+
+.bg_descanso{
+  background-image: url('../assets/vistas/descanso/fondo.jpg');
+}
+
+.bg_minijuegos{
+  background-image: url('../assets/vistas/juegos/fondo.jpg');
 }
 
 @media (min-width: 640px) {

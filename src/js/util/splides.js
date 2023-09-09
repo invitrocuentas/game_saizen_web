@@ -15,6 +15,7 @@ const splidesListado = () => {
         const splide = new Splide( '#productos', {
             perPage: 4,
             type   : 'loop',
+            clones: false,
             pagination: false
         } );
         

@@ -1,4 +1,5 @@
 import { postInicio, postVerify } from "../../services/user.service";
+import { postAlmacen } from "../../services/almacen.service";
 import { URL } from "../../config/const/api.const";
 
 const homeInicio = async () => {
@@ -6,17 +7,16 @@ const homeInicio = async () => {
         try {
 
             window.identificador = window.parent.identificador;
-
-            if(!window.objUsuario){
+            if(!window.parent.objUsuario){
                 const rsp = await postVerify({id_user: window.identificador});
                 if(!rsp.existe){
                     window.location.href = URL+'index.html';
                 }else{
-                    window.objUsuario = JSON.stringify(rsp.data[0]);
+                    window.parent.objUsuario = JSON.stringify(rsp.data[0]);
                 }
             }
 
-            const datosUser = JSON.parse(window.objUsuario);
+            const datosUser = JSON.parse(window.parent.objUsuario);
 
             if(document.querySelector('#monedasUsuario')){
                 document.getElementById('monedasUsuario').textContent = datosUser.puntos;
@@ -62,6 +62,41 @@ const homeInicio = async () => {
                         estadoPorcentaje.classList.add(colorText[2]);
                         estadoCarga.style.backgroundImage = gradients[2];
                     }
+            }
+
+            if(document.getElementById('almacenTabs')){
+
+                if(!window.almacen){
+                    const rsp = await postAlmacen({id_usuario: datosUser.id});
+                    window.almacen = rsp.inventario;
+                }
+
+                function obtenerCantidadPorNombre(nombre) {
+                    let cantidadTotal = 0;
+                    var objAlmacen = window.almacen;
+                
+                    for (const categoria in objAlmacen) {
+                        for (const idProducto in objAlmacen[categoria]) {
+                            const producto = objAlmacen[categoria][idProducto];
+                            if (producto.nombre_producto.toLowerCase() === nombre.toLowerCase()) {
+                                cantidadTotal += producto.cantidad;
+                            }
+                        }
+                    }
+                
+                    return cantidadTotal;
+                }
+
+                var productosAlmacen = document.querySelectorAll('.productoAlmacen ');
+
+                productosAlmacen.forEach(producto => {
+                    const cantidad = obtenerCantidadPorNombre(producto.dataset.nombre);
+                    producto.querySelector('.cantidadProducto').textContent = cantidad;
+
+                    if(cantidad > 0){
+                        producto.classList.remove('item_inhabilitado');
+                    }
+                });
             }
             
         } catch (error) {
