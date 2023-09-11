@@ -15,7 +15,6 @@ const splidesListado = () => {
         const splide = new Splide( '#productos', {
             perPage: 4,
             type   : 'loop',
-            clones: false,
             pagination: false
         } );
         
@@ -25,11 +24,13 @@ const splidesListado = () => {
     if(document.querySelector('#productosVer')){
         const splide = new Splide( '#productosVer', {
             perPage: 1,
-            type   : 'loop',
+            type  : 'fade',
+            rewind: true,
             pagination: false
         } );
         
         splide.mount();
+        splide.go(window.parent.producto);
     }
 
     if(document.querySelector('#alimentosVer')){

@@ -134,7 +134,8 @@ img{
   background-size: contain !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  left: -15vh !important;
+  left: -6vh !important;
+  top: 4vh !important;
   opacity: 1 !important;
 }
 
@@ -144,12 +145,13 @@ img{
   background-position: center !important;
   background-repeat: no-repeat !important;
   right: -15vh !important;
+  top: 4vh !important;
   opacity: 1 !important;
 }
 
 #productosVer .splide__arrow{
-  height: 13vh !important;
-  width: 13vh !important;
+  height: 9vh !important;
+  width: 9vh !important;
 }
 
 #productosVer .splide__arrow:hover{

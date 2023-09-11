@@ -3030,9 +3030,18 @@ video {
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\"\.\.\/assets\/tienda\/productos\/fondoStar\.png\"\)\] {
@@ -3185,6 +3194,10 @@ video {
 
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.bg-\[url\(\\\"\.\.\/assets\/tienda\/productos\/fondoStar\.png\\\"\)\] {
+  background-image: url(\"../assets/tienda/productos/fondoStar.png\");
 }
 
 .from-\[\#b8e3ea\] {
@@ -3744,6 +3757,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-gray-100 {
+  --tw-text-opacity: 1;
+  color: rgb(243 244 246 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -4233,7 +4251,8 @@ img{
   background-size: contain !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  left: -15vh !important;
+  left: -6vh !important;
+  top: 4vh !important;
   opacity: 1 !important;
 }
 
@@ -4243,12 +4262,13 @@ img{
   background-position: center !important;
   background-repeat: no-repeat !important;
   right: -15vh !important;
+  top: 4vh !important;
   opacity: 1 !important;
 }
 
 #productosVer .splide__arrow{
-  height: 13vh !important;
-  width: 13vh !important;
+  height: 9vh !important;
+  width: 9vh !important;
 }
 
 #productosVer .splide__arrow:hover{

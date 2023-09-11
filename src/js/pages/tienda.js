@@ -48,10 +48,8 @@ const tiendaOpciones = async () => {
 const tiendaProductos = async () => {
     if(document.querySelector("#productosLista")){
         try {
-
-            document.getElementById('loader').classList.remove('hidden');
-            document.getElementById('loader').classList.add(`bg_${window.parent.slugProduct}`);
             document.getElementById('fondoProductos').classList.add(`bg_${window.parent.slugProduct}`);
+            document.getElementById('loader').classList.remove('hidden');
 
             if(!window.parent.productosList){
                 window.location.href = URL+'tienda/tiendaOpciones.html';
@@ -70,11 +68,11 @@ const tiendaProductos = async () => {
                 }
     
                 // Crea una función para generar un elemento li con el formato deseado
-                function crearElementoLi(nombre, imagenSrc, puntos) {
+                function crearElementoLi(nombre, imagenSrc, puntos, index) {
                     const liElement = document.createElement('li');
                     liElement.classList.add('splide__slide');
                 
-                    const divElement = document.createElement('div');
+                    const divElement = document.createElement('button');
                     divElement.classList.add(
                     'flex',
                     'flex-col',
@@ -151,14 +149,20 @@ const tiendaProductos = async () => {
                     }
     
                     divElement.appendChild(buttonElement);
+
+                    // Agregar un controlador de eventos onclick al botón
+                    divElement.onclick = async function () {
+                        window.parent.producto = index;
+                        window.location.href = URL+'producto/producto.html';
+                    };
                     
                     liElement.appendChild(divElement);
                 
                     return liElement;
                 }
     
-                objProductos.forEach((datos) => {
-                    const liElement = crearElementoLi(datos.nombre_producto, datos.imagen, datos.puntos_requeridos);
+                objProductos.forEach((datos, index) => {
+                    const liElement = crearElementoLi(datos.nombre_producto, datos.imagen, datos.puntos_requeridos, index);
                     ulElement.appendChild(liElement);
                 });
             }
@@ -170,7 +174,118 @@ const tiendaProductos = async () => {
     }
 }
 
+const productosVer = async () => {
+    if(document.querySelector('#productosVer')){
+        if(!window.parent.producto){
+            window.location.href = URL+'tienda/tiendaOpciones.html';
+        }else{
+            var objProductos = window.parent.productosList;
+            var ulElement = document.getElementById('productosList');
+
+            // Crea una función para generar un elemento li con el formato deseado
+            function crearElementoLi(nombre, imagenSrc, puntos, index) {
+                const liElement = document.createElement('li');
+                liElement.classList.add('splide__slide');
+            
+                const divElement = document.createElement('button');
+                divElement.classList.add(
+                'flex',
+                'flex-col',
+                'justify-between',
+                'items-center',
+                'shadow-lg',
+                'w-[30vh]',
+                'h-[90%]',
+                'bg-white',
+                'rounded-[2vh]',
+                'border-[#B35B3D]',
+                'border-[1vh]',
+                'relative'
+                );
+            
+                const nombreElement = document.createElement('span');
+                nombreElement.classList.add('text-[3vh]', 'text-[#009DC8]', 'font-boldenvan', 'w-full', 'text-center', 'px-[3vh]');
+                nombreElement.textContent = nombre;
+
+                const subDivElement = document.createElement('div');
+                subDivElement.classList.add('w-full', 'h-[80%]', 'flex', 'justify-center', 'items-center');
+            
+                const imgElement = document.createElement('img');
+                imgElement.classList.add('w-[70%]');
+                imgElement.src = '../../assets/tienda/productos/'+imagenSrc+'.png';
+                imgElement.alt = '';
+
+                subDivElement.appendChild(imgElement);
+            
+                const buttonElement = document.createElement('button');
+                var urlFondo = 'boton_gratis';
+                if(puntos > 0){
+                    urlFondo = "boton_obtener";
+                }
+
+                buttonElement.classList.add(urlFondo, 'bg-center', 'bg-contain', 'bg-no-repeat', 'absolute', '-bottom-[5vh]', 'h-[8vh]', 'w-[15vh]');
+            
+                divElement.appendChild(nombreElement);
+                divElement.appendChild(subDivElement);
+
+                if(puntos > 0){
+                    const divElementPrecio = document.createElement('div');
+                    divElementPrecio.classList.add(
+                      'flex',
+                      'justify-center',
+                      'items-center',
+                      'bg-[url("../assets/tienda/productos/fondoStar.png")]',
+                      'bg-center',
+                      'bg-contain',
+                      'bg-no-repeat',
+                      'absolute',
+                      '-bottom-[2vh]',
+                      '-right-[3.5vh]',
+                      'h-[10vh]',
+                      'w-[10vh]'
+                    );
+                    
+                    // Crear el elemento img dentro del div
+                    const imgElement = document.createElement('img');
+                    imgElement.classList.add('h-[4vh]');
+                    imgElement.src = '../../assets/tienda/productos/star.png';
+                    imgElement.alt = '';
+                    
+                    // Crear el elemento span dentro del div
+                    const spanElement = document.createElement('span');
+                    spanElement.classList.add('text-[3vh]', 'font-boldenvan', 'text-[#B35B3D]');
+                    spanElement.textContent = 'x'+puntos;
+                    
+                    // Agregar el imgElement y spanElement dentro del divElementPrecio
+                    divElementPrecio.appendChild(imgElement);
+                    divElementPrecio.appendChild(spanElement);
+                    
+                    divElement.appendChild(divElementPrecio);
+                }
+
+                divElement.appendChild(buttonElement);
+
+                // Agregar un controlador de eventos onclick al botón
+                divElement.onclick = async function () {
+                    window.parent.producto = index;
+                    window.location.href = URL+'producto/producto.html';
+                };
+                
+                liElement.appendChild(divElement);
+            
+                return liElement;
+            }
+
+            objProductos.forEach((datos, index) => {
+                const liElement = crearElementoLi(datos.nombre_producto, datos.imagen, datos.puntos_requeridos, index);
+                ulElement.appendChild(liElement);
+            });
+        }
+    }
+}
+
 export {
     tiendaOpciones,
-    tiendaProductos
+    tiendaProductos,
+    productosVer
 };
