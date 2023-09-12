@@ -7,65 +7,52 @@
     <link rel="stylesheet" href="../../dist/bundle.css">
 </head>
 <body>
-    <div class="bg-[url('../assets/tienda/productos/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+    <div id="fondoProductos" class="bg-[url('../assets/tienda/productos/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
         <img src="../../assets/vista_inicial/instrucciones.png" class="h-[75%] w-[54%] left-[10vh] absolute">
+        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-transparent bg-cover bg-no-repeat bg-center ">
+            <div class="animate-pulse flex relative h-full w-full">
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] left-[5vh]"></div>
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[3vh]"></div>
+                
+                <div class="h-[58vh] w-[75vh] bg-gray-200 rounded-[3vh] absolute top-[21vh] left-[17.7vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[58vh] w-[58vh] absolute top-[36vh] right-[24vh]"></div>
+                
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[7.5vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[22.5vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[37.5vh]"></div>
+            </div>
+        </div>
         <div class="absolute h-[90vh] w-[95vw] flex justify-center items-center">
             <!-- puntuacion -->
             <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../assets/home/iconoEstrella.png" alt="">
-                <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
+                <span id="monedasUsuario" class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">0</span>
                 <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- niveles y menu -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
                 <img class="h-[15vh] w-[17vw]" src="../../assets/home/nivel1.png" alt="">
-                <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
+                <span id="nivelUsuario" class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">0</span>
             </div>
             <!-- introduccion tienda -->
             <div class="left-[10vh] absolute h-[80vh] w-[87vh] flex flex-col justify-center items-center">
                 <section id="productosVer" class="splide w-[90vh] h-[64vh] !p-0" aria-label="Splide Basic HTML Example">
                     <div class="splide__track h-full">
-                        <ul class="splide__list">
-                            <li class="splide__slide">
-                                <div class="flex justify-between items-center shadow-lg w-full h-[90%] relative">
-                                    <div class="w-full h-[80%] flex flex-col justify-center items-center gap-[2vh]">
-                                        <span class="text-[4vh] text-[#015989] font-boldenvan w-full text-center px-[3vh]">Antifaz</span>
-                                        <p class="text-[#7B90A1] font-boogaloo_regular text-[2.5vh] text-center px-[1vh]">¡Ponle un antifaz a <<nombre del avatar>> para que pueda descansar mejor!</p>
-                                        <div class="relative flex justify-center items-center gap-[1vh]">
-                                            <div class="flex justify-center items-center bg-[url('../assets/tienda/productos/fondoStar.png')] bg-center bg-contain bg-no-repeat h-[10vh] w-[10vh]">
-                                                <img class="h-[4vh]" src="../../assets/tienda/productos/star.png" alt="">
-                                                <span class="text-[3vh] font-boldenvan text-[#B35B3D]">x15</span>
-                                            </div>
-                                            <button data-modal="confirmarCompra" class="open-modal-button bg-[url('../assets/home/nombreAvatar.png')] bg-center bg-[length:100%_100%] bg-no-repeat h-[5vh] w-[15vh] text-[2.3vh] text-center text-[#B35B3D] font-boldenvan hover:scale-105 duration-500 ease-in-out">Obtener</button>
-                                        </div>
-                                    </div>
-                                    <img class="w-[40vh]" src="../../assets/tienda/productos/antifaz.png" alt="">
-                                </div>
-                            </li>
-                            <li class="splide__slide">
-                                <div class="flex justify-between items-center shadow-lg w-full h-[90%] relative">
-                                    <div class="w-full h-[80%] flex flex-col justify-center items-center gap-[2vh]">
-                                        <span class="text-[4vh] text-[#015989] font-boldenvan w-full text-center px-[3vh]">Pijama</span>
-                                        <p class="text-[#7B90A1] font-boogaloo_regular text-[2.5vh] text-center px-[1vh]">A NOMBRE AVATAR le gustaría una pijama para dormir más cómodo(a).</p>
-                                        <div class="relative flex justify-center items-center gap-[1vh]">
-                                            <div class="flex justify-center items-center bg-[url('../assets/tienda/productos/fondoStar.png')] bg-center bg-contain bg-no-repeat h-[10vh] w-[10vh]">
-                                                <img class="h-[4vh]" src="../../assets/tienda/productos/star.png" alt="">
-                                                <span class="text-[3vh] font-boldenvan text-[#B35B3D]">x10</span>
-                                            </div>
-                                            <button data-modal="confirmarCompra" class="open-modal-button bg-[url('../assets/home/nombreAvatar.png')] bg-center bg-[length:100%_100%] bg-no-repeat h-[5vh] w-[15vh] text-[2.3vh] text-center text-[#B35B3D] font-boldenvan hover:scale-105 duration-500 ease-in-out">Obtener</button>
-                                        </div>
-                                    </div>
-                                    <img class="w-[40vh]" src="../../assets/tienda/productos/pijama.png" alt="">
-                                </div>
-                            </li>
+                        <ul id="productosList" class="splide__list">
+                        </ul>
+                    </div>
+                </section>
+                <section id="productoEntretenimiento" class="hidden w-[90vh] h-[64vh] !p-0" aria-label="Splide Basic HTML Example">
+                    <div class="splide__track h-full">
+                        <ul id="productosListEntretenimiento" class="splide__list">
                         </ul>
                     </div>
                 </section>
             </div>
 
             <!-- Personaje -->
-            <img class="absolute bottom-0 right-[20vh] h-[60vh]" src="../../assets/home/zen_feliz.png" alt="">
+            <img class="absolute bottom-0 right-[20vh] h-[58vh]" src="../../assets/home/zen_feliz.png" alt="">
 
             <!-- inicio -->
             <a href="../inicio/home.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
@@ -104,8 +91,8 @@
             <img class="h-[12vh]" src="../../assets/home/cerrarModal.png" alt="">
         </button>
         <div class="h-[50vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center gap-[4vh] px-[8vh] text-center">
-            <span class="text-[#015989] font-boldenvan text-[5vh]">NOMBRE DEL PRODUCTO</span>
-            <span class="text-[#7B90A1] text-[4vh] font-boogaloo_regular text-justify">Ahora cuentas con NOMBRE DEL PRODUCTO en tu almacén. Dirígete a la zona correspondiente para utilizarlo.</span>
+            <span id="nombre_producto_ver" class="text-[#015989] font-boldenvan text-[5vh]"></span>
+            <span id="descripcion_producto_ver" class="text-[#7B90A1] text-[4vh] font-boogaloo_regular text-justify"></span>
         </div>
     </div>
 

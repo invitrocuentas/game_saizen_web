@@ -7,11 +7,10 @@ const politicas_privacidad = async () => {
         try {
             const politicas_privacidad = document.getElementById('politicas_privacidad');
             const botonPoliticas = document.getElementById('botonPoliticas');
-            window.identificador = window.parent.identificador;
 
-            if(window.identificador){
+            if(window.parent.identificador){
 
-                const rsp = await postVerify({id_user: window.identificador});
+                const rsp = await postVerify({id_user: window.parent.identificador});
 
                 if(rsp.existe){
                     window.parent.objUsuario = rsp.datos;
@@ -141,14 +140,14 @@ const cambioPanel = () => {
         nexthome.addEventListener('click', async () => {
             try {
 
-                window.objUsuario = {
+                window.parent.objUsuario = {
                     id_user: identificador,
                     personaje: selectedPersonaje,
                     genero: selectedGenero,
                     avatar: inputField.value
                 }
                 
-                const rsp = await postInicio(window.objUsuario);
+                const rsp = await postInicio(window.parent.objUsuario);
 
                 if(rsp.data){
                     window.location.href = URL+'inicio/home.html';

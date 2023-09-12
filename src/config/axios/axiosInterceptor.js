@@ -42,6 +42,10 @@ clienteAxios.interceptors.response.use(
         throw ({
             message: data.msg
         });
+        // return Promise.reject({
+        //   data,
+        //   message: data.msg
+        // });
     }
 
   },

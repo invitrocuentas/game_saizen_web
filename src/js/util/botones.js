@@ -43,17 +43,15 @@ const modalesAcciones = () => {
 const vibracionBtn = () => {
     if(document.querySelector('#btnVibrar')){
         var btnvibrar = document.querySelector('#btnVibrar');
-        var elemento = document.querySelector('.veloOcultar');
-        var isActive = false;
+        var vibracionButton = parseInt(localStorage.getItem('vibracion'));
+        var elementoButton = document.querySelector('.veloOcultar');
+
+        elementoButton.classList.toggle("hidden", vibracionButton === 0);
 
         btnvibrar.addEventListener('click', () => {
-            isActive = !isActive; // Cambiar el estado activo/desactivo
-
-            if (isActive) {
-                elemento.classList.remove("hidden");
-            } else {
-                elemento.classList.add("hidden");
-            }
+            vibracionButton = vibracionButton === 1 ? 0 : 1;
+            elementoButton.classList.toggle("hidden", vibracionButton === 0);
+            localStorage.setItem('vibracion', vibracionButton);
         });
     }
 }

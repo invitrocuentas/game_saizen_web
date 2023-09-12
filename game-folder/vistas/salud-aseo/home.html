@@ -14,7 +14,7 @@
             <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../../assets/home/iconoEstrella.png" alt="">
-                <span id="monedasUsuario" class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
+                <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
                 <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[4vh] w-[4vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- menu -->
@@ -33,26 +33,26 @@
             <!-- niveles -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
                 <img class="h-[15vh] w-[17vw]" src="../../../assets/home/nivel1.png" alt="">
-                <span id="nivelUsuario" class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
+                <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
             </div>
 
             <!-- Estados -->
             <div class="absolute bg-[url('../assets/vistas/juegos/bannerInfo.png')] bg-contain bg-no-repeat bg-center h-[10vh] w-[80vh] flex justify-center items-center gap-[8vh]">
                 <div class="w-[7vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoAlimentacion.png" alt="">
-                    <img id="estado_alimentacion" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoAlimentacion.png" alt="">
                 </div>
                 <div class="w-[10vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoSalud.png" alt="">
-                    <img id="estado_salud" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoSalud.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoSalud.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoSalud.png" alt="">
                 </div>
                 <div class="w-[7vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoDescanso.png" alt="">
-                    <img id="estado_descanso" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoDescanso.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoDescanso.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoDescanso.png" alt="">
                 </div>
                 <div class="w-[10vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
-                    <img id="estado_game" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoEntretenimiento.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoEntretenimiento.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
                 </div>
             </div>
 
@@ -80,10 +80,10 @@
                 <!-- estado -->
                 <div class="absolute top-[3vh] flex justify-center items-center">
                     <div class="bg-[url('../assets/home/estadoCarga.png')] bg-center bg-contain bg-no-repeat h-[9vh] w-[60vh]">
-                        <div id="estadoCarga" style="clip-path: inset(0 49% 0 0); background-image: linear-gradient(to bottom, #E7DC77, #C8B400, #8E8500, #895C01);" class="absolute h-full w-full top-0 left-0 rounded-full flex"></div>
-                        <img id="personajeCarga" style="left: 43%;" class="absolute top-[1vh] h-[9vh] w-auto" src="../../../assets/vista_inicial/Zen.png" alt="">
+                        <div style="clip-path: inset(0 49% 0 0); background-image: linear-gradient(to bottom, #E7DC77, #C8B400, #8E8500, #895C01);" class="absolute h-full w-full top-0 left-0 rounded-full flex"></div>
+                        <img style="left: 43%;" class="absolute top-[1vh] h-[9vh] w-auto" src="../../../assets/vista_inicial/Zen.png" alt="">
                     </div>
-                    <span id="estadoPorcentaje" class="absolute font-boldenvan text-white text-[5vh] texto-borde_estado_50 font-black">
+                    <span class="absolute font-boldenvan text-white text-[5vh] texto-borde_estado_50 font-black">
                         Estado: 50%
                     </span>
                 </div>
@@ -91,9 +91,9 @@
 
             <!-- botones de juego -->
             <div class="absolute right-0 w-[50vh] h-full flex flex-col justify-center items-center">
-                <section id="alimentosVer" class="splide w-[20vh] h-[60vh] !p-0" aria-label="Splide Basic HTML Example">
+                <section id="saludVer" class="splide w-[20vh] h-[60vh] !p-0" aria-label="Splide Basic HTML Example">
                     <div class="splide__track h-full">
-                        <ul id="alimentosList" class="splide__list">
+                        <ul id="saludList" class="splide__list">
                         </ul>
                     </div>
                 </section>
@@ -379,7 +379,7 @@
         <div class="h-[60vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center px-[6vh]">
             <div class="flex flex-row justify-center items-center w-full h-[50vh] relative">
                     <p class="text-[#7B90A1] font-boldenvan text-[3.5vh]">
-                        Por comer frutas, <span class="nombrePersonajeVer"></span> obtuvo 15 puntos. ¡Qué bueno que estás incluyendo alimentos nutritivos en su dieta!
+                        Por comer frutas, NOMBRE DEL AVATAR obtuvo 15 puntos. ¡Qué bueno que estás incluyendo alimentos nutritivos en su dieta!
                     </p>
                 <div class="relative h-full w-[83vw]">
                     <img class="absolute h-[34vh] w-full top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">

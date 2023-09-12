@@ -851,6 +851,10 @@ video {
   left: 0px;
 }
 
+.left-\[0\.2vh\] {
+  left: 0.2vh;
+}
+
 .left-\[10vh\] {
   left: 10vh;
 }
@@ -931,6 +935,10 @@ video {
   left: 66vh;
 }
 
+.left-\[6vh\] {
+  left: 6vh;
+}
+
 .left-\[7\.5vh\] {
   left: 7.5vh;
 }
@@ -953,10 +961,6 @@ video {
 
 .left-\[88\%\] {
   left: 88%;
-}
-
-.left-\[8vh\] {
-  left: 8vh;
 }
 
 .left-\[90\.7vh\] {
@@ -993,6 +997,10 @@ video {
 
 .right-\[22vh\] {
   right: 22vh;
+}
+
+.right-\[24vh\] {
+  right: 24vh;
 }
 
 .right-\[3\%\] {
@@ -1047,6 +1055,14 @@ video {
   top: 0.4vh;
 }
 
+.top-\[0\.7vh\] {
+  top: 0.7vh;
+}
+
+.top-\[1\.5vh\] {
+  top: 1.5vh;
+}
+
 .top-\[12\%\] {
   top: 12%;
 }
@@ -1083,6 +1099,10 @@ video {
   top: 20vh;
 }
 
+.top-\[21vh\] {
+  top: 21vh;
+}
+
 .top-\[23vh\] {
   top: 23vh;
 }
@@ -1103,6 +1123,10 @@ video {
   top: 32vh;
 }
 
+.top-\[36vh\] {
+  top: 36vh;
+}
+
 .top-\[37vh\] {
   top: 37vh;
 }
@@ -1115,8 +1139,8 @@ video {
   top: 40vh;
 }
 
-.top-\[43vh\] {
-  top: 43vh;
+.top-\[42vh\] {
+  top: 42vh;
 }
 
 .top-\[4vh\] {
@@ -1516,6 +1540,10 @@ video {
   height: 55vh;
 }
 
+.h-\[58vh\] {
+  height: 58vh;
+}
+
 .h-\[5vh\] {
   height: 5vh;
 }
@@ -1540,6 +1568,10 @@ video {
   height: 65vh;
 }
 
+.h-\[66\%\] {
+  height: 66%;
+}
+
 .h-\[6vh\] {
   height: 6vh;
 }
@@ -1554,6 +1586,10 @@ video {
 
 .h-\[75\%\] {
   height: 75%;
+}
+
+.h-\[77\%\] {
+  height: 77%;
 }
 
 .h-\[7vh\] {
@@ -1586,6 +1622,10 @@ video {
 
 .h-\[90vh\] {
   height: 90vh;
+}
+
+.h-\[99\%\] {
+  height: 99%;
 }
 
 .h-\[9vh\] {
@@ -1774,6 +1814,10 @@ video {
 
 .w-\[57vh\] {
   width: 57vh;
+}
+
+.w-\[58vh\] {
+  width: 58vh;
 }
 
 .w-\[5vh\] {
@@ -3039,11 +3083,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-gray-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-}
-
 .bg-\[url\(\"\.\.\/assets\/tienda\/productos\/fondoStar\.png\"\)\] {
   background-image: url("../assets/tienda/productos/fondoStar.png");
 }
@@ -3106,10 +3145,6 @@ video {
 
 .bg-\[url\(\'\.\.\/assets\/tienda\/productos\/fondo\.jpg\'\)\] {
   background-image: url('../assets/tienda/productos/fondo.jpg');
-}
-
-.bg-\[url\(\'\.\.\/assets\/tienda\/productos\/fondoStar\.png\'\)\] {
-  background-image: url('../assets/tienda/productos/fondoStar.png');
 }
 
 .bg-\[url\(\'\.\.\/assets\/vista_inicial\/boton_aceptar\.png\'\)\] {
@@ -3194,10 +3229,6 @@ video {
 
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\\\"\.\.\/assets\/tienda\/productos\/fondoStar\.png\\\"\)\] {
-  background-image: url(\"../assets/tienda/productos/fondoStar.png\");
 }
 
 .from-\[\#b8e3ea\] {
@@ -3370,11 +3401,6 @@ video {
   padding-right: .7vh;
 }
 
-.px-\[1vh\] {
-  padding-left: 1vh;
-  padding-right: 1vh;
-}
-
 .px-\[1vw\] {
   padding-left: 1vw;
   padding-right: 1vw;
@@ -3545,6 +3571,10 @@ video {
 
 .text-\[1vw\] {
   font-size: 1vw;
+}
+
+.text-\[2\.1vh\] {
+  font-size: 2.1vh;
 }
 
 .text-\[2\.3vh\] {
@@ -3755,11 +3785,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-gray-100 {
-  --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -4469,6 +4494,14 @@ img{
   background-image: url('../assets/tienda/btnObtener.png');
 }
 
+.bg_valor{
+  background-image: url('../assets/tienda/productos/fondoStar.png');
+}
+
+.boton_ir_usuario{
+  background-image: url('../assets/home/fondoDato.png');
+}
+
 .bg_alimentacion{
   background-image: url('../assets/vistas/alimentacion/fondo.jpg');
 }
@@ -4483,6 +4516,10 @@ img{
 
 .bg_minijuegos{
   background-image: url('../assets/vistas/juegos/fondo.jpg');
+}
+
+.paddingx-1{
+  padding: 0 1vh;
 }
 
 @media (min-width: 640px) {

@@ -59,7 +59,7 @@ const cambiarVolumen = () => {
                     muteDiv.classList.add("hidden");
                 }
             
-                window.parent.postMessage({ type: "cambiarVolumen", volumen: percentage }, "*");
+                window.parent.postMessage({ type: "cambiarVolumen", volumen: percentage, tipo: muteDivId }, "*");
             }
         });
     }

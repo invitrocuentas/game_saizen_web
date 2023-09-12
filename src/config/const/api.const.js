@@ -2,6 +2,7 @@ const API_URL = "https://linksiv.com/revision/regional/api/";
 // TIENDA OPCIONES
 const API_URL_TIENDA_LIST = "tienda/index";
 const API_URL_PRODUCTOS_LIST = "modulos/index?";
+const API_URL_PRODUCTOS_BUY = "tienda/compras";
 
 // AUTENTIFICACION
 const API_URL_USER_REGISTER = "auth/inicio";
@@ -20,5 +21,6 @@ export {
     API_URL_USER_VERIFY,
     URL,
     API_URL_ALMACEN,
-    API_URL_PRODUCTOS_LIST
+    API_URL_PRODUCTOS_LIST,
+    API_URL_PRODUCTOS_BUY
 }

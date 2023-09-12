@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="../../../dist/bundle.css">
 </head>
 <body>
-    <div class="bg-[url('../assets/vistas/alimentacion/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+    <div class="bg-[url('../assets/vistas/juegos/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
         <img src="../../../assets/vista_inicial/instrucciones.png" class="h-[85%] w-[82%]">
         <div class="absolute h-[90vh] w-[95vw] flex justify-center">
             <!-- puntuacion -->
             <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../../assets/home/iconoEstrella.png" alt="">
-                <span id="monedasUsuario" class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
-                <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[4vh] w-[4vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
+                <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
+                <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- menu -->
             <div class="absolute top-[12vh] -left-[1vh] h-[14vh] flex justify-center items-center gap-[3vh] z-10">
@@ -23,36 +23,29 @@
                     <img class="h-full hover:-rotate-[25deg] duration-500 ease-in-out" src="../../../assets/home/menu.png" alt="">
                 </button>
             </div>
-            <!-- Notificaciones de accion (Bañarse, Comer, Descanso) -->
-            <div class="absolute top-[23vh] -left-[1vh] h-[14vh] flex justify-center items-center gap-[3vh] z-10">
-                <button data-modal="accionPersonaje" class="open-modal-button hover:scale-105 duration-500 ease-in-out bg-[url('../assets/home/fondoMenu.png')] bg-center bg-cover bg-no-repeat h-[10vh] w-[13vh] flex justify-center items-center p-[1vh] mt-[1.5vh]">
-                    <img class="h-full hover:-rotate-[25deg] duration-500 ease-in-out" src="../../../assets/tienda/productos/cepillarse.png" alt="">
-                </button>
-                <button data-modal="inCepillarse" class="open-modal-button absolute z-10 h-[4vh] w-[4vh] bottom-0 left-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
-            </div>
             <!-- niveles -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
                 <img class="h-[15vh] w-[17vw]" src="../../../assets/home/nivel1.png" alt="">
-                <span id="nivelUsuario" class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
+                <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
             </div>
 
             <!-- Estados -->
             <div class="absolute bg-[url('../assets/vistas/juegos/bannerInfo.png')] bg-contain bg-no-repeat bg-center h-[10vh] w-[80vh] flex justify-center items-center gap-[8vh]">
                 <div class="w-[7vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoAlimentacion.png" alt="">
-                    <img id="estado_alimentacion" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoAlimentacion.png" alt="">
                 </div>
                 <div class="w-[10vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoSalud.png" alt="">
-                    <img id="estado_salud" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoSalud.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoSalud.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoSalud.png" alt="">
                 </div>
                 <div class="w-[7vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoDescanso.png" alt="">
-                    <img id="estado_descanso" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoDescanso.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoDescanso.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoDescanso.png" alt="">
                 </div>
                 <div class="w-[10vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
-                    <img id="estado_game" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoEntretenimiento.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoEntretenimiento.png" alt="">
+                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
                 </div>
             </div>
 
@@ -60,9 +53,9 @@
             <div class="absolute h-[70vh] w-[70vh] bottom-0 flex justify-center">
                 <!-- Personaje -->
                 <div class="absolute top-[18vh] h-[50vh] w-full flex justify-center">
-                    <div class="absolute -top-[5vh] -left-[10vh] bg-[url('../assets/home/nubeDialogo.png')] bg-center bg-contain bg-no-repeat h-[20vh] w-[30vh] flex justify-center items-center pb-[3vh] pr-[3vh]">
+                    <div class="hidden absolute -top-[5vh] -left-[10vh] bg-[url('../assets/home/nubeDialogo.png')] bg-center bg-contain bg-no-repeat h-[20vh] w-[30vh] flex justify-center items-center pb-[3vh] pr-[3vh]">
                         <span class="absolute w-[28vh] text-center -rotate-[20deg] text-[4vh] font-boldenvan text-white truncate">
-                            Tengo <br> Hambre
+                            Quiero <br> jugar
                         </span>
                     </div>
                     <div class="absolute bottom-0 flex justify-center items-center h-[40vh]">
@@ -80,23 +73,42 @@
                 <!-- estado -->
                 <div class="absolute top-[3vh] flex justify-center items-center">
                     <div class="bg-[url('../assets/home/estadoCarga.png')] bg-center bg-contain bg-no-repeat h-[9vh] w-[60vh]">
-                        <div id="estadoCarga" style="clip-path: inset(0 49% 0 0); background-image: linear-gradient(to bottom, #E7DC77, #C8B400, #8E8500, #895C01);" class="absolute h-full w-full top-0 left-0 rounded-full flex"></div>
-                        <img id="personajeCarga" style="left: 43%;" class="absolute top-[1vh] h-[9vh] w-auto" src="../../../assets/vista_inicial/Zen.png" alt="">
+                        <div style="clip-path: inset(0 49% 0 0); background-image: linear-gradient(to bottom, #E7DC77, #C8B400, #8E8500, #895C01);" class="absolute h-full w-full top-0 left-0 rounded-full flex"></div>
+                        <img style="left: 43%;" class="absolute top-[1vh] h-[9vh] w-auto" src="../../../assets/vista_inicial/Zen.png" alt="">
                     </div>
-                    <span id="estadoPorcentaje" class="absolute font-boldenvan text-white text-[5vh] texto-borde_estado_50 font-black">
+                    <span class="absolute font-boldenvan text-white text-[5vh] texto-borde_estado_50 font-black">
                         Estado: 50%
                     </span>
                 </div>
             </div>
 
+            <!-- Notificaciones de accion (Bañarse, Comer, Descanso) -->
+            <div class="h-full w-[50vh] absolute left-0 flex justify-center items-center">
+                <a href="#" class="absolute w-full flex justify-center items-center">
+                    <img class="hover:scale-105 duration-500 ease-in-out absolute w-[16vh] z-10 left-0" src="../../../assets/vistas/juegos/iconoJabon.png" alt="">
+                    <img class="absolute w-[50vh]" src="../../../assets/vistas/juegos/tituloBano.png" alt="">
+                </a>
+            </div>
+
             <!-- botones de juego -->
             <div class="absolute right-0 w-[50vh] h-full flex flex-col justify-center items-center">
-                <section id="alimentosVer" class="splide w-[20vh] h-[60vh] !p-0" aria-label="Splide Basic HTML Example">
-                    <div class="splide__track h-full">
-                        <ul id="alimentosList" class="splide__list">
-                        </ul>
-                    </div>
-                </section>
+                <button id="juegoObstaculos" class="relative h-[25vh] w-[20vh] flex justify-center items-center">
+                    <img class="absolute h-auto w-[87%] top-[6vh]" src="../../../assets/vistas/juegos/fondojuegos.png" alt="">
+                    <img class="absolute bottom-[7vh] h-[15vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/vistas/juegos/iconosObstaculos.png" alt="">
+                    <img class="absolute bottom-[2vh] h-[6.5vh]" src="../../../assets/vistas/juegos/tituloObstaculos.png" alt="">
+                </button>
+                <!-- bloqueado obstaculos -->
+                <div class="h-[25vh] w-[20vh] flex justify-center absolute top-[20vh]">
+                    <img class="absolute h-auto w-[89%] top-[3vh] z-10 opacity-40" src="../../../assets/vistas/juegos/contenidoObtaculos.png" alt="">
+                    <button class="absolute top-[4vh] right-[4vh] z-10">
+                        <img class="h-auto w-[5vh]" src="../../../assets/home/iconoInfo.png" alt="">
+                    </button>
+                </div>
+                <button id="juegoMemoria" data-modal="introMemoria" class="open-modal-button relative h-[25vh] w-[20vh] flex justify-center items-center">
+                    <img class="absolute h-auto w-[87%] top-[6vh]" src="../../../assets/vistas/juegos/fondojuegos.png" alt="">
+                    <img class="absolute bottom-[5vh] h-[15vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/vistas/juegos/iconosMemoria.png" alt="">
+                    <img class="absolute bottom-[2vh] h-[6.5vh]" src="../../../assets/vistas/juegos/tituloMemoria.png" alt="">
+                </button>
             </div>
 
             <!-- inicio -->
@@ -121,13 +133,6 @@
     </div>
 
     <!-- MODALES -->
-    <!-- info Cepillarse -->
-    <div id="inCepillarse" data-modalclose="inCepillarse" class="hidden modal cursor-pointer close w-[25vh] h-[12vh] absolute top-[42vh] left-[6vh] z-10">
-        <img class="z-10 h-full w-full" src="../../../assets/home/cuadroDialogo.png" alt="">
-        <div class="h-full w-full absolute z-30 top-0 text-center text-[2vh] font-boogaloo_regular flex-wrap p-[2vh] flex justify-center items-center text-[#7B90A1]">
-            <div>¡No olvides ayudar a <span class="nombrePersonajeVer"></span> a cepillarse los dientes después de cada comida!</div>
-        </div>
-    </div>
     <!-- info Puntos -->
     <div id="infoPuntos" data-modalclose="infoPuntos" class="hidden modal cursor-pointer close w-[28vh] h-[25vh] absolute top-[19vh] left-[20vh] z-10">
         <img class="z-10 h-full w-auto" src="../../../assets/home/cuadroDialogo.png" alt="">
@@ -368,28 +373,6 @@
             </a>
         </div>
     </div>
-
-    <!-- Accion Personaje (cepillar, alimentar) -->
-    <div id="accionPersonaje" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
-        <div data-modalclose="accionPersonaje" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
-        <img class="z-10 h-[65vh] w-[75vh]" src="../../../assets/home/popupMenu.png" alt="">
-        <button data-modalclose="accionPersonaje" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[13vh] right-[47vh]">
-            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
-        </button>
-        <div class="h-[60vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center px-[6vh]">
-            <div class="flex flex-row justify-center items-center w-full h-[50vh] relative">
-                    <p class="text-[#7B90A1] font-boldenvan text-[3.5vh]">
-                        Por comer frutas, <span class="nombrePersonajeVer"></span> obtuvo 15 puntos. ¡Qué bueno que estás incluyendo alimentos nutritivos en su dieta!
-                    </p>
-                <div class="relative h-full w-[83vw]">
-                    <img class="absolute h-[34vh] w-full top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
-                    <div class="absolute bottom-0 -right-[3vh] font-boldenvan text-[13vh] text-[#B35B3D]"><span class="text-[6vh]">x</span>15</div>
-                </div>
-            </div>
-            <button class="bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[3vh] py-[1vh] hover:scale-105 duration-500 ease-in-out text-[5vh] text-center text-[#B35B3D] font-boldenvan">Aceptar</button>
-        </div>
-    </div>
-
     <script src="../../../dist/bundle.js"></script>
 </body>
 </html>

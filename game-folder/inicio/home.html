@@ -76,11 +76,19 @@
                 </div>
             </div>
             <!-- menu lateral -->
-            <div class="absolute right-0 bottom-[4vh] h-[60vh] w-[26vw] bg-[url('../assets/home/fondoMenuLateral.png')] bg-center bg-contain bg-no-repeat flex flex-col justify-center items-end pr-[3vh]">
-                <a href="../vistas/alimentacion/index.html" class="cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/alimentacionMenu.png')] hover:-translate-x-3 duration-500 ease-in-out"></a>
-                <a href="../vistas/salud/index.html" class="cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/saludMenu.png')] hover:-translate-x-3 duration-500 ease-in-out"></a>
-                <a href="../vistas/descanso/index.html" class="cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/descansoMenu.png')] hover:-translate-x-3 duration-500 ease-in-out"></a>
-                <a href="../vistas/juegos/index.html" class="cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/entretenimientoMenu.png')] hover:-translate-x-3 duration-500 ease-in-out"></a>
+            <div id="menuLateral" class="absolute right-0 bottom-[4vh] h-[60vh] w-[26vw] bg-[url('../assets/home/fondoMenuLateral.png')] bg-center bg-contain bg-no-repeat flex flex-col justify-center items-end pr-[3vh]">
+                <a href="../vistas/alimentacion/index.html" class="relative cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/alimentacionMenu.png')] hover:-translate-x-3 duration-500 ease-in-out">
+                    <img id="estado_alimentacion" style="clip-path: inset(0 0 50% 0);" class="absolute h-[99%] z-0" src="../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
+                </a>
+                <a href="../vistas/salud-aseo/index.html" class="relative cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/saludMenu.png')] hover:-translate-x-3 duration-500 ease-in-out">
+                    <img id="estado_salud" style="clip-path: inset(0 0 50% 0);" class="absolute h-[66%] left-[0.2vh] top-[2vh] z-0" src="../../assets/vistas/juegos/contenidoSalud.png" alt="">
+                </a>
+                <a href="../vistas/descanso/index.html" class="relative cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/descansoMenu.png')] hover:-translate-x-3 duration-500 ease-in-out">
+                    <img id="estado_descanso" style="clip-path: inset(0 0 50% 0);" class="absolute h-[85%] top-[0.7vh] z-0" src="../../assets/vistas/juegos/contenidoDescanso.png" alt="">
+                </a>
+                <a href="../vistas/minijuegos/index.html" class="relative cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/entretenimientoMenu.png')] hover:-translate-x-3 duration-500 ease-in-out">
+                    <img id="estado_game" style="clip-path: inset(0 0 50% 0);" class="absolute h-[77%] top-[1.5vh] z-0" src="../../assets/vistas/juegos/contenidoEntretenimiento.png" alt="">
+                </a>
             </div>
         </div>
     </div>
@@ -192,7 +200,7 @@
             <div class="h-[25vh] w-[85%] bg-white rounded-[2vh] flex flex-col justify-center items-center">
                 <img class="h-[8vh]" src="../../assets/home/exclamacion.png" alt="">
                 <span class="text-center text-[4vh] font-boogaloo_regular text-[#7B90A1]">
-                    Recuerda dejar a NOMBRE DEL AVATAR <br> durmiendo para que pueda recuperar energía.
+                    Recuerda dejar a <span class="nombrePersonajeVer"></span> <br> durmiendo para que pueda recuperar energía.
                 </span>
             </div>
         </div>

@@ -345,6 +345,14 @@ img{
   background-image: url('../assets/tienda/btnObtener.png');
 }
 
+.bg_valor{
+  background-image: url('../assets/tienda/productos/fondoStar.png');
+}
+
+.boton_ir_usuario{
+  background-image: url('../assets/home/fondoDato.png');
+}
+
 .bg_alimentacion{
   background-image: url('../assets/vistas/alimentacion/fondo.jpg');
 }
@@ -356,4 +364,8 @@ img{
 }
 .bg_minijuegos{
   background-image: url('../assets/vistas/juegos/fondo.jpg');
+}
+
+.paddingx-1{
+  padding: 0 1vh;
 }

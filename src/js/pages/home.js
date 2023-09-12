@@ -3,12 +3,11 @@ import { postAlmacen } from "../../services/almacen.service";
 import { URL } from "../../config/const/api.const";
 
 const homeInicio = async () => {
-    if(document.querySelector('#monedasUsuario')){   
+    if(document.querySelector('#monedasUsuario') || document.querySelector('.nombrePersonajeVer')){   
         try {
 
-            window.identificador = window.parent.identificador;
             if(!window.parent.objUsuario){
-                const rsp = await postVerify({id_user: window.identificador});
+                const rsp = await postVerify({id_user: window.parent.identificador});
                 if(!rsp.existe){
                     window.location.href = URL+'index.html';
                 }else{
@@ -24,11 +23,77 @@ const homeInicio = async () => {
             if(document.querySelector('#nombreAvatar')){
                 document.getElementById('nombreAvatar').textContent = datosUser.avatar;
             }
+            if(document.querySelector('.nombrePersonajeVer')){
+                document.querySelector('.nombrePersonajeVer').textContent = datosUser.avatar;
+            }
             if(document.querySelector('#nombreAvatar2')){
                 document.getElementById('nombreAvatar2').textContent = datosUser.avatar;
             }
             if(document.querySelector('#nivelUsuario')){
                 document.getElementById('nivelUsuario').textContent = datosUser.nivel == null || datosUser.nivel == 'null' ? 1 : datosUser.nivel;
+            }
+            if(document.querySelector('#menuLateral')){
+
+                estadosGrowin(datosUser.estado_alimentacion, document.querySelector('#estado_alimentacion'));
+                estadosGrowin(datosUser.estado_salud, document.querySelector('#estado_salud'));
+                estadosGrowin(datosUser.estado_descanso, document.querySelector('#estado_descanso'));
+                estadosGrowin(datosUser.estado_game, document.querySelector('#estado_game'));
+
+                function estadosGrowin(estado, rangeFilled){
+                    var clipPathValue = "inset(0 0 " + estado +"% 0)";
+                    rangeFilled.style.clipPath = clipPathValue;
+                }
+                
+            }
+            if(document.querySelector('#menuPrincipal')){
+                var volumenAudio = localStorage.getItem('musicaAudio');
+                var volumenSonido = localStorage.getItem('sonidoAudio');
+                if(!volumenAudio){
+                    updateRange(50, 'musicaAudio')
+                }else{
+                    updateRange(volumenAudio * 100, 'musicaAudio');
+                }
+
+                if(!volumenSonido){
+                    updateRange(50, 'sonidoAudio')
+                }else{
+                    updateRange(volumenSonido * 100, 'sonidoAudio');
+                }
+
+                var vibracionButton = localStorage.getItem('vibracion');
+                var elementoButton = document.querySelector('.veloOcultar');
+                if(vibracionButton && vibracionButton == 1 ){
+                    elementoButton.classList.remove("hidden");
+                }else{
+                    elementoButton.classList.add("hidden");
+                    localStorage.setItem('vibracion', 0);
+                }
+
+                function updateRange(percentage, tipo) {
+
+                    var rangeThumb = document.querySelector('#'+tipo).parentElement.parentElement.querySelector(".range-thumb");
+                    var rangeFilled = document.querySelector('#'+tipo).parentElement.parentElement.querySelector(".range-filled");
+                    var muteDivId = rangeThumb.getAttribute("data-mute");
+                    var muteDiv = document.getElementById(muteDivId);
+
+                    if (percentage < 0) {
+                        percentage = 0;
+                    } else if (percentage > 100) {
+                        percentage = 100;
+                    }
+                
+                    var clipPathValue = "inset(0 " + (100 - percentage) + "% 0 0)";
+                    rangeThumb.style.left = (percentage - 12) + "%";
+                    rangeFilled.style.clipPath = clipPathValue;
+                
+                    if (percentage === 0) {
+                        muteDiv.classList.remove("hidden");
+                    } else {
+                        muteDiv.classList.add("hidden");
+                    }
+                
+                    window.parent.postMessage({ type: "cambiarVolumen", volumen: percentage, tipo: muteDivId }, "*");
+                }
             }
             
             if(document.getElementById("estadoPorcentaje")){
