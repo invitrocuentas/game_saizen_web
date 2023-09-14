@@ -26,19 +26,22 @@ const splidesListado = () => {
             perPage: 1,
             type  : 'fade',
             rewind: true,
-            pagination: false
+            pagination: false,
+            drag: false,
         } );
         
         splide.mount();
         splide.go(window.parent.producto);
     }
 
-    if(document.querySelector('#alimentosVer')){
-        const splide = new Splide( '#alimentosVer', {
+    if(document.querySelector('#itemsVer')){
+        const splide = new Splide( '#itemsVer', {
             direction: 'ttb',
             perPage: 3,
             height: '100%',
             type   : 'loop',
+            clones : false,
+            drag: false,
             pagination: false
         } );
         

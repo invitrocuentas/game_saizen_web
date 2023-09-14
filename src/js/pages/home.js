@@ -1,6 +1,6 @@
 import { postInicio, postVerify } from "../../services/user.service";
 import { postAlmacen } from "../../services/almacen.service";
-import { URL } from "../../config/const/api.const";
+import { URL, URL_ASSETS } from "../../config/const/api.const";
 
 const homeInicio = async () => {
     if(document.querySelector('#monedasUsuario') || document.querySelector('.nombrePersonajeVer')){   
@@ -17,6 +17,45 @@ const homeInicio = async () => {
 
             const datosUser = JSON.parse(window.parent.objUsuario);
 
+            if(document.querySelector('.imagenAvatarPrincipal')){
+                const imagenAvatar = document.querySelector('.imagenAvatarPrincipal');
+                let generoAvatar = '';
+
+                if(datosUser.genero == 'Niño'){
+                    generoAvatar = 'nino.png';
+                }else{
+                    generoAvatar = 'nino.png';
+                }
+
+                imagenAvatar.src = `${URL_ASSETS}avatares/${(datosUser.personaje).toLowerCase()}/imagenes/principal/${generoAvatar}`;
+            }
+
+            if(document.querySelector('.imagenAvatarEstados')){
+                const imagenAvatar = document.querySelectorAll('.imagenAvatarEstados');
+
+                imagenAvatar.forEach(element => {
+                    element.src = `${URL_ASSETS}avatares/${(datosUser.personaje).toLowerCase()}/imagenes/estados/default.png`;
+                });
+            }
+
+            if(document.querySelector('.imagenAvatarNivel')){
+                const imagenAvatar = document.querySelector('.imagenAvatarNivel');
+
+                // consulta a la bd para verificar el nivel en el que se encuentra.
+
+                imagenAvatar.src = `${URL_ASSETS}avatares/${(datosUser.personaje).toLowerCase()}/imagenes/niveles/nivel_1.png`;
+            }
+
+            if(document.querySelector('.imagenAvatarBoton')){
+                const imagenAvatar = document.querySelector('.imagenAvatarBoton');
+                imagenAvatar.src = `${URL_ASSETS}avatares/${(datosUser.personaje).toLowerCase()}/imagenes/boton/default.png`;
+            }
+
+            if(document.querySelector('.imagenAvatarAnuncio')){
+                const imagenAvatar = document.querySelector('.imagenAvatarAnuncio');
+                imagenAvatar.src = `${URL_ASSETS}avatares/${(datosUser.personaje).toLowerCase()}/imagenes/anuncios/default.png`;
+            }
+
             if(document.querySelector('#monedasUsuario')){
                 document.getElementById('monedasUsuario').textContent = datosUser.puntos;
             }
@@ -32,7 +71,7 @@ const homeInicio = async () => {
             if(document.querySelector('#nivelUsuario')){
                 document.getElementById('nivelUsuario').textContent = datosUser.nivel == null || datosUser.nivel == 'null' ? 1 : datosUser.nivel;
             }
-            if(document.querySelector('#menuLateral')){
+            if(document.querySelector('#estado_alimentacion')){
 
                 estadosGrowin(datosUser.estado_alimentacion, document.querySelector('#estado_alimentacion'));
                 estadosGrowin(datosUser.estado_salud, document.querySelector('#estado_salud'));
@@ -132,8 +171,8 @@ const homeInicio = async () => {
             if(document.getElementById('almacenTabs')){
 
                 if(!window.almacen){
-                    const rsp = await postAlmacen({id_usuario: datosUser.id});
-                    window.almacen = rsp.inventario;
+                    const {inventario} = await postAlmacen({id_usuario: datosUser.id});
+                    window.almacen = inventario;
                 }
 
                 function obtenerCantidadPorNombre(nombre) {

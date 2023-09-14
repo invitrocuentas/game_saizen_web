@@ -48,7 +48,7 @@
             </div>
             <!-- niveles -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
-                <img class="h-[15vh] w-[17vw]" src="../../../assets/home/nivel1.png" alt="">
+                <img class="imagenAvatarNivel h-[15vh] w-[17vw]" src="" alt="">
                 <span id="nivelUsuario" class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
             </div>
 
@@ -97,7 +97,7 @@
                 <div class="absolute top-[3vh] flex justify-center items-center">
                     <div class="bg-[url('../assets/home/estadoCarga.png')] bg-center bg-contain bg-no-repeat h-[9vh] w-[60vh]">
                         <div id="estadoCarga" style="clip-path: inset(0 49% 0 0); background-image: linear-gradient(to bottom, #E7DC77, #C8B400, #8E8500, #895C01);" class="absolute h-full w-full top-0 left-0 rounded-full flex"></div>
-                        <img id="personajeCarga" style="left: 43%;" class="absolute top-[1vh] h-[9vh] w-auto" src="../../../assets/vista_inicial/Zen.png" alt="">
+                        <img id="personajeCarga" style="left: 43%;" class="imagenAvatarEstados absolute h-[8vh] w-auto top-[0.5vh]" src="" alt="">
                     </div>
                     <span id="estadoPorcentaje" class="absolute font-boldenvan text-white text-[5vh] texto-borde_estado_50 font-black">
                         Estado: 50%
@@ -107,9 +107,9 @@
 
             <!-- botones de juego -->
             <div class="absolute right-0 w-[50vh] h-full flex flex-col justify-center items-center">
-                <section id="alimentosVer" class="splide w-[20vh] h-[60vh] !p-0" aria-label="Splide Basic HTML Example">
+                <section id="itemsVer" class="splide w-[20vh] h-[60vh] !p-0" aria-label="Splide Basic HTML Example">
                     <div class="splide__track h-full">
-                        <ul id="alimentosList" class="splide__list">
+                        <ul id="itemsList" data-slug="alimentacion" class="splide__list">
                         </ul>
                     </div>
                 </section>
@@ -118,7 +118,7 @@
             <!-- inicio -->
             <a href="../../inicio/home.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
                 <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
-                <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoInicio.png" alt="">
+                <img class="imagenAvatarBoton absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="" alt="">
                 <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloInicio.png" alt="">
             </a>
             <!-- volver -->
@@ -168,7 +168,7 @@
                     <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
                         <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
                             <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
-                            <img data-mute="musicaAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../../assets/vista_inicial/Zen.png" alt="">
+                            <img data-mute="musicaAudio" class="imagenAvatarEstados range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-auto" src="" alt="">
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                     <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
                         <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
                             <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
-                            <img data-mute="sonidoAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../../assets/vista_inicial/Zen.png" alt="">
+                            <img data-mute="sonidoAudio" class="imagenAvatarEstados range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-auto" src="" alt="">
                         </div>
                     </div>
                 </div>
@@ -395,7 +395,7 @@
         <div class="h-[60vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center px-[6vh]">
             <div class="flex flex-row justify-center items-center w-full h-[50vh] relative">
                 <p class="mensajeVerProducto text-[#7B90A1] font-boldenvan text-[3.5vh]"></p>
-                <div class="relative h-full w-[83vw]">
+                <div class="cantidadVerProducto relative h-full w-[83vw]">
                     <img class="absolute h-[34vh] w-full top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
                     <div class="absolute bottom-0 -right-[3vh] font-boldenvan text-[13vh] text-[#B35B3D]"><span class="text-[6vh]">x</span><span class="puntosVerAccion"></span></div>
                 </div>

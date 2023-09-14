@@ -67,7 +67,7 @@ img{
 
 /* productos botones splide */
 
-#alimentosVer button svg, #productosVer button svg,#productos button svg{
+#itemsVer button svg, #productosVer button svg,#productos button svg{
   display: none !important;
 }
 
@@ -89,12 +89,12 @@ img{
   opacity: 1 !important;
 }
 
-#alimentosVer .splide__arrow, #productosVer .splide__arrow, #productos .splide__arrow{
+#itemsVer .splide__arrow, #productosVer .splide__arrow, #productos .splide__arrow{
   height: 30vh !important;
   width: 10vh !important;
 }
 
-#alimentosVer .splide__arrow:hover, #productosVer .splide__arrow:hover, #productos .splide__arrow:hover{
+#itemsVer .splide__arrow:hover, #productosVer .splide__arrow:hover, #productos .splide__arrow:hover{
   scale: 105%;
   transition-duration: 500ms;
   transition: ease-in-out;
@@ -102,11 +102,11 @@ img{
 
 /* lista de alimentos */
 
-#alimentosVer .splide__arrow--prev{
+#itemsVer .splide__arrow--prev{
   display: none !important;
 }
 
-#alimentosVer .splide__arrow--next{
+#itemsVer .splide__arrow--next{
   background: url('../assets/vista_inicial/btnNext.png');
   background-size: contain !important;
   background-position: center !important;

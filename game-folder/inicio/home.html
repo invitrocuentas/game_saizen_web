@@ -30,7 +30,7 @@
             </div>
             <!-- niveles y menu -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
-                <img class="h-[15vh] w-[17vw]" src="../../assets/home/nivel1.png" alt="">
+                <img class="imagenAvatarNivel h-[15vh] w-[17vw]" src="" alt="">
                 <span id="nivelUsuario" class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">0</span>
                 <button data-modal="menuPrincipal" class="open-modal-button hover:scale-105 duration-500 ease-in-out bg-[url('../assets/home/fondoMenu.png')] bg-center bg-cover bg-no-repeat h-[10vh] w-[13vh] flex justify-center items-center p-[1vh] mt-[1.5vh]">
                     <img class="h-full hover:-rotate-[25deg] duration-500 ease-in-out" src="../../assets/home/menu.png" alt="">
@@ -56,19 +56,18 @@
                         </span>
                     </div>
                     <div class="absolute bottom-0 flex justify-center items-center h-[40vh]">
-                        <button class="bg-[url('../assets/vista_inicial/btnPrev.png')] bg-center bg-contain bg-no-repeat h-[10vh] w-[10vh] hover:scale-105 duration-500 ease-in-out"></button>
-                        <div class="h-[50vh] w-[45vh] px-[2vh] relative">
-                            <img class="avataresPerformance opacity-100 transition-opacity duration-500 ease-in-out absolute bottom-0 avatares h-[40vh]" src="../../assets/vista_inicial/Zen.png">
-                            <img class="avataresPerformance opacity-0 hidden transition-opacity duration-500 ease-in-out absolute bottom-0 avatares h-[40vh]" src="../../assets/vista_inicial/Zen.png">
+                        <!-- <button class="bg-[url('../assets/vista_inicial/btnPrev.png')] bg-center bg-contain bg-no-repeat h-[10vh] w-[10vh] hover:scale-105 duration-500 ease-in-out"></button> -->
+                        <div class="h-[50vh] w-[51vh] px-[2vh] relative">
+                            <img class="imagenAvatarPrincipal avataresPerformance opacity-100 transition-opacity duration-500 ease-in-out absolute bottom-[5vh] avatares h-[45vh]" src="">
                         </div>
-                        <button class="bg-[url('../assets/vista_inicial/btnNext.png')] bg-center bg-contain bg-no-repeat h-[10vh] w-[10vh] hover:scale-105 duration-500 ease-in-out"></button>
+                        <!-- <button class="bg-[url('../assets/vista_inicial/btnNext.png')] bg-center bg-contain bg-no-repeat h-[10vh] w-[10vh] hover:scale-105 duration-500 ease-in-out"></button> -->
                     </div>
                 </div>
                 <!-- estado -->
                 <div class="absolute bottom-0 flex justify-center items-center">
                     <div class="bg-[url('../assets/home/estadoCarga.png')] bg-center bg-contain bg-no-repeat h-[11vh] w-[74vh]">
                         <div id="estadoCarga" style="clip-path: inset(0 15% 0 0);" class="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-full flex"></div>
-                        <img id="personajeCarga" style="left: 77%;" class="absolute top-[1vh] h-[10vh] w-[10vh]" src="../../assets/vista_inicial/Zen.png" alt="">
+                        <img id="personajeCarga" style="left: 43%;" class="imagenAvatarEstados absolute h-[10vh] w-auto top-[0.5vh]" src="" alt="">
                     </div>
                     <span id="estadoPorcentaje" class="absolute font-boldenvan text-white text-[5vh] texto-borde_estado_85 font-black">
                         Estado: 85%
@@ -80,7 +79,7 @@
                 <a href="../vistas/alimentacion/index.html" class="relative cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/alimentacionMenu.png')] hover:-translate-x-3 duration-500 ease-in-out">
                     <img id="estado_alimentacion" style="clip-path: inset(0 0 50% 0);" class="absolute h-[99%] z-0" src="../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
                 </a>
-                <a href="../vistas/salud-aseo/index.html" class="relative cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/saludMenu.png')] hover:-translate-x-3 duration-500 ease-in-out">
+                <a href="../vistas/salud/index.html" class="relative cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/saludMenu.png')] hover:-translate-x-3 duration-500 ease-in-out">
                     <img id="estado_salud" style="clip-path: inset(0 0 50% 0);" class="absolute h-[66%] left-[0.2vh] top-[2vh] z-0" src="../../assets/vistas/juegos/contenidoSalud.png" alt="">
                 </a>
                 <a href="../vistas/descanso/index.html" class="relative cursor-pointer h-[13vh] w-[38vh] bg-center bg-contain bg-no-repeat bg-[url('../assets/home/descansoMenu.png')] hover:-translate-x-3 duration-500 ease-in-out">
@@ -119,7 +118,7 @@
                     <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
                         <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
                             <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
-                            <img data-mute="musicaAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../assets/vista_inicial/Zen.png" alt="">
+                            <img data-mute="musicaAudio" class="imagenAvatarEstados range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-auto" src="" alt="">
                         </div>
                     </div>
                 </div>
@@ -133,7 +132,7 @@
                     <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
                         <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
                             <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
-                            <img data-mute="sonidoAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../assets/vista_inicial/Zen.png" alt="">
+                            <img data-mute="sonidoAudio" class="imagenAvatarEstados range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-auto" src="" alt="">
                         </div>
                     </div>
                 </div>

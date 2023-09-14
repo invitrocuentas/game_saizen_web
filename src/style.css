@@ -1063,8 +1063,16 @@ video {
   top: 0px;
 }
 
+.top-\[-16vh\] {
+  top: -16vh;
+}
+
 .top-\[0\.4vh\] {
   top: 0.4vh;
+}
+
+.top-\[0\.5vh\] {
+  top: 0.5vh;
 }
 
 .top-\[0\.7vh\] {
@@ -1317,6 +1325,10 @@ video {
   margin-left: 2vh;
 }
 
+.ml-\[4vh\] {
+  margin-left: 4vh;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -1530,6 +1542,10 @@ video {
 
 .h-\[40vh\] {
   height: 40vh;
+}
+
+.h-\[45vh\] {
+  height: 45vh;
 }
 
 .h-\[46vh\] {
@@ -1804,6 +1820,10 @@ video {
   width: 46vh;
 }
 
+.w-\[47vh\] {
+  width: 47vh;
+}
+
 .w-\[4vh\] {
   width: 4vh;
 }
@@ -1814,6 +1834,10 @@ video {
 
 .w-\[50vh\] {
   width: 50vh;
+}
+
+.w-\[51vh\] {
+  width: 51vh;
 }
 
 .w-\[52vh\] {
@@ -1952,10 +1976,6 @@ video {
   width: 95vw;
 }
 
-.w-\[9vh\] {
-  width: 9vh;
-}
-
 .w-auto {
   width: auto;
 }
@@ -2013,8 +2033,8 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.-rotate-\[15deg\] {
-  --tw-rotate: -15deg;
+.-rotate-\[10deg\] {
+  --tw-rotate: -10deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -2030,6 +2050,11 @@ video {
 
 .rotate-45 {
   --tw-rotate: 45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.rotate-\[19deg\] {
+  --tw-rotate: 19deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -2349,10 +2374,6 @@ video {
 
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.grid-cols-\[1fr_2fr\] {
-  grid-template-columns: 1fr 2fr;
 }
 
 .\!flex-row {
@@ -4229,7 +4250,7 @@ img{
 
 /* productos botones splide */
 
-#alimentosVer button svg, #productosVer button svg,#productos button svg{
+#itemsVer button svg, #productosVer button svg,#productos button svg{
   display: none !important;
 }
 
@@ -4251,12 +4272,12 @@ img{
   opacity: 1 !important;
 }
 
-#alimentosVer .splide__arrow, #productosVer .splide__arrow, #productos .splide__arrow{
+#itemsVer .splide__arrow, #productosVer .splide__arrow, #productos .splide__arrow{
   height: 30vh !important;
   width: 10vh !important;
 }
 
-#alimentosVer .splide__arrow:hover, #productosVer .splide__arrow:hover, #productos .splide__arrow:hover{
+#itemsVer .splide__arrow:hover, #productosVer .splide__arrow:hover, #productos .splide__arrow:hover{
   scale: 105%;
   transition-duration: 500ms;
   transition: ease-in-out;
@@ -4264,11 +4285,11 @@ img{
 
 /* lista de alimentos */
 
-#alimentosVer .splide__arrow--prev{
+#itemsVer .splide__arrow--prev{
   display: none !important;
 }
 
-#alimentosVer .splide__arrow--next{
+#itemsVer .splide__arrow--next{
   background: url('../assets/vista_inicial/btnNext.png');
   background-size: contain !important;
   background-position: center !important;

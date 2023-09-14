@@ -14,7 +14,7 @@
             <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../../assets/home/iconoEstrella.png" alt="">
-                <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
+                <span id="monedasUsuario" class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
                 <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[4vh] w-[4vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- menu -->
@@ -25,59 +25,50 @@
             </div>
             <!-- niveles -->
             <div class="absolute -top-[1vh] right-0 h-[14vh] flex justify-center items-center gap-[3vh]">
-                <img class="h-[15vh] w-[17vw]" src="../../../assets/home/nivel1.png" alt="">
-                <span class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
+                <img class="imagenAvatarNivel h-[15vh] w-[17vw]" src="" alt="">
+                <span id="nivelUsuario" class="h-full w-[17vw] text-[#B35B3D] absolute left-0 z-10 flex justify-center pl-[10vh] pt-[1vh] items-center text-[7vh] font-boldenvan">1</span>
             </div>
 
             <!-- Estados -->
-            <div class="absolute top-0 bg-[url('../assets/vistas/juegos/bannerInfo.png')] bg-contain bg-no-repeat bg-center h-[10vh] w-[80vh] flex justify-center items-center gap-[8vh]">
+            <div class="absolute bg-[url('../assets/vistas/juegos/bannerInfo.png')] bg-contain bg-no-repeat bg-center h-[10vh] w-[80vh] flex justify-center items-center gap-[8vh] top-0 z-10">
                 <div class="w-[7vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
-                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoAlimentacion.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoAlimentacion.png" alt="">
+                    <img id="estado_alimentacion" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoAlimentacion.png" alt="">
                 </div>
                 <div class="w-[10vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoSalud.png" alt="">
-                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoSalud.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoSalud.png" alt="">
+                    <img id="estado_salud" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoSalud.png" alt="">
                 </div>
                 <div class="w-[7vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoDescanso.png" alt="">
-                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoDescanso.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoDescanso.png" alt="">
+                    <img id="estado_descanso" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoDescanso.png" alt="">
                 </div>
                 <div class="w-[10vh] relative flex justify-center items-center">
-                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/contenidoEntretenimiento.png" alt="">
-                    <img class="absolute w-full z-10" style="clip-path: inset(50% 0 0 0);" src="../../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
+                    <img class="absolute w-full z-0" src="../../../assets/vistas/juegos/fondoEntretenimiento.png" alt="">
+                    <img id="estado_game" class="absolute w-full z-10" style="clip-path: inset(0 0 50% 0);" src="../../../assets/vistas/juegos/contenidoEntretenimiento.png" alt="">
                 </div>
             </div>
 
             <!-- Dialogos y Personaje-->
-            <div class="absolute h-[85%] w-[82%] grid grid-cols-[1fr_2fr] justify-center items-center">
-                <div class="flex justify-center items-center">
-                    <img src="../../../assets/vistas/alimentacion/proteinas.png" alt="">
-                </div>
+            <div class="absolute h-[85%] w-[82%] flex justify-center items-center">
                 <!-- Personaje -->
-                <div class="relative h-full w-full flex justify-center">
-                    <div class="absolute top-[15vh] -left-[4vh] bg-[url('../assets/home/nubeDialogo.png')] bg-center bg-contain bg-no-repeat h-[25vh] w-[30vh] -rotate-[15deg] flex justify-center items-center pb-[3vh] pr-[3vh]">
+                <div class="relative h-full w-full flex justify-center overflow-hidden z-0">
+                    <div class="absolute top-[8vh] -left-[4vh] bg-[url('../assets/home/nubeDialogo.png')] bg-center bg-contain bg-no-repeat h-[30vh] w-[47vh] -rotate-[10deg] flex justify-center items-center pb-[3vh] pr-[3vh]">
                         <span class="absolute w-[28vh] text-center -rotate-[30deg] text-[4vh] font-boldenvan text-white truncate">
-                            Tengo <br> Hambre
+                            ¡Ahora me <br> siento con <br> más energía!
                         </span>
                     </div>
-                    <div class="absolute top-[5vh] right-0 bg-[url('../assets/vistas/alimentacion/nubeDialogo_right.png')] bg-center bg-contain bg-no-repeat h-[20vh] w-[30vh] flex justify-center items-center pb-[3vh] pr-[3vh]">
-                        <span class="absolute w-[28vh] text-center -rotate-[20deg] text-[4vh] font-boldenvan text-white truncate">
-                            Tengo <br> Hambre
+                    <div class="absolute top-[5vh] right-0 bg-[url('../assets/vistas/alimentacion/nubeDialogo_right.png')] bg-center bg-contain bg-no-repeat h-[27vh] w-[35vh] flex justify-center items-center pb-[3vh] pr-[3vh]">
+                        <span class="absolute w-[28vh] text-center rotate-[19deg] text-[3vh] font-boldenvan text-white truncate">
+                            ¡No olvides <br> lavarme los <br> dientes después <br> de comer!
                         </span>
                     </div>
-                    <div class="flex justify-center items-center h-full">
-                        <!-- personaje -->
-                        <div class="px-[2vh] relative justify-center items-center flex">
-                            <!-- personaje limpio -->
-                            <img class="avataresPerformance opacity-100 transition-opacity duration-500 ease-in-out avatares w-[50vh]" src="../../../assets/vistas/juegos/zenSucio.png">
-                        </div>
-                    </div>
+                    <img id="gifDinamico"  class="avataresPerformance ml-[4vh] absolute opacity-100 transition-opacity duration-500 ease-in-out avatares w-[90vh] h-auto z-0 top-[-16vh]" src="">
                 </div>
             </div>
 
             <!-- inicio -->
-            <a href="../../inicio/home.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
+            <a href="home.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
                 <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
                 <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoInicio.png" alt="">
                 <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloInicio.png" alt="">
@@ -129,7 +120,7 @@
                     <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
                         <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
                             <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
-                            <img data-mute="musicaAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../../assets/vista_inicial/Zen.png" alt="">
+                            <img data-mute="musicaAudio" class="imagenAvatarEstados range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-auto" src="" alt="">
                         </div>
                     </div>
                 </div>
@@ -143,7 +134,7 @@
                     <div class="range-container w-full h-full bg-[#ccc] relative cursor-pointer rounded-[5vh]">
                         <div class="range-track w-full h-full absolute rounded-[5vh] flex items-center">
                             <div style="clip-path: inset(0 0 0 0);" class="range-filled bg-gradient-to-b from-[#b8e3ea] via-[#6e888c] to-[#0c5094] rounded-[5vh] w-full h-full"></div>
-                            <img data-mute="sonidoAudio" class="range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-[9vh]" src="../../../assets/vista_inicial/Zen.png" alt="">
+                            <img data-mute="sonidoAudio" class="imagenAvatarEstados range-thumb absolute left-[88%] cursor-pointer h-[9vh] w-auto" src="" alt="">
                         </div>
                     </div>
                 </div>
