@@ -6,7 +6,7 @@ import { tiendaOpciones,tiendaProductos,productosVer,comprarProducto } from "./t
 
 import { flip } from "./memoria";
 
-import { listarAlimentos,listarDescanso,listarSalud } from "./itemsModulos";
+import { listarAlimentos,listarDescanso,listarSalud,utilizarItem } from "./itemsModulos";
 
 import { obstaculosGame } from "./obstaculos";
 
@@ -21,6 +21,10 @@ const init = () => {
     tiendaProductos();
     productosVer();
     comprarProducto();
+    listarAlimentos();
+    listarDescanso();
+    listarSalud();
+    utilizarItem();
 };
 
 export default init;

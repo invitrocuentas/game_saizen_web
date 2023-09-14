@@ -9,6 +9,22 @@
 <body>
     <div class="bg-[url('../assets/vistas/alimentacion/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
         <img src="../../../assets/vista_inicial/instrucciones.png" class="h-[85%] w-[82%]">
+        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-[url('../assets/vistas/alimentacion/fondo.jpg')] bg-cover bg-no-repeat bg-center ">
+            <div class="animate-pulse flex relative h-full w-full">
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] left-[5vh]"></div>
+                <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[3vh]"></div>
+                <div class="h-[10vh] w-[80vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] left-[49vh]"></div>
+
+                <div class="h-[9vh] w-[60vh] bg-gray-200 rounded-[5vh] absolute top-[28vh] left-[59vh]"></div>
+
+                <div class="rounded-full bg-gray-200 h-[46vh] w-[46vh] absolute bottom-[12vh] left-[65.5vh]"></div>
+                
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[7.5vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[22.5vh]"></div>
+                <div class="rounded-full bg-gray-200 h-[14vh] w-[14vh] absolute bottom-[5vh] left-[37.5vh]"></div>
+            </div>
+        </div>
+
         <div class="absolute h-[90vh] w-[95vw] flex justify-center">
             <!-- puntuacion -->
             <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
@@ -24,7 +40,7 @@
                 </button>
             </div>
             <!-- Notificaciones de accion (Bañarse, Comer, Descanso) -->
-            <div class="absolute top-[23vh] -left-[1vh] h-[14vh] flex justify-center items-center gap-[3vh] z-10">
+            <div class="hidden absolute top-[23vh] -left-[1vh] h-[14vh] flex justify-center items-center gap-[3vh] z-10">
                 <button data-modal="accionPersonaje" class="open-modal-button hover:scale-105 duration-500 ease-in-out bg-[url('../assets/home/fondoMenu.png')] bg-center bg-cover bg-no-repeat h-[10vh] w-[13vh] flex justify-center items-center p-[1vh] mt-[1.5vh]">
                     <img class="h-full hover:-rotate-[25deg] duration-500 ease-in-out" src="../../../assets/tienda/productos/cepillarse.png" alt="">
                 </button>
@@ -378,15 +394,13 @@
         </button>
         <div class="h-[60vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center px-[6vh]">
             <div class="flex flex-row justify-center items-center w-full h-[50vh] relative">
-                    <p class="text-[#7B90A1] font-boldenvan text-[3.5vh]">
-                        Por comer frutas, <span class="nombrePersonajeVer"></span> obtuvo 15 puntos. ¡Qué bueno que estás incluyendo alimentos nutritivos en su dieta!
-                    </p>
+                <p class="mensajeVerProducto text-[#7B90A1] font-boldenvan text-[3.5vh]"></p>
                 <div class="relative h-full w-[83vw]">
                     <img class="absolute h-[34vh] w-full top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
-                    <div class="absolute bottom-0 -right-[3vh] font-boldenvan text-[13vh] text-[#B35B3D]"><span class="text-[6vh]">x</span>15</div>
+                    <div class="absolute bottom-0 -right-[3vh] font-boldenvan text-[13vh] text-[#B35B3D]"><span class="text-[6vh]">x</span><span class="puntosVerAccion"></span></div>
                 </div>
             </div>
-            <button class="bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[3vh] py-[1vh] hover:scale-105 duration-500 ease-in-out text-[5vh] text-center text-[#B35B3D] font-boldenvan">Aceptar</button>
+            <button id="interactuarItem" class="bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[3vh] py-[1vh] hover:scale-105 duration-500 ease-in-out text-[5vh] text-center text-[#B35B3D] font-boldenvan">Aceptar</button>
         </div>
     </div>
 

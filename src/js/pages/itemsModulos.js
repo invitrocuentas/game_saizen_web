@@ -1,67 +1,78 @@
 import { getTiendaProductos } from "../../services/tienda.service";
+import { postAlmacen } from "../../services/almacen.service";
+import { postUtilizarItem,postVerify } from "../../services/user.service";
+import { URL } from "../../config/const/api.const";
 
 const listarAlimentos = async () => {
     if(document.querySelector('#alimentosVer')){
-        var li = `<button data-modal="accionPersonaje" class="open-modal-button flex justify-center items-center h-[18vh] w-[18vh] bg-white shadow-xl rounded-[3vh] bloqued">
-                    <img class="h-[12vh] hover:scale-105 duration-150 ease-in-out" src="../../../assets/vistas/alimentacion/frutas.png" alt="">
-                </button>`;
-
         try {
-            var objProductos = window.parent.productosList;
+
+            document.getElementById('loader').classList.remove('hidden');
+
             var ulElement = document.getElementById('alimentosList');
-            var slug = 'alimentacion';
-
-            const rsp = await getTiendaProductos(slug);
-
-
+            let slug = 'alimentacion';
             const datosUser = JSON.parse(window.parent.objUsuario);
-            function crearElementoLi(id, nombre, imagenSrc, puntos, referenciaProducto, index) {
+
+            var [ {productos}, {inventario} ] = await Promise.all([getTiendaProductos(slug), postAlmacen({id_usuario: datosUser.id})]);
+
+            function crearElementoLi(id, nombre, imagenSrc, puntos, referencias) {
                 const liElement = document.createElement('li');
                 liElement.classList.add('splide__slide');
-                var informacionDatos = JSON.parse(referenciaProducto);
-                var descripcion = informacionDatos.descripcion;
-                var referencia = informacionDatos.referencia;
-                const divElement = document.createElement("div");
-                divElement.classList.add("flex", "justify-center", "items-center", "w-full", "h-[90%]", "relative");
-                // Crea el contenido interno del elemento div
-                var innerHTML = '';
-                innerHTML += `
-                    <div class="w-[52vh] h-[80%] flex flex-col justify-center items-center gap-[2vh]">
-                        <span class="text-[4vh] text-[#015989] font-boldenvan w-full text-center px-[3vh]">${nombre}</span>
-                        <p class="text-[#7B90A1] font-boogaloo_regular text-[2.5vh] text-center paddingx-1">${descripcion.replace('<<nombre_del_avatar>>', datosUser.avatar)}</p>
-                        <div class="relative flex justify-center items-center gap-[1vh]">
-                `;
-                if(puntos > 0){
-                    innerHTML += `
-                    <div class="flex justify-center items-center bg_valor bg-center bg-contain bg-no-repeat h-[10vh] w-[10vh]">               
-                        <img class="h-[4vh]" src="../../assets/tienda/productos/star.png" alt="">
-                        <span class="text-[3vh] font-boldenvan text-[#B35B3D]">x${puntos}</span>
-                    </div>
-                    <button id="comprarProducto" data-id="${id}" data-nombre="${nombre}" class="bg-center boton_obtener bg-[length:100%_100%] bg-no-repeat h-[5vh] w-[15vh] text-[2.3vh] text-center text-[#B35B3D] font-boldenvan hover:scale-105 duration-500 ease-in-out"></button>`;
-                }else{
-                    innerHTML += `<a href="${URL}vistas/${window.parent.slugProduct}/home.html" class="flex justify-center items-center bg-center boton_ir_usuario bg-[length:100%_100%] bg-no-repeat h-[5vh] w-[20vh] text-[2.3vh] text-center text-[#B35B3D] font-boldenvan hover:scale-105 duration-500 ease-in-out">Ir a usuario</a>`;
-                }
-                innerHTML += `
-                        </div>`;
-                
-                if(referencia != ''){
-                    innerHTML += `<p class="text-[#7B90A1] font-boogaloo_regular text-[2.1vh] text-center paddingx-1">${referencia}</p>`;
-                }
-                innerHTML +=`
-                    </div>
-                    <img class="w-[25vh]" src="../../assets/tienda/productos/${imagenSrc}.png" alt="">
-                `;
-                // Establece el contenido interno del elemento div
-                divElement.innerHTML = innerHTML;
-                liElement.appendChild(divElement);
+
+                const buttonElement = document.createElement("button");
+                buttonElement.classList.add('flex', 'justify-center', 'items-center', 'h-[18vh]', 'w-[18vh]', 'bg-white', 'shadow-xl', 'rounded-[3vh]');
+                buttonElement.setAttribute('data-id', id);
+                // if(inventario == null || !(id in inventario["Alimentación"])){
+                //     buttonElement.classList.add('bloqued');
+                // }
+
+                const imgElement = document.createElement('img');
+                    imgElement.classList.add('h-[12vh]', 'hover:scale-105', 'duration-150', 'ease-in-out');
+                    imgElement.src = '../../../assets/vistas/alimentacion/'+imagenSrc+'.png';
+                    imgElement.alt = '';
+    
+                buttonElement.appendChild(imgElement);
+
+                // if(inventario != null && (id in inventario["Alimentación"])){
+                //     buttonElement.onclick = function () {
+
+                //         var { mensaje } = JSON.parse(referencias);
+
+                //         console.log(nombre);
+                //         document.querySelector('.mensajeVerProducto').textContent = mensaje.replace('<<nombre_del_avatar>>', datosUser.avatar);
+                //         const mostrarPuntos = document.querySelectorAll('.puntosVerAccion');
+    
+                //         mostrarPuntos.forEach(mostrar => {
+                //             mostrar.textContent = puntos;
+                //         });
+
+                //         window.objItemSelect = {
+                //             id_usuario: datosUser.id,
+                //             id_producto: buttonElement.getAttribute('data-id')
+                //         }
+
+                //         window.parent.productoNombreSelect = nombre;
+
+                //         window.slug = slug;
+    
+                //         document.querySelector('#accionPersonaje').classList.remove('hidden');
+                //     };
+                // }
+
+                liElement.appendChild(buttonElement);
                 return liElement;
             }
-            objProductos.forEach((datos, index) => {
-                const liElement = crearElementoLi(datos.id, datos.nombre_producto, datos.imagen, datos.puntos_requeridos, datos.referencias, index);
+            
+            productos.forEach((datos, index) => {
+                const liElement = crearElementoLi(datos.id, datos.nombre_producto, datos.imagen, datos.puntos_obtenidos, datos.referencias);
                 ulElement.appendChild(liElement);
             });
         } catch (error) {
             console.log(error);
+        } finally{
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
         }
     }
 }
@@ -82,8 +93,40 @@ const listarSalud = () => {
     }
 }
 
+const utilizarItem = () => {
+    if(document.querySelector('#interactuarItem')){
+        const buttonInteractuar = document.querySelector('#interactuarItem');
+
+        buttonInteractuar.addEventListener('click', async () => {
+            try {
+                const rsp = await postUtilizarItem(window.slug, window.objItemSelect);
+                
+                try {
+
+                    const data = await postVerify({id_user: window.parent.identificador});
+                    window.parent.objUsuario = JSON.stringify(data.data[0]);
+
+                    const datosUser = JSON.parse(window.parent.objUsuario);
+
+                    document.getElementById('monedasUsuario').textContent = datosUser.puntos;
+                    document.getElementById('nivelUsuario').textContent = datosUser.nivel == null || datosUser.nivel == 'null' ? 1 : datosUser.nivel;
+
+                    window.location.href = URL+'vistas/'+window.slug+'/activado.html';
+
+                } catch (err) {
+                    throw err
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        })
+    }
+}
+
 export {
     listarAlimentos,
     listarDescanso,
-    listarSalud
+    listarSalud,
+    utilizarItem
 }

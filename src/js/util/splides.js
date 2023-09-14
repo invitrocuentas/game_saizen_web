@@ -42,7 +42,9 @@ const splidesListado = () => {
             pagination: false
         } );
         
-        splide.mount();
+        setTimeout(() => {
+            splide.mount();
+        }, 1000);
     }
 };
 

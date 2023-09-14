@@ -25,7 +25,10 @@ clienteAxios.interceptors.request.use(
     // } catch (e) {
     //   console.log(e);
     // }
-    return config;
+    return {...config, headers: {
+      "Content-Type": "multipart/form-data"
+    }};
+    // return config
   },
   (e) => {
     return Promise.reject(e);

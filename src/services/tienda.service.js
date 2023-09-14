@@ -6,7 +6,10 @@ const getTiendaOpciones = async (config = {}) => {
     return data
 }
 const getTiendaProductos = async (slug, config = {}) => {
-    const data = await clienteAxios.get(API_URL_PRODUCTOS_LIST+'slug='+slug, config)
+    const data = await clienteAxios.get(API_URL_PRODUCTOS_LIST, {
+        params: {slug: slug}, 
+        ...config
+    })
     return data
 }
 

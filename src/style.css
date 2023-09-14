@@ -895,6 +895,10 @@ video {
   left: 38.5vw;
 }
 
+.left-\[49vh\] {
+  left: 49vh;
+}
+
 .left-\[4vh\] {
   left: 4vh;
 }
@@ -919,6 +923,10 @@ video {
   left: 57vh;
 }
 
+.left-\[59vh\] {
+  left: 59vh;
+}
+
 .left-\[5vh\] {
   left: 5vh;
 }
@@ -929,6 +937,10 @@ video {
 
 .left-\[63vh\] {
   left: 63vh;
+}
+
+.left-\[65\.5vh\] {
+  left: 65.5vh;
 }
 
 .left-\[66vh\] {
@@ -1109,6 +1121,10 @@ video {
 
 .top-\[24vh\] {
   top: 24vh;
+}
+
+.top-\[28vh\] {
+  top: 28vh;
 }
 
 .top-\[2vh\] {
@@ -1514,6 +1530,10 @@ video {
 
 .h-\[40vh\] {
   height: 40vh;
+}
+
+.h-\[46vh\] {
+  height: 46vh;
 }
 
 .h-\[48\%\] {

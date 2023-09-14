@@ -167,7 +167,9 @@ const homeInicio = async () => {
         } catch (error) {
             console.log(error)
         } finally{
-            document.getElementById('loader').classList.add('hidden');
+            if(document.getElementById('loader')){
+                document.getElementById('loader').classList.add('hidden');
+            }
         }
     }
 };
