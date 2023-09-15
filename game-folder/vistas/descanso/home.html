@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../../../dist/bundle.css">
 </head>
 <body>
-    <div class="bg-[url('../assets/vistas/alimentacion/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+    <div data-slug="descanso" class="vistaModulo bg-[url('../assets/vistas/descanso/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
         <img src="../../../assets/vista_inicial/instrucciones.png" class="h-[85%] w-[82%]">
-        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-[url('../assets/vistas/alimentacion/fondo.jpg')] bg-cover bg-no-repeat bg-center ">
+        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-[url('../assets/vistas/descanso/fondo.jpg')] bg-cover bg-no-repeat bg-center ">
             <div class="animate-pulse flex relative h-full w-full">
                 <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] left-[5vh]"></div>
                 <div class="h-[13vh] w-[30vh] bg-gray-200 rounded-[3vh] absolute top-[5vh] right-[3vh]"></div>
@@ -101,7 +101,7 @@
             <div class="absolute right-0 w-[50vh] h-full flex flex-col justify-center items-center">
                 <section id="itemsVer" class="splide w-[20vh] h-[60vh] !p-0" aria-label="Splide Basic HTML Example">
                     <div class="splide__track h-full">
-                        <ul id="itemsList" data-slug="descanso" class="splide__list">
+                        <ul id="itemsList" class="splide__list">
                         </ul>
                     </div>
                 </section>
@@ -388,11 +388,11 @@
             <div class="flex flex-row justify-center items-center w-full h-[50vh] relative">
                 <p class="mensajeVerProducto text-[#7B90A1] font-boldenvan text-[3.5vh]"></p>
                 <div class="cantidadVerProducto relative h-full w-[83vw]">
-                    <img class="absolute h-[34vh] w-full top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
+                    <img class="absolute h-[34vh] w-auto top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
                     <div class="absolute bottom-0 -right-[3vh] font-boldenvan text-[13vh] text-[#B35B3D]"><span class="text-[6vh]">x</span><span class="puntosVerAccion"></span></div>
                 </div>
             </div>
-            <button id="interactuarItem" class="bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[3vh] py-[1vh] hover:scale-105 duration-500 ease-in-out text-[5vh] text-center text-[#B35B3D] font-boldenvan">Aceptar</button>
+            <button class="interactuarItem quitarContenido bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[3vh] py-[1vh] hover:scale-105 duration-500 ease-in-out text-[5vh] text-center text-[#B35B3D] font-boldenvan">Aceptar</button>
         </div>
     </div>
 

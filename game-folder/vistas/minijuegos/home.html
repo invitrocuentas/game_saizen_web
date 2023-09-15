@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="../../../dist/bundle.css">
 </head>
 <body>
-    <div class="bg-[url('../assets/vistas/juegos/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+    <div data-slug="minijuegos" class="vistaModulo bg-[url('../assets/vistas/juegos/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
         <img src="../../../assets/vista_inicial/instrucciones.png" class="h-[85%] w-[82%]">
         <div class="absolute h-[90vh] w-[95vw] flex justify-center">
             <!-- puntuacion -->
             <div class="absolute h-[14vh] w-[18vw] top-0 left-0">
                 <img class="absolute h-[10vh] w-[15vw] top-[2vh] left-[4vh]" src="../../../assets/home/fondoDato.png" alt="">
                 <img class="absolute h-[13vh] w-[13vh]" src="../../../assets/home/iconoEstrella.png" alt="">
-                <span class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
+                <span id="monedasUsuario" class="h-full w-full text-[#B35B3D] absolute z-10 flex justify-center items-center pl-[10vh] text-[7vh] font-boldenvan">80</span>
                 <button data-modal="infoPuntos" class="open-modal-button absolute z-10 h-[5vh] w-[5vh] bottom-0 right-0 bg-[url('../assets/home/iconoInfo.png')] bg-center bg-contain bg-no-repeat"></button>
             </div>
             <!-- menu -->
@@ -83,11 +83,11 @@
             </div>
 
             <!-- Notificaciones de accion (Bañarse, Comer, Descanso) -->
-            <div class="h-full w-[50vh] absolute left-0 flex justify-center items-center">
-                <a href="#" class="absolute w-full flex justify-center items-center">
+            <div class="hidden h-full w-[50vh] absolute left-0 flex justify-center items-center">
+                <button data-item="jabon" data-slug="salud" data-paso="0" class="interactuarItem absolute w-full flex justify-center items-center">
                     <img class="hover:scale-105 duration-500 ease-in-out absolute w-[16vh] z-10 left-0" src="../../../assets/vistas/juegos/iconoJabon.png" alt="">
                     <img class="absolute w-[50vh]" src="../../../assets/vistas/juegos/tituloBano.png" alt="">
-                </a>
+                </button>
             </div>
 
             <!-- botones de juego -->
@@ -373,6 +373,26 @@
             </a>
         </div>
     </div>
+
+    <!-- Accion Personaje (cepillar, alimentar) -->
+    <div id="accionPersonaje" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="accionPersonaje" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[65vh] w-[75vh]" src="../../../assets/home/popupMenu.png" alt="">
+        <button data-modalclose="accionPersonaje" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[13vh] right-[47vh]">
+            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[60vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center px-[6vh]">
+            <div class="flex flex-row justify-center items-center w-full h-[50vh] relative">
+                <p class="mensajeVerProducto text-[#7B90A1] font-boldenvan text-[3.5vh]"></p>
+                <div class="cantidadVerProducto relative h-full w-[83vw]">
+                    <img class="absolute h-[34vh] w-auto top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
+                    <div class="absolute bottom-0 -right-[3vh] font-boldenvan text-[13vh] text-[#B35B3D]"><span class="text-[6vh]">x</span><span class="puntosVerAccion"></span></div>
+                </div>
+            </div>
+            <button class="interactuarItem quitarContenido bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[3vh] py-[1vh] hover:scale-105 duration-500 ease-in-out text-[5vh] text-center text-[#B35B3D] font-boldenvan">Aceptar</button>
+        </div>
+    </div>
+    
     <script src="../../../dist/bundle.js"></script>
 </body>
 </html>

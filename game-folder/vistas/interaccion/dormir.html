@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Saizen - GROWIN</title>
+    <link rel="stylesheet" href="../../../dist/bundle.css">
+</head>
+<body>
+    <div class="bg-[url('../assets/vistas/fondoDormir.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+        <div class="absolute h-[90vh] w-[95vw] flex justify-center items-center">
+
+            <div class="absolute h-full w-full flex justify-center items-center">
+                <div class="">
+                    <img class="avatarDormir -top-[8vh] mr-[35vh] opacity-100 transition-opacity duration-500 ease-in-out avatares w-[40vh] h-auto z-0" src="">
+                    <img class="-top-[8vh] mr-[35vh] absolute opacity-100 transition-opacity duration-500 ease-in-out avatares w-[40vh] h-auto z-0" src="../../../assets/tienda/productos/dormir.png">
+                </div>
+                <!-- Personaje -->
+                <div class="absolute right-[15vh] h-full flex flex-col gap-[2vh] justify-center overflow-hidden z-0">
+                    <button id="btnAtras" class="relative w-[25vh] flex justify-center items-center">
+                        <img class="absolute h-[22vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                        <img class="absolute mb-[10vh] mr-[4vh] h-[30vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/productos/luz.png" alt="">
+                        <img class="absolute mt-[16vh] h-[8vh]" src="../../../assets/tienda/tituloVolver.png" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <!-- inicio -->
+            <a href="../descanso/home.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
+                <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                <img class="imagenAvatarBoton absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="" alt="">
+                <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloInicio.png" alt="">
+            </a>
+            <!-- volver -->
+            <button id="btnAtras" class="absolute bottom-0 left-[15vh] h-[20vh] w-[20vh] flex justify-center items-center">
+                <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                <img class="absolute bottom-[3vh] h-[12vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/iconoVolver.png" alt="">
+                <img class="absolute bottom-0 h-[6vh]" src="../../../assets/tienda/tituloVolver.png" alt="">
+            </button>
+             <!-- tienda -->
+             <a href="../../tienda/tiendaOpciones.html" class="absolute bottom-0 left-[30vh] h-[20vh] w-[20vh] flex justify-center items-center">
+                <img class="absolute h-[13vh] top-[6vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                <img class="absolute bottom-[5vh] h-[10vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/almacen/logoTienda.png" alt="">
+                <img class="absolute bottom-0 h-[6vh]" src="../../../assets/almacen/tituloTienda.png" alt="">
+            </a>
+        </div>
+    </div>
+
+    <!-- Accion Personaje (cepillar, alimentar) -->
+    <div id="accionPersonaje" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
+        <div data-modalclose="accionPersonaje" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
+        <img class="z-10 h-[65vh] w-[75vh]" src="../../../assets/home/popupMenu.png" alt="">
+        <button data-modalclose="accionPersonaje" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[13vh] right-[47vh]">
+            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
+        </button>
+        <div class="h-[60vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center px-[6vh]">
+            <div class="flex flex-row justify-center items-center w-full h-[50vh] relative">
+                    <p class="text-[#7B90A1] font-boldenvan text-[3.5vh]">
+                        Por comer frutas, NOMBRE DEL AVATAR obtuvo 15 puntos. ¡Qué bueno que estás incluyendo alimentos nutritivos en su dieta!
+                    </p>
+                <div class="relative h-full w-[83vw]">
+                    <img class="absolute h-[34vh] w-full top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
+                    <div class="absolute bottom-0 -right-[3vh] font-boldenvan text-[13vh] text-[#B35B3D]"><span class="text-[6vh]">x</span>15</div>
+                </div>
+            </div>
+            <button class="bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[3vh] py-[1vh] hover:scale-105 duration-500 ease-in-out text-[5vh] text-center text-[#B35B3D] font-boldenvan">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="../../../dist/bundle.js"></script>
+</body>
+</html>

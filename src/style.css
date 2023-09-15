@@ -771,8 +771,16 @@ video {
   top: -20vh;
 }
 
+.-top-\[3vh\] {
+  top: -3vh;
+}
+
 .-top-\[5vh\] {
   top: -5vh;
+}
+
+.-top-\[8vh\] {
+  top: -8vh;
 }
 
 .bottom-0 {
@@ -989,6 +997,10 @@ video {
 
 .right-\[15\%\] {
   right: 15%;
+}
+
+.right-\[15vh\] {
+  right: 15vh;
 }
 
 .right-\[16\%\] {
@@ -1309,6 +1321,10 @@ video {
   margin-bottom: 1.5vh;
 }
 
+.mb-\[10vh\] {
+  margin-bottom: 10vh;
+}
+
 .mb-\[1vh\] {
   margin-bottom: 1vh;
 }
@@ -1321,12 +1337,24 @@ video {
   margin-bottom: 7vh;
 }
 
+.ml-\[20vh\] {
+  margin-left: 20vh;
+}
+
 .ml-\[2vh\] {
   margin-left: 2vh;
 }
 
 .ml-\[4vh\] {
   margin-left: 4vh;
+}
+
+.mr-\[35vh\] {
+  margin-right: 35vh;
+}
+
+.mr-\[4vh\] {
+  margin-right: 4vh;
 }
 
 .mt-2 {
@@ -1339,6 +1367,10 @@ video {
 
 .mt-\[12vh\] {
   margin-top: 12vh;
+}
+
+.mt-\[16vh\] {
+  margin-top: 16vh;
 }
 
 .box-border {
@@ -1516,6 +1548,10 @@ video {
   height: 20vh;
 }
 
+.h-\[22vh\] {
+  height: 22vh;
+}
+
 .h-\[25vh\] {
   height: 25vh;
 }
@@ -1660,6 +1696,10 @@ video {
   height: 90vh;
 }
 
+.h-\[95\%\] {
+  height: 95%;
+}
+
 .h-\[99\%\] {
   height: 99%;
 }
@@ -1772,6 +1812,10 @@ video {
   width: 26vw;
 }
 
+.w-\[27vh\] {
+  width: 27vh;
+}
+
 .w-\[28vh\] {
   width: 28vh;
 }
@@ -1794,6 +1838,10 @@ video {
 
 .w-\[35vh\] {
   width: 35vh;
+}
+
+.w-\[37vh\] {
+  width: 37vh;
 }
 
 .w-\[38vh\] {
@@ -2045,6 +2093,11 @@ video {
 
 .-rotate-\[30deg\] {
   --tw-rotate: -30deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-rotate-\[36deg\] {
+  --tw-rotate: -36deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -3248,6 +3301,18 @@ video {
   background-image: url('../assets/vistas/descanso/fondo.jpg');
 }
 
+.bg-\[url\(\'\.\.\/assets\/vistas\/fondoBano\.jpg\'\)\] {
+  background-image: url('../assets/vistas/fondoBano.jpg');
+}
+
+.bg-\[url\(\'\.\.\/assets\/vistas\/fondoCepillarse\.jpg\'\)\] {
+  background-image: url('../assets/vistas/fondoCepillarse.jpg');
+}
+
+.bg-\[url\(\'\.\.\/assets\/vistas\/fondoDormir\.jpg\'\)\] {
+  background-image: url('../assets/vistas/fondoDormir.jpg');
+}
+
 .bg-\[url\(\'\.\.\/assets\/vistas\/juegos\/bannerInfo\.png\'\)\] {
   background-image: url('../assets/vistas/juegos/bannerInfo.png');
 }
@@ -4445,10 +4510,12 @@ img{
   background-color: #000;
   border-radius: 3vh;
   content: "";
-  height: 18vh;
+  /* height: 18vh; */
+  height: 100%;
+  width: 100%;
   opacity: .5;
   position: absolute;
-  width: 18vh;
+  /* width: 18vh; */
   z-index: 99;
   pointer-events: none;
 }
@@ -4561,6 +4628,24 @@ img{
 
 .paddingx-1{
   padding: 0 1vh;
+}
+
+@keyframes palpitacion {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.activoButton {
+  animation: palpitacion 1s infinite;
 }
 
 @media (min-width: 640px) {
@@ -4691,3 +4776,8 @@ img{
     }
   }
 }
+
+
+
+
+

@@ -1,9 +1,10 @@
+import { getTiendaProductos } from "../../services/tienda.service";
 import { postInicio, postVerify } from "../../services/user.service";
 import { postAlmacen } from "../../services/almacen.service";
 import { URL, URL_ASSETS } from "../../config/const/api.const";
 
 const homeInicio = async () => {
-    if(document.querySelector('#monedasUsuario') || document.querySelector('.nombrePersonajeVer')){   
+    if(document.querySelector('#monedasUsuario') || document.querySelector('.nombrePersonajeVer') || document.querySelector('.imagenAvatarBoton')){   
         try {
 
             if(!window.parent.objUsuario){
@@ -199,6 +200,16 @@ const homeInicio = async () => {
 
                     if(cantidad > 0){
                         producto.classList.remove('item_inhabilitado');
+                    }else{
+                        producto.addEventListener('click', async() => {
+                            try {
+                                const rsp2 = await getTiendaProductos(window.parent.slugProduct);
+                                window.parent.productosList = rsp2.productos;
+                                window.location.href = `${URL}tienda/tiendaProductos.html`;
+                            } catch (error) {
+                                console.log(error);
+                            }
+                        })
                     }
                 });
             }

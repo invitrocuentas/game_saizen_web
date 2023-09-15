@@ -258,10 +258,12 @@ img{
   background-color: #000;
   border-radius: 3vh;
   content: "";
-  height: 18vh;
+  /* height: 18vh; */
+  height: 100%;
+  width: 100%;
   opacity: .5;
   position: absolute;
-  width: 18vh;
+  /* width: 18vh; */
   z-index: 99;
   pointer-events: none;
 }
@@ -369,3 +371,18 @@ img{
 .paddingx-1{
   padding: 0 1vh;
 }
+
+@keyframes palpitacion {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+.activoButton {
+  animation: palpitacion 1s infinite;
+}
+
+
+
+
+
