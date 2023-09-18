@@ -1,3 +1,5 @@
+import { URL } from "../../config/const/api.const";
+
 const marcharAtras = () => {
     if(document.querySelector('#btnAtras')){
         var backButton = document.getElementById("btnAtras");
@@ -100,9 +102,33 @@ const cambiarContenido = () => {
     }
 }
 
+const luzAccion = () => {
+    if(document.getElementById('accionluz')){
+        const luz = document.getElementById('accionluz');
+        
+        luz.addEventListener('click', () => {
+            let vista = document.querySelector('.dormirVista');
+
+            if(vista.classList.contains('luzOff')){
+                vista.classList.remove('luzOff');
+            }else{
+                vista.classList.add('luzOff');
+
+                document.getElementById('accionPersonaje').classList.remove('hidden');
+
+                setTimeout(() => {
+                    window.location.href = `${URL}inicio/home_dormir.html`;
+                }, 2000);
+
+            }
+        });
+    }
+}
+
 export {
     marcharAtras,
     modalesAcciones,
     vibracionBtn,
-    cambiarContenido
+    cambiarContenido,
+    luzAccion
 };

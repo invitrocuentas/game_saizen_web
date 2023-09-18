@@ -227,7 +227,7 @@ img{
 .progress {
   height: 100%;
   width: 100%;
-  background-color: #4caf50; /* Color de la barra de progreso */
+  background: linear-gradient(to bottom, #77CFE7, #009DC8, #005F8E, #015989); /* Color de la barra de progreso */
   border-radius: 5vh;
   transition: width 1s ease-in-out; /* Transición para la animación de la barra de progreso */
 }
@@ -380,6 +380,16 @@ img{
 
 .activoButton {
   animation: palpitacion 1s infinite;
+}
+
+.luzOff::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Color negro semi-transparente */
 }
 
 

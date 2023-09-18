@@ -1,5 +1,5 @@
 import { getTiendaProductos } from "../../services/tienda.service";
-import { postInicio, postVerify } from "../../services/user.service";
+import { postDormirVerify, postVerify } from "../../services/user.service";
 import { postAlmacen } from "../../services/almacen.service";
 import { URL, URL_ASSETS } from "../../config/const/api.const";
 
@@ -16,7 +16,66 @@ const homeInicio = async () => {
                 }
             }
 
-            const datosUser = JSON.parse(window.parent.objUsuario);
+            let datosUser = JSON.parse(window.parent.objUsuario);
+
+            if(document.querySelector('#home') || document.querySelector('.vistaModulo')){
+                const {data} = await postDormirVerify({id_user: datosUser.id});
+
+                function verificarRango(array) {
+                    if (array.length === 0) {
+                      return false; // No hay elementos en el array
+                    }
+                  
+                    const ultimaFecha = new Date(array[0].date_created);
+                    const ultimoId = array[0].id;
+                  
+                    for (let i = 1; i < array.length; i++) {
+                      const fechaActual = new Date(array[i].date_created);
+                      const idActual = array[i].id;
+                  
+                      if (fechaActual > ultimaFecha) {
+                        ultimaFecha = fechaActual;
+                        ultimoId = idActual;
+                      }
+                    }
+                  
+                    const ahora = new Date();
+                    const ochoHorasEnMS = 8 * 60 * 60 * 1000; // 8 horas en milisegundos
+                  
+                    return ahora - ultimaFecha <= ochoHorasEnMS;
+                }
+
+                function obtenerUltimaFechaConDormirEnRango(array) {
+                    if (array.length === 0) {
+                      return null; // No hay elementos en el array
+                    }
+                  
+                    let ultimaFecha = array[0];
+                    for (let i = 1; i < array.length; i++) {
+                      const fechaActual = new Date(array[i].date_created);
+                      const fechaUltima = new Date(ultimaFecha.date_created);
+                  
+                      if (fechaActual > fechaUltima) {
+                        ultimaFecha = array[i];
+                      }
+                    }
+                  
+                    const ahora = new Date();
+                    const ochoHorasEnMS = 8 * 60 * 60 * 1000; // 8 horas en milisegundos
+                  
+                    return {
+                      ultimaFecha,
+                      dentroDelRango: ahora - new Date(ultimaFecha.date_created) <= ochoHorasEnMS
+                    };
+                  }
+
+                const estaEnRango = verificarRango(data);
+                const estadoDormir = obtenerUltimaFechaConDormirEnRango(data);
+
+                if(estaEnRango && estadoDormir.ultimaFecha.dormir == 1 && estadoDormir.dentroDelRango){
+                    window.location.href = URL+'inicio/home_dormir.html';
+                }
+            }
 
             if(document.querySelector('.imagenAvatarPrincipal')){
                 const imagenAvatar = document.querySelector('.imagenAvatarPrincipal');
@@ -37,6 +96,14 @@ const homeInicio = async () => {
                 imagenAvatar.forEach(element => {
                     element.src = `${URL_ASSETS}avatares/${(datosUser.personaje).toLowerCase()}/imagenes/estados/default.png`;
                 });
+            }
+
+            if(document.querySelector('.avatarDormir')){
+                const imgDormir = document.querySelector('.avatarDormir');
+                const datosUser = JSON.parse(window.parent.objUsuario);
+        
+                imgDormir.src = `../../../assets/avatares/${(datosUser.personaje).toLowerCase()}/imagenes/dormir/dormir.png`;
+                // imgDormir.src = `../../../assets/avatares/zen/imagenes/dormir/dormir.png`;
             }
 
             if(document.querySelector('.imagenAvatarNivel')){
@@ -64,7 +131,12 @@ const homeInicio = async () => {
                 document.getElementById('nombreAvatar').textContent = datosUser.avatar;
             }
             if(document.querySelector('.nombrePersonajeVer')){
-                document.querySelector('.nombrePersonajeVer').textContent = datosUser.avatar;
+                const nombre = document.querySelectorAll('.nombrePersonajeVer');
+
+                nombre.forEach(element => {
+                    element.textContent = datosUser.avatar;
+                });
+
             }
             if(document.querySelector('#nombreAvatar2')){
                 document.getElementById('nombreAvatar2').textContent = datosUser.avatar;

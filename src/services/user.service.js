@@ -1,4 +1,4 @@
-import { API_URL_USER_VERIFY, API_URL_USER_REGISTER, API_URL_USER_UTILIZAR } from "../config/const/api.const";
+import { API_URL_USER_VERIFY, API_URL_USER_REGISTER, API_URL_USER_UTILIZAR, API_URL_VERIFY_DORMIR, API_URL_DESPERTAR, API_URL_MENSAJE } from "../config/const/api.const";
 import { clienteAxios } from "../config/axios/axiosInterceptor"
 
 const postVerify = async (data, config = {}) => {
@@ -15,8 +15,23 @@ const postUtilizarItem = async (slug, data, config = {}) => {
         ...config
     })
 }
+
+const postDormirVerify = async (data, config = {}) => {
+    return await clienteAxios.post(API_URL_VERIFY_DORMIR, data, config)
+}
+
+const postDespertar = async (data, config = {}) => {
+    return await clienteAxios.post(API_URL_DESPERTAR, data, config)
+}
+
+const getAllMensajesModulo = async (data, config = {}) => {
+    return await clienteAxios.post(API_URL_MENSAJE, data, config)
+}
 export {
     postVerify,
     postInicio,
-    postUtilizarItem
+    postUtilizarItem,
+    postDormirVerify,
+    postDespertar,
+    getAllMensajesModulo
 }

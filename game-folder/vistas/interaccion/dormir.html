@@ -7,23 +7,57 @@
     <link rel="stylesheet" href="../../../dist/bundle.css">
 </head>
 <body>
-    <div class="bg-[url('../assets/vistas/fondoDormir.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
-        <div class="absolute h-[90vh] w-[95vw] flex justify-center items-center">
+    <div class="dormirVista bg-[url('../assets/vistas/fondoDormir.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+        <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-[url('../assets/vistas/fondoDormir.jpg')] bg-cover bg-no-repeat bg-center">
+            <div class="animate-pulse flex relative h-full w-full">
+                <div class="rounded-full bg-gray-200 h-[50vh] w-[50vh] absolute bottom-[24vh] left-[36vw]"></div>
 
-            <div class="absolute h-full w-full flex justify-center items-center">
-                <div class="">
-                    <img class="avatarDormir -top-[8vh] mr-[35vh] opacity-100 transition-opacity duration-500 ease-in-out avatares w-[40vh] h-auto z-0" src="">
-                    <img class="-top-[8vh] mr-[35vh] absolute opacity-100 transition-opacity duration-500 ease-in-out avatares w-[40vh] h-auto z-0" src="../../../assets/tienda/productos/dormir.png">
-                </div>
-                <!-- Personaje -->
-                <div class="absolute right-[15vh] h-full flex flex-col gap-[2vh] justify-center overflow-hidden z-0">
-                    <button id="btnAtras" class="relative w-[25vh] flex justify-center items-center">
-                        <img class="absolute h-[22vh]" src="../../../assets/home/fondoTienda.png" alt="">
-                        <img class="absolute mb-[10vh] mr-[4vh] h-[30vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/productos/luz.png" alt="">
-                        <img class="absolute mt-[16vh] h-[8vh]" src="../../../assets/tienda/tituloVolver.png" alt="">
-                    </button>
-                </div>
+                <div class="rounded-full bg-gray-200 h-[21vh] w-[21vh] absolute bottom-[39vh] right-[12vw]"></div>
+
+                <div class="rounded-full bg-gray-200 h-[13vh] w-[13vh] absolute bottom-[5vh] left-[4.5vw]"></div>
+                <div class="rounded-full bg-gray-200 h-[13vh] w-[13vh] absolute bottom-[5vh] left-[12.7vw]"></div>
+                <div class="rounded-full bg-gray-200 h-[13vh] w-[13vh] absolute bottom-[5vh] left-[21vw]"></div>
             </div>
+        </div>
+
+        <div id="mensajeTimer" class="hidden w-full h-full flex justify-center items-center z-10">
+            <img class="h-[65vh] w-[75vh]" src="../../../assets/home/popupMenu.png" alt="">
+            <a href="../../inicio/home_dormir.html" class="hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[12vh] right-[48vh]">
+                <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
+            </a>
+            <div class="h-[45vh] w-[75vh] absolute flex flex-col justify-around items-center">
+                <div class="flex justify-center items-center w-full h-[10vh]">
+                    <div class="progress-bar absolute">
+                        <div id="progress" class="progress"></div>
+                    </div>
+                    <div id="timer" class="absolute flex gap-[1vh] font-boldenvan text-[6vh] texto-borde_estado_85 text-white">
+                        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                    </div>
+                </div>
+                <p class="w-[70%] font-boogaloo_regular text-[#7B90A1] text-center text-[4vh]">
+                    Te recomendamos que <span class="nombrePersonajeVer"></span> complete sus 8 horas de descanso, así se despertará con más energía.
+                </p>
+                <button id="despertarAvatar" class="bg-[url('../assets/vista_inicial/boton_aceptar.png')] bg-[length:100%_100%] bg-no-repeat bg-center font-boldenvan text-[#009CC7] text-center text-[5vh] px-[4vh]">
+                    Despertar a <span class="nombrePersonajeVer"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="dormirOcultar absolute h-full w-full flex justify-center items-center">
+            <div class="relative h-[54vh] w-auto">
+                <img id="gifDormir" class="avatarDormir -top-[8vh] h-full w-auto opacity-100 transition-opacity duration-500 ease-in-out avatares z-0" src="">
+                <img class="-top-[8vh] -right-[4vh] absolute opacity-100 transition-opacity duration-500 ease-in-out avatares h-[20vh] z-0" src="../../../assets/tienda/productos/dormir.png">
+            </div>
+        </div>
+
+        <div class="dormirOcultar absolute h-[90vh] w-[95vw] flex justify-center items-center z-10">
+
+            <button id="accionluz" class="absolute right-[12vw] w-[25vh] flex justify-center items-center">
+                <img class="absolute h-[22vh]" src="../../../assets/home/fondoTienda.png" alt="">
+                <img class="absolute mb-[10vh] mr-[4vh] h-[30vh] hover:scale-110 duration-500 ease-in-out cursor-pointer" src="../../../assets/tienda/productos/luz.png" alt="">
+                <img class="absolute mt-[16vh] h-[8vh]" src="../../../assets/tienda/productos/letreroLuz.png" alt="">
+                <span class="absolute mt-[16vh] h-[8vh] flex justify-center items-center text-[4vh] text-[#B35B3D] font-boldenvan">Luz</span>
+            </button>
 
             <!-- inicio -->
             <a href="../descanso/home.html" class="absolute bottom-0 left-0 h-[20vh] w-[20vh] flex justify-center items-center">
@@ -48,22 +82,17 @@
 
     <!-- Accion Personaje (cepillar, alimentar) -->
     <div id="accionPersonaje" class="hidden w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center">
-        <div data-modalclose="accionPersonaje" class="close z-0 w-full h-full bg-black opacity-50 absolute cursor-pointer"></div>
         <img class="z-10 h-[65vh] w-[75vh]" src="../../../assets/home/popupMenu.png" alt="">
-        <button data-modalclose="accionPersonaje" class="close hover:scale-105 duration-500 ease-in-out rounded-full absolute z-20 top-[13vh] right-[47vh]">
-            <img class="h-[12vh]" src="../../../assets/home/cerrarModal.png" alt="">
-        </button>
         <div class="h-[60vh] w-[75vh] absolute z-30 flex flex-col justify-center items-center px-[6vh]">
             <div class="flex flex-row justify-center items-center w-full h-[50vh] relative">
-                    <p class="text-[#7B90A1] font-boldenvan text-[3.5vh]">
-                        Por comer frutas, NOMBRE DEL AVATAR obtuvo 15 puntos. ¡Qué bueno que estás incluyendo alimentos nutritivos en su dieta!
-                    </p>
-                <div class="relative h-full w-[83vw]">
-                    <img class="absolute h-[34vh] w-full top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
-                    <div class="absolute bottom-0 -right-[3vh] font-boldenvan text-[13vh] text-[#B35B3D]"><span class="text-[6vh]">x</span>15</div>
+                <p class="mensajeVerProducto text-[#7B90A1] font-boldenvan text-[3.5vh]">
+                    ¡Excelente! Gracias por cuidar el medio ambiente. Ahora <span class="nombreAvatar"></span> va a descansar mejor y así contribuiremos a cuidar nuestro planeta. Obtuviste 5 puntos.
+                </p>
+                <div class="cantidadVerProducto relative h-full w-[83vw]">
+                    <img class="absolute h-[34vh] w-auto top-[3vh] left-[2vh]" src="../../../assets/vistas/juegos/estrellasPuntos.png" alt="">
+                    <div class="absolute bottom-0 -right-[3vh] font-boldenvan text-[13vh] text-[#B35B3D]"><span class="text-[6vh]">x</span>5</div>
                 </div>
             </div>
-            <button class="bg-[url('../assets/home/fondoDato.png')] bg-[length:100%_100%] bg-no-repeat bg-center px-[3vh] py-[1vh] hover:scale-105 duration-500 ease-in-out text-[5vh] text-center text-[#B35B3D] font-boldenvan">Aceptar</button>
         </div>
     </div>
 
