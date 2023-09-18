@@ -17,10 +17,10 @@ const API_URL_ALMACEN = "tienda/inventario";
 const API_URL_PROD_MODULO = "utilizar";
 
 // URL PRINCIPAL DEL JUEGO
-// const URL = "http://127.0.0.1:5500/game_saizen_web/game-folder/";
-// const URL_ASSETS = "http://127.0.0.1:5500/game_saizen_web/assets/";
-const URL = "http://127.0.0.1:5500/game-folder/";
-const URL_ASSETS = "http://127.0.0.1:5500/assets/";
+const URL = "https://linksiv.com/revision/game_saizen/game-folder/";
+const URL_ASSETS = "https://linksiv.com/revision/game_saizen/assets/";
+// const URL = "http://127.0.0.1:5500/game-folder/";
+// const URL_ASSETS = "http://127.0.0.1:5500/assets/";
 
 export {
     API_URL,

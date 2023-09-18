@@ -141,7 +141,7 @@ const cambioPanel = () => {
             try {
 
                 window.parent.objUsuario = {
-                    id_user: identificador,
+                    id_user: window.parent.identificador,
                     personaje: selectedPersonaje,
                     genero: selectedGenero,
                     avatar: inputField.value
@@ -149,9 +149,10 @@ const cambioPanel = () => {
                 
                 const rsp = await postInicio(window.parent.objUsuario);
 
-                if(rsp.data){
+                if(rsp.user){
                     window.location.href = URL+'inicio/home.html';
                 }
+
             } catch (error) {
                 console.log(error);
             }
