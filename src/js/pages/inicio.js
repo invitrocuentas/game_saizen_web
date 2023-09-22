@@ -140,13 +140,8 @@ const cambioPanel = () => {
         nexthome.addEventListener('click', async () => {
             try {
 
-<<<<<<< HEAD
                 window.objUsuario = {
                     id_user: window.parent.identificador,
-=======
-                window.parent.objUsuario = {
-                    id_user: identificador,
->>>>>>> parent of 51dd822 (cambios para pruebas)
                     personaje: selectedPersonaje,
                     genero: selectedGenero,
                     avatar: inputField.value
