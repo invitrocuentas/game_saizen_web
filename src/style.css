@@ -703,6 +703,10 @@ video {
   bottom: -5vh;
 }
 
+.-left-\[10vh\] {
+  left: -10vh;
+}
+
 .-left-\[19vh\] {
   left: -19vh;
 }

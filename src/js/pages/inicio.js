@@ -140,8 +140,13 @@ const cambioPanel = () => {
         nexthome.addEventListener('click', async () => {
             try {
 
+<<<<<<< HEAD
                 window.objUsuario = {
                     id_user: window.parent.identificador,
+=======
+                window.parent.objUsuario = {
+                    id_user: identificador,
+>>>>>>> parent of 51dd822 (cambios para pruebas)
                     personaje: selectedPersonaje,
                     genero: selectedGenero,
                     avatar: inputField.value
@@ -149,10 +154,9 @@ const cambioPanel = () => {
                 
                 const rsp = await postInicio(window.objUsuario);
 
-                if(rsp.user){
+                if(rsp.data){
                     window.location.href = URL+'inicio/home.html';
                 }
-
             } catch (error) {
                 console.log(error);
             }
