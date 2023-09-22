@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego Saizen - GROWIN</title>
-    <link rel="stylesheet" href="../../../dist/bundle.css">
+    <link rel="stylesheet" href="../../../dist/bundle.css?v1.4">
 </head>
 <body>
     <div class="bg-[url('../assets/vistas/fondoBano.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
@@ -13,6 +13,7 @@
             <!-- Dialogos y Personaje-->
             <div class="absolute h-full w-full flex justify-center items-center">
                 <img id="gifBanarse"  class="-top-[8vh] mr-[35vh] absolute opacity-100 transition-opacity duration-500 ease-in-out avatares w-[90vh] h-auto z-0" src="">
+                <span class="nombrePersonajeVer hidden"></span>
                 <!-- Personaje -->
                 <div class="absolute right-[15vh] h-full flex flex-col gap-[2vh] justify-center overflow-hidden z-0">
                     <button data-accion="jabon" class="itemJabon relative bg-white shadow-lg rounded-[3vh] w-[27vh] h-[30vh] flex justify-center items-center">
@@ -64,6 +65,6 @@
         </div>
     </div>
 
-    <script src="../../../dist/bundle.js"></script>
+    <script src="../../../dist/bundle.js?v1.4"></script>
 </body>
 </html>

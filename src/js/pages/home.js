@@ -1,9 +1,66 @@
 import { getTiendaProductos } from "../../services/tienda.service";
-import { postDormirVerify, postVerify } from "../../services/user.service";
+import { postDormirVerify, postVerify, getMensajeModulo } from "../../services/user.service";
 import { postAlmacen } from "../../services/almacen.service";
 import { URL, URL_ASSETS } from "../../config/const/api.const";
 
 const homeInicio = async () => {
+
+    if(document.querySelector('button') || document.querySelector('a')){
+        const botones = document.querySelectorAll('button');
+        const enlaces = document.querySelectorAll('a');
+        botones.forEach(btn => {
+            btn.addEventListener('mouseover', () => {
+                window.parent.postMessage({ type: "hover", tipo: 'hoverBasico' }, "*");
+            })
+        });
+
+        botones.forEach(btn => {
+            btn.addEventListener('click', () => {
+                window.parent.postMessage({ type: "click", tipo: 'clickBasico' }, "*");
+            })
+        });
+
+        enlaces.forEach(btn => {
+            btn.addEventListener('mouseover', () => {
+                window.parent.postMessage({ type: "hover", tipo: 'hoverBasico' }, "*");
+            })
+        });
+
+        enlaces.forEach(btn => {
+            btn.addEventListener('click', () => {
+                window.parent.postMessage({ type: "click", tipo: 'clickBasico' }, "*");
+            })
+        });
+    }
+
+    // if(document.querySelector('button') || document.querySelector('a')){
+    //     const botones = document.querySelectorAll('button');
+    //     const enlaces = document.querySelectorAll('a');
+    //     botones.forEach(btn => {
+    //         btn.addEventListener('mouseover', () => {
+    //             window.parent.postMessage({ type: "hover", tipo: 'hover_dormir' }, "*");
+    //         })
+    //     });
+
+    //     botones.forEach(btn => {
+    //         btn.addEventListener('click', () => {
+    //             window.parent.postMessage({ type: "click", tipo: 'click_dormir' }, "*");
+    //         })
+    //     });
+
+    //     enlaces.forEach(btn => {
+    //         btn.addEventListener('mouseover', () => {
+    //             window.parent.postMessage({ type: "hover", tipo: 'hover_dormir' }, "*");
+    //         })
+    //     });
+
+    //     enlaces.forEach(btn => {
+    //         btn.addEventListener('click', () => {
+    //             window.parent.postMessage({ type: "click", tipo: 'click_dormir' }, "*");
+    //         })
+    //     });
+    // }
+
     if(document.querySelector('#monedasUsuario') || document.querySelector('.nombrePersonajeVer') || document.querySelector('.imagenAvatarBoton')){   
         try {
 
@@ -19,6 +76,9 @@ const homeInicio = async () => {
             let datosUser = JSON.parse(window.parent.objUsuario);
 
             if(document.querySelector('#home') || document.querySelector('.vistaModulo')){
+
+                window.parent.postMessage({ type: "cambiarMusica", tipo: 'general' }, "*"); 
+
                 const {data} = await postDormirVerify({id_user: datosUser.id});
 
                 function verificarRango(array) {
@@ -77,6 +137,62 @@ const homeInicio = async () => {
                 }
             }
 
+            const mensajeAvatar = [
+                {mensaje_accion: "Yuhuuuu!!!"},
+                {mensaje_accion: "¿Como va tu día?"},
+                {mensaje_accion: "Es un bonito dia, vamos a divertirnos...!"},
+                {mensaje_accion: "No olvides comer nutritivo y todas tu comidas."},
+                {mensaje_accion: `Hola me llamo ${datosUser.avatar}; vamos a divertirnos.` },
+                {mensaje_accion: `¡Hola soy ${datosUser.avatar}` }
+            ]
+
+            if(document.querySelector('.vistaModulo')){
+                var {rsp} = await getMensajeModulo(window.parent.slug, {id_user: datosUser.id});
+                const mensajer = document.querySelector('#mensajeCron');
+
+                if(rsp[0]){
+                    mensajer.classList.remove('hidden');
+                    if(rsp[0].mensaje_accion.length > 20){
+                        mensajer.querySelector('span').style.fontSize = '3vh';
+                    }
+                    mensajer.querySelector('span').textContent = rsp[0].mensaje_accion;
+                    window.parent.mensajeopcion = rsp[0].productos_seleccionados;
+                }else{
+                    mensajer.classList.remove('hidden');
+                    // Generar un índice aleatorio
+                    const indiceAleatorio = Math.floor(Math.random() * mensajeAvatar.length);
+                    // Obtener el mensaje aleatorio
+                    const mensajeAleatorio = mensajeAvatar[indiceAleatorio];
+                    if(mensajeAleatorio.mensaje_accion.length > 20){
+                        mensajer.querySelector('span').style.fontSize = '3vh';
+                    }
+                    mensajer.querySelector('span').textContent = mensajeAleatorio.mensaje_accion;
+                }
+            }
+
+            if(document.querySelector('.vistaMusica')){
+
+                const vistaJuego = document.querySelector('.vistaMusica');
+                var nombre = vistaJuego.getAttribute('data-nombre');
+
+                window.parent.postMessage({ type: "cambiarMusica", tipo: nombre }, "*");
+
+            }
+
+            if(document.getElementById('mensajePrincipal')){
+
+                const mensajer = document.querySelector('#mensajePrincipal');
+
+                // Generar un índice aleatorio
+                const indiceAleatorio = Math.floor(Math.random() * mensajeAvatar.length);
+                // Obtener el mensaje aleatorio
+                const mensajeAleatorio = mensajeAvatar[indiceAleatorio];
+                if(mensajeAleatorio.mensaje_accion.length > 20){
+                    mensajer.querySelector('span').style.fontSize = '3vh';
+                }
+                mensajer.querySelector('span').textContent = mensajeAleatorio.mensaje_accion;
+            }
+
             if(document.querySelector('.imagenAvatarPrincipal')){
                 const imagenAvatar = document.querySelector('.imagenAvatarPrincipal');
                 let generoAvatar = '';
@@ -115,8 +231,10 @@ const homeInicio = async () => {
             }
 
             if(document.querySelector('.imagenAvatarBoton')){
-                const imagenAvatar = document.querySelector('.imagenAvatarBoton');
-                imagenAvatar.src = `${URL_ASSETS}avatares/${(datosUser.personaje).toLowerCase()}/imagenes/boton/default.png`;
+                const imagenAvatar = document.querySelectorAll('.imagenAvatarBoton');
+                imagenAvatar.forEach(img => {
+                    img.src = `${URL_ASSETS}avatares/${(datosUser.personaje).toLowerCase()}/imagenes/boton/default.png`;
+                });
             }
 
             if(document.querySelector('.imagenAvatarAnuncio')){
@@ -245,6 +363,7 @@ const homeInicio = async () => {
 
                 if(!window.almacen){
                     const {inventario} = await postAlmacen({id_usuario: datosUser.id});
+                    console.log(inventario);
                     window.almacen = inventario;
                 }
 

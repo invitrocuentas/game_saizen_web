@@ -7,7 +7,7 @@ module.exports = {
   entry: "./js/index.js", // Ruta de tu archivo principal
   output: {
     path: path.resolve(__dirname, "../dist"), // Carpeta de salida para los archivos generados
-    filename: "bundle.js", // Nombre del archivo generado
+    filename: "bundle.js?v1.4", // Nombre del archivo generado
   },
   module: {
     rules: [
@@ -39,7 +39,7 @@ module.exports = {
   plugins: [
     //extrae en un archivo independiente el css
     new MiniCssExtractPlugin({
-      filename: "bundle.css", // Nombre del archivo CSS generado
+      filename: "bundle.css?v1.4", // Nombre del archivo CSS generado
     }),
     new TerserPlugin({
       terserOptions: {

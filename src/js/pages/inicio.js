@@ -140,14 +140,14 @@ const cambioPanel = () => {
         nexthome.addEventListener('click', async () => {
             try {
 
-                window.parent.objUsuario = {
+                window.objUsuario = {
                     id_user: window.parent.identificador,
                     personaje: selectedPersonaje,
                     genero: selectedGenero,
                     avatar: inputField.value
                 }
                 
-                const rsp = await postInicio(window.parent.objUsuario);
+                const rsp = await postInicio(window.objUsuario);
 
                 if(rsp.user){
                     window.location.href = URL+'inicio/home.html';

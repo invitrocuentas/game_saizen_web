@@ -1,11 +1,10 @@
-import { getAllProductosModulo } from "../../services/almacen.service";
-import { postComprarProductos } from "../../services/tienda.service";
+import { getAllProductosModulo,postAlmacen } from "../../services/almacen.service";
+import { postComprarProductos,getTiendaProductos } from "../../services/tienda.service";
 import {
   postUtilizarItem,
   postVerify,
   postDormirVerify,
-  postDespertar,
-  getAllMensajesModulo
+  postDespertar
 } from "../../services/user.service";
 import { URL } from "../../config/const/api.const";
 
@@ -13,6 +12,7 @@ const listarItems = async () => {
   if (document.querySelector(".vistaModulo")) {
     const vista = document.querySelector(".vistaModulo");
     window.parent.slug = vista.getAttribute("data-slug");
+    window.parent.nombreSlug = vista.getAttribute("data-nombre");
   }
 
   if (document.querySelector("#itemsVer")) {
@@ -22,34 +22,15 @@ const listarItems = async () => {
       var ulElement = document.getElementById("itemsList");
       const datosUser = JSON.parse(window.parent.objUsuario);
 
-      var { productos } = await getAllProductosModulo(window.parent.slug, {
-        id_usuario: datosUser.id,
-      });
-
-      // var mensajeado = await getAllMensajesModulo({id_user: datosUser.id});
-
-      // function mostrarMensajeSiProductoSeleccionadoEstaEnLista(productosEs, mensajeEs) {
-      //   const productoSeleccionado = parseInt(mensajeEs.productos_seleccionados);
-      
-      //   const productoEncontrado = productosEs.find(producto => producto.id === productoSeleccionado);
-
-      //   const mensajer = document.querySelector('#mensajeCron');
-      //   if (productoEncontrado) {
-      //       mensajer.querySelector('span').textContent = mensajeEs.mensaje_accion;
-      //   } else {
-      //     mensajer.classList.add('hidden');
-      //   }
-      // }
-
-      // mostrarMensajeSiProductoSeleccionadoEstaEnLista(productos, mensajeado);
+      var [ {productos}, {inventario} ] = await Promise.all([getTiendaProductos(window.parent.slug), postAlmacen({id_usuario: datosUser.id})]);
 
       function crearElementoLi(
         id,
         nombre,
         imagenSrc,
         puntos,
-        referencias,
-        mostrarProducto
+        puntos_requeridos,
+        referencias
       ) {
         const liElement = document.createElement("li");
         liElement.classList.add("splide__slide");
@@ -69,9 +50,17 @@ const listarItems = async () => {
         buttonElement.setAttribute("data-id", id);
         buttonElement.setAttribute("data-nombre", imagenSrc);
 
-        if (mostrarProducto == 0 && puntos != 0) {
-          buttonElement.classList.add("bloqued");
+        if (inventario === null && puntos_requeridos > 0) {
+          buttonElement.classList.add('bloqued');
+        } else {
+            if (!(inventario && inventario["".concat(window.parent.nombreSlug)] && inventario["".concat(window.parent.nombreSlug)]["".concat(id)]) && puntos_requeridos > 0) {
+                buttonElement.classList.add('bloqued');
+            }
         }
+
+        // if (puntos_requeridos != 0) {
+        //   buttonElement.classList.add("bloqued");
+        // }
 
         const imgElement = document.createElement("img");
         imgElement.classList.add(
@@ -90,7 +79,7 @@ const listarItems = async () => {
 
         buttonElement.appendChild(imgElement);
 
-        if (mostrarProducto == 1 || puntos == 0) {
+        if((inventario != null && inventario[window.parent.nombreSlug] && inventario[window.parent.nombreSlug][`${id}`]) || puntos_requeridos == 0){
           // if(1){
           buttonElement.onclick = async function () {
             const conjunto = [19,20,21,22,25];
@@ -110,7 +99,7 @@ const listarItems = async () => {
               mostrar.textContent = puntos;
             });
 
-            window.objItemSelect = {
+            window.parent.objItemSelect = {
               id_usuario: datosUser.id,
               id_producto: buttonElement.getAttribute("data-id"),
             };
@@ -150,8 +139,8 @@ const listarItems = async () => {
           datos.nombre_producto,
           datos.imagen,
           datos.puntos_obtenidos,
-          datos.referencias,
-          datos.mostrar
+          datos.puntos_requeridos,
+          datos.referencias
         );
         ulElement.appendChild(liElement);
       });
@@ -210,7 +199,7 @@ const utilizarItem = () => {
                 mostrar.textContent = datoProducto.puntos_obtenidos;
               });
 
-              window.objItemSelect = {
+              window.parent.objItemSelect = {
                 id_usuario: datosUser.id,
                 id_producto: datoProducto.id,
               };
@@ -271,27 +260,57 @@ const utilizarItem = () => {
             window.location.href = `${URL}vistas/interaccion/${window.parent.nombreProducto}.html`;
           } else {
             try {
-              await postUtilizarItem(window.parent.slug, window.objItemSelect);
-              try {
-                const data = await postVerify({
-                  id_user: window.parent.identificador,
-                });
-                window.parent.objUsuario = JSON.stringify(data.data[0]);
-                document.getElementById("monedasUsuario").textContent =
-                  datosUser.puntos;
-                document.getElementById("nivelUsuario").textContent =
-                  datosUser.nivel == null || datosUser.nivel == "null"
-                    ? 1
-                    : datosUser.nivel;
+                if(window.parent.nombreProducto == "jabon"){
+                  const opcion = window.parent.mensajeopcion;
+                  const idProducto = window.parent.objItemSelect;
+                  if(opcion.includes((idProducto.id_producto).toString())){
+                    window.location.href = `${URL}vistas/interaccion/${window.parent.nombreProducto}.html`;
+                  }else{
+                    document
+                          .querySelector(".cantidadVerProducto")
+                          .classList.add("hidden");
+                        document
+                          .querySelector(".quitarContenido")
+                          .classList.add("hidden");
+                        document.querySelector(".mensajeVerProducto").innerHTML = `
+                                                                                              <div class="z-30 flex flex-col justify-center items-center gap-[4vh] px-[8vh] text-center">
+                                                                                                  <span id="nombre_producto_ver" class="text-[#015989] font-boldenvan text-[5vh]">UPS!!!</span>
+                                                                                                  <span id="descripcion_producto_ver" class="text-[#7B90A1] text-[4vh] font-boogaloo_regular text-justify">No se puede realizar esta acción ahora.</span>
+                                                                                              </div>
+                                                                                                  `;
+                        setTimeout(() => {
 
-                    if (window.parent.nombreProducto == "dormir") {
-                        window.location.href = `${URL}vistas/interaccion/${window.parent.nombreProducto}.html`;
-                      }else{
-                        window.location.href = URL + "vistas/" + window.parent.slug + "/activado.html";
-                      }
-              } catch (err) {
-                throw err;
-              }
+                          const dato_paso = document.querySelectorAll('[data-paso]');
+                          dato_paso.forEach(element => {
+                            if(element.getAttribute('data-paso') == 1){
+                              element.setAttribute('data-paso', 0);
+                            }
+                          });
+
+                          document
+                            .querySelector("#accionPersonaje")
+                            .classList.add("hidden");
+                        }, 2000);
+                  }
+                }else{
+                  await postUtilizarItem(window.parent.slug, window.parent.objItemSelect);
+                  try {
+                    const data = await postVerify({
+                      id_user: window.parent.identificador,
+                    });
+                    window.parent.objUsuario = JSON.stringify(data.data[0]);
+                    document.getElementById("monedasUsuario").textContent = datosUser.puntos;
+                    document.getElementById("nivelUsuario").textContent = datosUser.nivel == null || datosUser.nivel == "null" ? 1 : datosUser.nivel;
+                        if (window.parent.nombreProducto == "dormir") {
+                            window.location.href = `${URL}vistas/interaccion/${window.parent.nombreProducto}.html`;
+                          }else{
+                            window.location.href = URL + "vistas/" + window.parent.slug + "/activado.html";
+                          }
+                  } catch (err) {
+                    throw err;
+                  }
+                }
+                
             } catch (error) {
               console.log(error.message);
               document
@@ -504,21 +523,13 @@ const interaccionrespuesta = async () => {
             ].getAttribute("data-accion")}.gif`;
           } else {
             try {
-              await postUtilizarItem(window.parent.slug, window.objItemSelect);
+              await postUtilizarItem(window.parent.slug, window.parent.objItemSelect);
               try {
                 const data = await postVerify({
-                  id_user: window.parent.identificador,
+                  id_user: window.parent.identificador
                 });
                 window.parent.objUsuario = JSON.stringify(data.data[0]);
-                document.getElementById("monedasUsuario").textContent =
-                  datosUser.puntos;
-                document.getElementById("nivelUsuario").textContent =
-                  datosUser.nivel == null || datosUser.nivel == "null"
-                    ? 1
-                    : datosUser.nivel;
-
-                window.location.href =
-                  URL + "vistas/" + window.parent.slug + "/activado.html";
+                window.parent.mensajeopcion = '';
               } catch (err) {
                 throw err;
               }

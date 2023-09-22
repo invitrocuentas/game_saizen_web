@@ -3630,6 +3630,11 @@ video {
   padding-bottom: 1vh;
 }
 
+.py-\[2\.05vh\] {
+  padding-top: 2.05vh;
+  padding-bottom: 2.05vh;
+}
+
 .py-\[2vh\] {
   padding-top: 2vh;
   padding-bottom: 2vh;
@@ -4335,6 +4340,12 @@ video {
 
 .\[key\:string\] {
   key: string;
+}
+
+*{
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 img{

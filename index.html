@@ -26,24 +26,45 @@
   </style>
 </head>
 <body>
-  <audio id="miAudio">
-    <source src="assets/audio/Alan Walker - Spectre [NCS Release] _ Juegos de música 2017, musica gratis (64 kbps).mp3" type="audio/mpeg">
-    Tu navegador no soporta el elemento de audio.
+  <audio id="musicaPlayer">
+    <source id="general" src="./assets/audio/musica/general.mp3" type="audio/mp3">
+    <source id="dormir" src="./assets/audio/musica/dormir.mp3" type="audio/mp3">
+    <source id="obstaculos" src="./assets/audio/musica/obstaculos.mp3" type="audio/mp3">
+    <source id="memoria" src="./assets/audio/musica/memoria.mp3" type="audio/mp3">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+  <audio id="audioPlayerHover">
+    <source id="hoverBasico" src="./assets/audio/sonidos/hover.mp3" type="audio/mp3">
+    <source id="hover_dormir" src="./assets/audio/sonidos/hover_dormir.mp3" type="audio/mp3">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+  <audio id="audioPlayerClick">
+    <source id="clickBasico" src="./assets/audio/sonidos/click.mp3" type="audio/mp3">
+    <source id="click_dormir" src="./assets/audio/sonidos/click_dormir.mp3" type="audio/mp3">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+  <audio id="audioPlayerMemoria">
+    <source id="acierto" src="./assets/audio/sonidos/acierto.mp3" type="audio/mp3">
+    <source id="error" src="./assets/audio/sonidos/error.mp3" type="audio/mp3">
+    <source id="victoria" src="./assets/audio/sonidos/victoria.mp3" type="audio/mp3">
+    <source id="perder" src="./assets/audio/sonidos/perder.mp3" type="audio/mp3">
+    Tu navegador no soporta la reproducción de audio.
   </audio>
   <div class="iframe-container">
     <iframe src="game-folder/inicio/home.html" frameborder="0"></iframe>
   </div>
-  <script>
-    var audio = document.getElementById("miAudio");
+    <script>
+    let audio = document.getElementById("audioPlayer");
     window.identificador = 43;
+    let musicaPlayer = document.getElementById('musicaPlayer');
+    let audioHoverPlayer = document.getElementById('audioPlayerHover');
+    let audioClickPlayer = document.getElementById('audioPlayerClick');
+    let audioPlayerMemoria = document.getElementById('audioPlayerMemoria');
+    let tipoMusica = '';
 
     window.addEventListener("message", function(event) {
 
-      if (event.data === "play") {
-        audio.play();
-      } else if (event.data === "pause") {
-        audio.pause();
-      }else if (event.data.type === "cambiarVolumen") {
+      if (event.data.type === "cambiarVolumen") {
         var percentage = event.data.volumen;
         var volume = percentage / 100; // Convertir el porcentaje en un valor de volumen [0, 1]
         
@@ -55,12 +76,148 @@
 
         if(event.data.tipo == 'musicaAudio'){
           localStorage.setItem('musicaAudio', volume);
-          audio.volume = volume;
+          musicaPlayer.volume = volume;
         }else{
           localStorage.setItem('sonidoAudio', volume);
         }
+      }else if(event.data.type === "cambiarMusica"){
+        if(tipoMusica != event.data.tipo){
+          playTrack(event.data.tipo);
+          tipoMusica = event.data.tipo;
+        } 
+      }else if(event.data.type === "hover"){
+        var volumen = localStorage.getItem('sonidoAudio');
+        if(volumen != 0){
+          playHover(event.data.tipo);
+        }
+          
+      }else if(event.data.type === "click"){
+        var volumen = localStorage.getItem('sonidoAudio');
+        if(volumen != 0){
+          playClick(event.data.tipo);
+        }
+          
+      }else if(event.data.type === "juego"){
+        var volumen = localStorage.getItem('sonidoAudio');
+        if(volumen != 0){
+          playJuego(event.data.tipo);
+        }
+          
       }
     });
+
+    function playJuego(trackUrl) {
+        var volumen = localStorage.getItem('sonidoAudio');
+          const sourceElement = document.getElementById(trackUrl);
+    
+          if (sourceElement) {
+            // Cambiar la fuente del audio
+            audioPlayerMemoria.src = sourceElement.src;
+            // Iniciar la reproducción
+            if(volumen){
+              audioPlayerMemoria.volume = volumen;
+            }else{
+              audioPlayerMemoria.volume = 0.5;
+            }
+            
+            if (audioPlayerMemoria.src) {
+              
+              let playPromise = audioPlayerMemoria.play();
+
+              if (playPromise !== undefined) {
+                playPromise.then(() => {
+                }).catch(error => {
+                });
+              }
+            }
+          } else {
+            console.error('Fuente de audio no encontrada.');
+          }
+    }
+
+    function playClick(trackUrl) {
+        var volumen = localStorage.getItem('sonidoAudio');
+          const sourceElement = document.getElementById(trackUrl);
+    
+          if (sourceElement) {
+            // Cambiar la fuente del audio
+            audioClickPlayer.src = sourceElement.src;
+            // Iniciar la reproducción
+            if(volumen){
+              audioClickPlayer.volume = volumen;
+            }else{
+              audioClickPlayer.volume = 0.5;
+            }
+            
+            if (audioClickPlayer.src) {
+              
+              let playPromise = audioClickPlayer.play();
+
+              if (playPromise !== undefined) {
+                playPromise.then(() => {
+                }).catch(error => {
+                });
+              }
+            }
+          } else {
+            console.error('Fuente de audio no encontrada.');
+          }
+    }
+
+    function playHover(trackUrl) {
+        var volumen = localStorage.getItem('sonidoAudio');
+          const sourceElement = document.getElementById(trackUrl);
+    
+          if (sourceElement) {
+            // Cambiar la fuente del audio
+            audioHoverPlayer.src = sourceElement.src;
+            // Iniciar la reproducción
+            if(volumen){
+              audioHoverPlayer.volume = volumen;
+            }else{
+              audioHoverPlayer.volume = 0.5;
+            }
+
+            if (audioHoverPlayer.src) {
+              
+              let playPromise = audioHoverPlayer.play();
+
+              if (playPromise !== undefined) {
+                playPromise.then(() => {
+                }).catch(error => {
+                });
+              }
+            }
+          } else {
+            console.error('Fuente de audio no encontrada.');
+          }
+    }
+    
+    function playTrack(trackUrl) {
+        var volumen = localStorage.getItem('musicaAudio');
+          const sourceElement = document.getElementById(trackUrl);
+    
+          if (sourceElement) {
+            musicaPlayer.src = sourceElement.src;
+            if(volumen){
+              musicaPlayer.volume = volumen;
+            }else{
+              musicaPlayer.volume = 0.5;
+            }
+            if (musicaPlayer.src) {
+              let playPromise = musicaPlayer.play();
+
+              if (playPromise !== undefined) {
+                playPromise.then(() => {
+                }).catch(error => {
+                });
+              }
+
+            }
+          } else {
+            console.error('Fuente de audio no encontrada.');
+          }
+    }
   </script>
 </body>
 </html>

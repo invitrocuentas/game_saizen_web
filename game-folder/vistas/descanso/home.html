@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego Saizen - GROWIN</title>
-    <link rel="stylesheet" href="../../../dist/bundle.css">
+    <link rel="stylesheet" href="../../../dist/bundle.css?v1.4">
 </head>
 <body>
-    <div data-slug="descanso" class="vistaModulo bg-[url('../assets/vistas/descanso/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
+    <div data-slug="descanso" data-nombre="Descanso" class="vistaModulo bg-[url('../assets/vistas/descanso/fondo.jpg')] bg-cover bg-no-repeat bg-center w-screen h-screen flex relative justify-center items-center">
         <img src="../../../assets/vista_inicial/instrucciones.png" class="h-[85%] w-[82%]">
         <div id="loader" class="h-full w-full absolute flex justify-center items-center z-[99] bg-[url('../assets/vistas/descanso/fondo.jpg')] bg-cover bg-no-repeat bg-center ">
             <div class="animate-pulse flex relative h-full w-full">
@@ -68,7 +68,7 @@
             <div class="absolute h-[70vh] w-[70vh] bottom-0 flex justify-center">
                 <!-- Personaje -->
                 <div class="absolute top-[18vh] h-[50vh] w-full flex justify-center">
-                    <div id="mensajeCron" class="absolute -top-[5vh] -left-[19vh] bg-[url('../assets/home/nubeDialogo.png')] bg-center bg-contain bg-no-repeat h-[26vh] w-[35vh] flex justify-center items-center pb-[3vh] pr-[3vh]">
+                    <div id="mensajeCron" class="hidden absolute -top-[5vh] -left-[19vh] bg-[url('../assets/home/nubeDialogo.png')] bg-center bg-contain bg-no-repeat h-[26vh] w-[35vh] flex justify-center items-center pb-[3vh] pr-[3vh]">
                         <span class="absolute w-[28vh] text-center -rotate-[20deg] text-[4vh] font-boldenvan text-white flex-wrap">
                         </span>
                     </div>
@@ -395,6 +395,6 @@
         </div>
     </div>
 
-    <script src="../../../dist/bundle.js"></script>
+    <script src="../../../dist/bundle.js?v1.4"></script>
 </body>
 </html>
